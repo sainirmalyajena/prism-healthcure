@@ -15,6 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Performance & Favicon -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23005a52' d='M256 128C114.6 128 0 256 0 256s114.6 128 256 128 256-128 256-128-114.6-128-256-128zm0 213.3c-47.1 0-85.3-38.2-85.3-85.3s38.2-85.3 85.3-85.3 85.3 38.2 85.3 85.3-38.2 85.3-85.3 85.3z'/></svg>">
 </head>
 <body>
 
@@ -88,11 +92,14 @@
                                 <p>Fill out the form below and we will call you to confirm.</p>
                             </div>
                             <div class="cta-form-container">
-                                <form class="appointment-form" aria-label="Appointment Booking Form" onsubmit="event.preventDefault(); alert('Appointment requested successfully! We will contact you soon.');">
-                                    <input type="text" placeholder="Full Name" aria-label="Full Name" required>
-                                    <input type="tel" placeholder="Phone Number" aria-label="Phone Number" required>
-                                    <input type="email" placeholder="Email Address" aria-label="Email Address">
-                                    <select required aria-label="Select City">
+                                <form action="https://formsubmit.co/contact@prisimcure.com" method="POST" class="appointment-form">
+                                    <input type="hidden" name="_subject" value="New Appointment Request!">
+                                    <input type="hidden" name="_captcha" value="false">
+                                    <input type="hidden" name="_template" value="table">
+                                    <input type="text" name="name" placeholder="Full Name" aria-label="Full Name" required>
+                                    <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number" required>
+                                    <input type="email" name="email" placeholder="Email Address" aria-label="Email Address">
+                                    <select name="city" required aria-label="Select City">
                                         <option value="" disabled selected>Select Your City</option>
                                         <option value="delhi">Delhi</option>
                                         <option value="mumbai">Mumbai</option>
@@ -103,7 +110,7 @@
                                         <option value="lucknow">Lucknow</option>
                                         <option value="other">Other</option>
                                     </select>
-                                    <select required aria-label="Select Service Required">
+                                    <select name="service" required aria-label="Select Service Required">
                                         <option value="" disabled selected>Select Service Required</option>
                                         <option value="checkup">General Eye Checkup</option>
                                         <option value="cataract">Cataract Evaluation</option>
@@ -112,7 +119,7 @@
                                         <option value="glaucoma">Glaucoma Clinic</option>
                                         <option value="other">Other / Not Sure</option>
                                     </select>
-                                    <textarea placeholder="Any specific symptoms or questions?" aria-label="Symptoms or questions" rows="4" style="padding: 1.25rem; border: 1px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; width: 100%; resize: vertical; background-color: var(--bg-light);"></textarea>
+                                    <textarea name="message" placeholder="Any specific symptoms or questions?" aria-label="Symptoms or questions" rows="4" style="padding: 1.25rem; border: 1px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; width: 100%; resize: vertical; background-color: var(--bg-light);"></textarea>
                                     <button type="submit" class="btn btn-secondary btn-block">Confirm Request</button>
                                 </form>
                             </div>
@@ -128,5 +135,10 @@
         <div class="footer-bottom"><div class="container"><p>&copy; 2026 Prism Healthcure. All rights reserved.</p></div></div>
     </footer>
     <script src="script.js"></script>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/919076993279?text=Hi%20Prism%20Healthcure%2C%20I%20would%20like%20to%20book%20an%20appointment." class="whatsapp-widget" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 </body>
 </html>
