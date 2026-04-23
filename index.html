@@ -3,42 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prism Healthcure | Premium Ophthalmology & Eye Care</title>
-    <meta name="description" content="Prism Healthcure offers advanced eye treatments including Cataract, LASIK, Retina, and Glaucoma by top eye specialists in a state-of-the-art facility.">
-    <!-- Google Fonts: Plus Jakarta Sans for premium, modern typography -->
+    <title>Best Eye Hospital & Top Specialists | Prism Healthcure</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Best Eye Hospital & Top Specialists | Prism Healthcure">
+    <meta name="description" content="Prism Healthcure is a premium ophthalmology center offering advanced LASIK, Cataract, Retina, and Glaucoma treatments. Proudly serving patients from Delhi, Mumbai, Surat, Noida, Pune, Ahmedabad, and Lucknow.">
+    <meta name="keywords" content="Best Eye Hospital, LASIK Surgery, Cataract Surgery, Ophthalmologist, Eye Specialist, Cornea Treatment, Delhi, Mumbai, Surat, Noida, Pune, Ahmedabad, Lucknow">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Best Eye Hospital & Top Specialists | Prism Healthcure">
+    <meta property="og:description" content="State-of-the-art ophthalmology services for LASIK, Cataract, and Glaucoma. Providing world-class vision care.">
+    <meta property="og:image" content="hero_clinic.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Best Eye Hospital & Top Specialists | Prism Healthcure">
+    <meta property="twitter:description" content="State-of-the-art ophthalmology services for LASIK, Cataract, and Glaucoma. Providing world-class vision care.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Local Business Schema Markup (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "Prism Healthcure",
+      "url": "https://www.prismhealthcure.com",
+      "logo": "https://www.prismhealthcure.com/hero_clinic.png",
+      "image": "https://www.prismhealthcure.com/hero_clinic.png",
+      "description": "Premium Ophthalmology & Eye Care providing advanced surgical and diagnostic treatments.",
+      "telephone": "+18001234567",
+      "email": "contact@prismhealthcure.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Health Avenue, Medical District",
+        "addressLocality": "Delhi",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Delhi"},
+        {"@type": "City", "name": "Mumbai"},
+        {"@type": "City", "name": "Surat"},
+        {"@type": "City", "name": "Noida"},
+        {"@type": "City", "name": "Pune"},
+        {"@type": "City", "name": "Ahmedabad"},
+        {"@type": "City", "name": "Lucknow"}
+      ],
+      "medicalSpecialty": [
+        "https://schema.org/Optometric",
+        "https://schema.org/Surgical"
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
     <!-- Navigation -->
-    <header id="navbar">
+    <header id="navbar" role="banner">
         <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fa-solid fa-eye" style="color: var(--accent);"></i>
+            <a href="index.html" class="logo" aria-label="Prism Healthcure Home">
+                <i class="fa-solid fa-eye" style="color: var(--accent);" aria-hidden="true"></i>
                 Prism <span>Healthcure</span>
             </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
+            <nav class="nav-links" role="navigation" aria-label="Main Navigation">
+                <a href="index.html" aria-current="page">Home</a>
                 <a href="about.html">About Us</a>
                 <a href="treatments.html">Specialties</a>
                 <a href="doctors.html">Specialists</a>
                 <a href="contact.html">Contact</a>
             </nav>
             <div class="nav-actions">
-                <a href="contact.html" class="btn btn-primary">Book Appointment</a>
-                <button class="mobile-menu-btn" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+                <a href="contact.html" class="btn btn-primary" aria-label="Book an Appointment">Book Appointment</a>
+                <button class="mobile-menu-btn" aria-label="Open Mobile Menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <div class="mobile-menu-close"><i class="fa-solid fa-xmark"></i></div>
+    <div class="mobile-menu" role="dialog" aria-label="Mobile Menu" aria-hidden="true">
+        <div class="mobile-menu-close" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></div>
         <nav class="mobile-nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
@@ -49,138 +106,141 @@
         </nav>
     </div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="container hero-container">
-            <div class="hero-content animate-on-scroll">
-                <div class="hero-badge">Advanced Eye Care Excellence</div>
-                <h1>See the World with <br><span>Perfect Clarity</span></h1>
-                <p>Prism Healthcure offers state-of-the-art ophthalmology services. From advanced LASIK to complex retina care, trust our experts for a brighter tomorrow.</p>
-                <div class="hero-buttons">
-                    <a href="contact.html" class="btn btn-primary btn-lg">Book an Appointment</a>
-                    <a href="treatments.html" class="btn btn-outline btn-lg">Explore Treatments</a>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero" aria-labelledby="hero-title">
+            <div class="container hero-container">
+                <div class="hero-content animate-on-scroll">
+                    <div class="hero-badge" role="text">Advanced Eye Care Excellence</div>
+                    <h1 id="hero-title">See the World with <br><span>Perfect Clarity</span></h1>
+                    <p>Prism Healthcure offers state-of-the-art ophthalmology services. From advanced LASIK to complex retina care, trust our top specialists for a brighter tomorrow.</p>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn btn-primary btn-lg">Book an Appointment</a>
+                        <a href="treatments.html" class="btn btn-outline btn-lg">Explore Treatments</a>
+                    </div>
+                    <div class="trust-metrics" aria-label="Hospital Statistics">
+                        <div class="metric"><span class="metric-number">25k+</span><span class="metric-label">Happy Patients</span></div>
+                        <div class="metric"><span class="metric-number">99%</span><span class="metric-label">Success Rate</span></div>
+                        <div class="metric"><span class="metric-number">20+</span><span class="metric-label">Expert Doctors</span></div>
+                    </div>
                 </div>
-                <div class="trust-metrics">
-                    <div class="metric"><span class="metric-number">25k+</span><span class="metric-label">Happy Patients</span></div>
-                    <div class="metric"><span class="metric-number">99%</span><span class="metric-label">Success Rate</span></div>
-                    <div class="metric"><span class="metric-number">20+</span><span class="metric-label">Expert Doctors</span></div>
+                <div class="hero-image-wrapper animate-on-scroll fade-in-right">
+                    <img src="hero_clinic.png" alt="Luxurious and modern state-of-the-art ophthalmology hospital lobby at Prism Healthcure" class="hero-image" fetchpriority="high">
+                    <div class="floating-card top-right" aria-hidden="true">
+                        <div class="icon-circle"><i class="fa-solid fa-microscope"></i></div>
+                        <div><h4>Advanced Tech</h4><p style="margin:0; font-size:0.875rem;">Latest equipment</p></div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image-wrapper animate-on-scroll fade-in-right">
-                <img src="hero_clinic.png" alt="Premium Ophthalmology Clinic" class="hero-image">
-                <div class="floating-card top-right">
-                    <div class="icon-circle"><i class="fa-solid fa-microscope"></i></div>
-                    <div><h4>Advanced Tech</h4><p style="margin:0; font-size:0.875rem;">Latest equipment</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why Choose Us -->
-    <section class="why-us bg-light">
-        <div class="container why-us-container">
-            <div class="why-us-image animate-on-scroll">
-                <img src="laser_tech.png" alt="Advanced Eye Surgery Tech">
-                <div class="experience-badge">
-                    <span class="years">15+</span><span class="text">Years of<br>Excellence</span>
+        <!-- Why Choose Us -->
+        <section class="why-us bg-light" aria-labelledby="why-us-title">
+            <div class="container why-us-container">
+                <div class="why-us-image animate-on-scroll">
+                    <img src="laser_tech.png" alt="Advanced ophthalmic laser surgery machine used by specialists at Prism Healthcure" loading="lazy">
+                    <div class="experience-badge" aria-hidden="true">
+                        <span class="years">15+</span><span class="text">Years of<br>Excellence</span>
+                    </div>
+                </div>
+                <div class="why-us-content animate-on-scroll fade-in-right">
+                    <h2 id="why-us-title">Why Choose Prism Healthcure?</h2>
+                    <p>We combine top-tier medical expertise with cutting-edge technology and compassionate care to deliver unparalleled visual outcomes for patients across Delhi, Mumbai, Surat, Noida, Pune, Ahmedabad, and Lucknow.</p>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i><div><h4>State-of-the-art Technology</h4><p>Using the latest diagnostic and surgical laser equipment.</p></div></li>
+                        <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i><div><h4>Internationally Trained Doctors</h4><p>Our specialists bring global expertise to your care.</p></div></li>
+                        <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i><div><h4>Patient-Centric Approach</h4><p>Comfortable, transparent, and ethical healthcare.</p></div></li>
+                    </ul>
+                    <div style="margin-top: 2rem;">
+                        <a href="about.html" class="learn-more">Learn more about our hospital <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="why-us-content animate-on-scroll fade-in-right">
-                <h2>Why Choose Prism Healthcure?</h2>
-                <p>We combine top-tier medical expertise with cutting-edge technology and compassionate care to deliver unparalleled visual outcomes.</p>
-                <ul class="features-list">
-                    <li><i class="fa-solid fa-check-circle"></i><div><h4>State-of-the-art Technology</h4><p>Using the latest diagnostic and surgical equipment.</p></div></li>
-                    <li><i class="fa-solid fa-check-circle"></i><div><h4>Internationally Trained Doctors</h4><p>Our specialists bring global expertise to your care.</p></div></li>
-                    <li><i class="fa-solid fa-check-circle"></i><div><h4>Patient-Centric Approach</h4><p>Comfortable, transparent, and ethical healthcare.</p></div></li>
-                </ul>
-                <div style="margin-top: 2rem;">
-                    <a href="about.html" class="learn-more">Learn more about our hospital <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Doctors Section -->
-    <section id="doctors" class="doctors">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Meet Our Specialists</h2>
-                <p>Expert Indian ophthalmologists dedicated to preserving and enhancing your vision.</p>
-            </div>
-            <div class="doctors-grid">
-                <div class="doctor-card animate-on-scroll delay-1">
-                    <div class="doctor-image"><img src="dr_siddharth.png" alt="Dr. Siddharth Rao"></div>
-                    <div class="doctor-info">
-                        <span class="specialty">Senior Refractive & LASIK Surgeon</span>
-                        <h3>Dr. Siddharth Rao</h3>
-                        <p>15+ years experience. MBBS, MS (Ophthalmology), AIIMS. Specialist in advanced laser vision correction.</p>
-                    </div>
+        <!-- Doctors Section -->
+        <section id="doctors" class="doctors" aria-labelledby="doctors-title">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 id="doctors-title">Meet Our Specialists</h2>
+                    <p>Expert Indian ophthalmologists dedicated to preserving and enhancing your vision.</p>
                 </div>
-                <div class="doctor-card animate-on-scroll delay-2">
-                    <div class="doctor-image"><img src="dr_ananya.png" alt="Dr. Ananya Sharma"></div>
-                    <div class="doctor-info">
-                        <span class="specialty">Retina & Vitreous Surgeon</span>
-                        <h3>Dr. Ananya Sharma</h3>
-                        <p>Specializing in diabetic eye disease and macular degeneration. Fellowship from Sankara Nethralaya.</p>
-                    </div>
+                <div class="doctors-grid">
+                    <article class="doctor-card animate-on-scroll delay-1">
+                        <div class="doctor-image"><img src="dr_siddharth.png" alt="Portrait of Dr. Siddharth Rao, Senior Refractive & LASIK Surgeon" loading="lazy"></div>
+                        <div class="doctor-info">
+                            <span class="specialty">Senior Refractive & LASIK Surgeon</span>
+                            <h3>Dr. Siddharth Rao</h3>
+                            <p>15+ years experience. MBBS, MS (Ophthalmology), AIIMS. Specialist in advanced laser vision correction.</p>
+                        </div>
+                    </article>
+                    <article class="doctor-card animate-on-scroll delay-2">
+                        <div class="doctor-image"><img src="dr_ananya.png" alt="Portrait of Dr. Ananya Sharma, Retina & Vitreous Surgeon" loading="lazy"></div>
+                        <div class="doctor-info">
+                            <span class="specialty">Retina & Vitreous Surgeon</span>
+                            <h3>Dr. Ananya Sharma</h3>
+                            <p>Specializing in diabetic eye disease and macular degeneration. Fellowship from Sankara Nethralaya.</p>
+                        </div>
+                    </article>
+                    <article class="doctor-card animate-on-scroll delay-3">
+                        <div class="doctor-image"><img src="dr_vikram.png" alt="Portrait of Dr. Vikram Patel, Cataract & Glaucoma Specialist" loading="lazy"></div>
+                        <div class="doctor-info">
+                            <span class="specialty">Cataract & Glaucoma Specialist</span>
+                            <h3>Dr. Vikram Patel</h3>
+                            <p>Expert in complex cataract surgeries and minimally invasive glaucoma procedures. MBBS, DO, DNB.</p>
+                        </div>
+                    </article>
                 </div>
-                <div class="doctor-card animate-on-scroll delay-3">
-                    <div class="doctor-image"><img src="dr_vikram.png" alt="Dr. Vikram Patel"></div>
-                    <div class="doctor-info">
-                        <span class="specialty">Cataract & Glaucoma Specialist</span>
-                        <h3>Dr. Vikram Patel</h3>
-                        <p>Expert in complex cataract surgeries and minimally invasive glaucoma procedures. MBBS, DO, DNB.</p>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 4rem;">
-                <a href="doctors.html" class="btn btn-outline btn-lg">View All Doctors</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials bg-light">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Patient Stories</h2>
-                <p>Hear from those whose lives have been transformed through better vision.</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll delay-1">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"The LASIK procedure by Dr. Siddharth at Prism Healthcure was life-changing. I can finally see without glasses after 20 years. The team was incredibly supportive!"</p>
-                    <div class="patient-info">
-                        <h4>Aarti Sharma</h4>
-                        <span>LASIK Patient</span>
-                    </div>
-                </div>
-                <div class="testimonial-card animate-on-scroll delay-2">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"My father's cataract surgery was smooth and completely painless. Dr. Vikram explained everything clearly and we felt very reassured throughout the whole process."</p>
-                    <div class="patient-info">
-                        <h4>Rahul Deshmukh</h4>
-                        <span>Cataract Patient Family</span>
-                    </div>
+                <div style="text-align: center; margin-top: 4rem;">
+                    <a href="doctors.html" class="btn btn-outline btn-lg">View All Doctors</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials bg-light" aria-labelledby="testimonials-title">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 id="testimonials-title">Patient Stories</h2>
+                    <p>Hear from those whose lives have been transformed through better vision.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <article class="testimonial-card animate-on-scroll delay-1">
+                        <div class="stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p>"The LASIK procedure by Dr. Siddharth at Prism Healthcure was life-changing. I can finally see without glasses after 20 years. Traveling from Mumbai was absolutely worth it!"</p>
+                        <div class="patient-info">
+                            <h4>Aarti Sharma</h4>
+                            <span>LASIK Patient, Mumbai</span>
+                        </div>
+                    </article>
+                    <article class="testimonial-card animate-on-scroll delay-2">
+                        <div class="stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p>"My father's cataract surgery was smooth and completely painless. Dr. Vikram explained everything clearly and we felt very reassured throughout the whole process in Delhi."</p>
+                        <div class="patient-info">
+                            <h4>Rahul Deshmukh</h4>
+                            <span>Cataract Patient Family, Delhi</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container footer-container">
             <div class="footer-col">
-                <a href="index.html" class="logo footer-logo"><i class="fa-solid fa-eye" style="color: var(--accent);"></i> Prism <span>Healthcure</span></a>
-                <p>Delivering premium, compassionate, and advanced ophthalmology care to illuminate your life.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="index.html" class="logo footer-logo" aria-label="Prism Healthcure Home"><i class="fa-solid fa-eye" style="color: var(--accent);"></i> Prism <span>Healthcure</span></a>
+                <p>Delivering premium, compassionate, and advanced ophthalmology care to illuminate your life. Proudly serving Delhi, Mumbai, Surat, Noida, Pune, Ahmedabad, and Lucknow.</p>
+                <div class="social-links" aria-label="Social Media Links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div class="footer-col">
+            <div class="footer-col" aria-label="Quick Links">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -189,7 +249,7 @@
                     <li><a href="contact.html">Book Appointment</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
+            <div class="footer-col" aria-label="Specialties Links">
                 <h4>Specialties</h4>
                 <ul>
                     <li><a href="treatments.html">Cataract Surgery</a></li>
@@ -198,12 +258,12 @@
                     <li><a href="treatments.html">Glaucoma Care</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
+            <div class="footer-col" aria-label="Contact Information">
                 <h4>Contact Us</h4>
                 <ul class="contact-info">
-                    <li><i class="fa-solid fa-location-dot"></i> 123 Health Avenue, Medical District</li>
-                    <li><i class="fa-solid fa-phone"></i> +1 (800) 123-4567</li>
-                    <li><i class="fa-solid fa-envelope"></i> contact@prismhealthcure.com</li>
+                    <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 123 Health Avenue, Medical District</li>
+                    <li><i class="fa-solid fa-phone" aria-hidden="true"></i> +1 (800) 123-4567</li>
+                    <li><i class="fa-solid fa-envelope" aria-hidden="true"></i> contact@prismhealthcure.com</li>
                 </ul>
             </div>
         </div>
