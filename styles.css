@@ -1027,3 +1027,13 @@ footer {
     70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
+
+/* Mobile Navigation Bug Fix */
+@media (max-width: 991px) {
+    .nav-actions .btn {
+        display: none;
+    }
+    .logo {
+        font-size: 1.25rem;
+    }
+}
