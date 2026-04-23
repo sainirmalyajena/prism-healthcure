@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Prism Healthcure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; padding: 160px 0 80px; text-align: center; }
+        .page-header h1 { color: white; margin-bottom: 1rem; }
+        .about-content { max-width: 800px; margin: 0 auto; font-size: 1.125rem; }
+        .about-content p { margin-bottom: 1.5rem; line-height: 1.8; }
+        .vision-mission { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; }
+        @media (min-width: 768px) { .vision-mission { grid-template-columns: 1fr 1fr; } }
+        .vm-card { background: white; padding: 3rem; border-radius: 16px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+        .vm-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-eye"></i>
+                Prism <span>Healthcure</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="treatments.html">Specialties</a>
+                <a href="doctors.html">Specialists</a>
+                <a href="contact.html">Contact & Book</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container animate-on-scroll">
+            <h1>About Prism Healthcure</h1>
+            <p style="color: var(--primary-light); font-size: 1.25rem;">Illuminating lives through advanced eye care since 2011.</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="about-content animate-on-scroll">
+                <p>Welcome to <strong>Prism Healthcure</strong>, a premier ophthalmology center dedicated to providing comprehensive and compassionate eye care. Our state-of-the-art facility is equipped with the latest diagnostic and surgical technologies, ensuring our patients receive the highest standard of treatment available globally.</p>
+                
+                <p>Founded by a team of visionary doctors, Prism Healthcure was established with a singular focus: to make advanced eye care accessible, transparent, and patient-centric. Over the past 15 years, we have successfully treated over 25,000 patients, restoring not just their sight, but their quality of life.</p>
+
+                <div class="vision-mission">
+                    <div class="vm-card">
+                        <i class="fa-solid fa-bullseye"></i>
+                        <h3>Our Mission</h3>
+                        <p style="margin-bottom: 0;">To deliver personalized, high-quality eye care using cutting-edge technology and ethical medical practices, prioritizing the safety and comfort of every patient.</p>
+                    </div>
+                    <div class="vm-card">
+                        <i class="fa-solid fa-eye"></i>
+                        <h3>Our Vision</h3>
+                        <p style="margin-bottom: 0;">To be the region's most trusted center of excellence for ophthalmology, continuously advancing our expertise to eradicate preventable blindness.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo footer-logo"><i class="fa-solid fa-eye"></i> Prism <span>Healthcure</span></a>
+                <p>Delivering premium, compassionate, and advanced ophthalmology care to illuminate your life.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="contact-info">
+                    <li><i class="fa-solid fa-location-dot"></i> 123 Health Avenue, Medical District</li>
+                    <li><i class="fa-solid fa-phone"></i> +1 (800) 123-4567</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@prismhealthcure.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><div class="container"><p>&copy; 2026 Prism Healthcure. All rights reserved.</p></div></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

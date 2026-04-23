@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Book Appointment | Prism Healthcure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; padding: 160px 0 80px; text-align: center; }
+        .page-header h1 { color: white; margin-bottom: 1rem; }
+        .contact-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; }
+        @media (min-width: 992px) { .contact-grid { grid-template-columns: 1fr 1.5fr; } }
+        .contact-info-cards { display: flex; flex-direction: column; gap: 2rem; }
+        .info-card { background: white; padding: 2rem; border-radius: 16px; border: 1px solid var(--border); display: flex; gap: 1.5rem; align-items: flex-start; }
+        .info-card i { font-size: 2rem; color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-eye"></i> Prism <span>Healthcure</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="treatments.html">Specialties</a>
+                <a href="doctors.html">Specialists</a>
+                <a href="contact.html">Contact & Book</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container animate-on-scroll">
+            <h1>Get in Touch</h1>
+            <p style="color: var(--primary-light); font-size: 1.25rem;">Book an appointment or ask us a question.</p>
+        </div>
+    </div>
+
+    <section class="bg-light">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <div class="contact-info-cards animate-on-scroll">
+                    <div class="info-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p style="margin-bottom: 0;">123 Health Avenue<br>Medical District, City 10001</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p style="margin-bottom: 0;">+1 (800) 123-4567<br>Emergency: +1 (800) 999-0000</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p style="margin-bottom: 0;">contact@prismhealthcure.com<br>appointments@prismhealthcure.com</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p style="margin-bottom: 0;">Monday - Saturday: 8:00 AM - 8:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="appointment-cta animate-on-scroll fade-in-right" style="padding: 0;">
+                    <div class="cta-box" style="grid-template-columns: 1fr;">
+                        <div class="cta-content" style="text-align: center; margin-bottom: -2rem;">
+                            <h2>Book an Appointment</h2>
+                            <p>Fill out the form below and we will call you to confirm.</p>
+                        </div>
+                        <div class="cta-form-container">
+                            <form class="appointment-form" onsubmit="event.preventDefault(); alert('Appointment requested successfully! We will contact you soon.');">
+                                <input type="text" placeholder="Full Name" required>
+                                <input type="tel" placeholder="Phone Number" required>
+                                <input type="email" placeholder="Email Address">
+                                <select required>
+                                    <option value="" disabled selected>Select Service Required</option>
+                                    <option value="checkup">General Eye Checkup</option>
+                                    <option value="cataract">Cataract Evaluation</option>
+                                    <option value="lasik">LASIK Consultation</option>
+                                    <option value="retina">Retina Care</option>
+                                    <option value="glaucoma">Glaucoma Clinic</option>
+                                    <option value="other">Other / Not Sure</option>
+                                </select>
+                                <textarea placeholder="Any specific symptoms or questions?" rows="4" style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%; resize: vertical;"></textarea>
+                                <button type="submit" class="btn btn-secondary btn-block">Confirm Request</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom"><div class="container"><p>&copy; 2026 Prism Healthcure. All rights reserved.</p></div></div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

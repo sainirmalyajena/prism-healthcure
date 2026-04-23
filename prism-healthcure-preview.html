@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Healthcure | Premium Ophthalmology & Eye Care</title>
+    <meta name="description" content="Prism Healthcure offers advanced eye treatments including Cataract, LASIK, Retina, and Glaucoma by top eye specialists in a state-of-the-art facility.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* =========================================
+           VARIABLES & RESET
+           ========================================= */
+        :root {
+            --primary: #00796b;
+            --primary-light: #e0f2f1;
+            --primary-dark: #004d40;
+            --secondary: #0284c7;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --text-light: #9ca3af;
+            --bg-main: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-teal-tint: #f0fdfa;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-main); background-color: var(--bg-main); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* =========================================
+           TYPOGRAPHY
+           ========================================= */
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; color: var(--text-main); }
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -0.02em; }
+        h2 { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        p { color: var(--text-muted); margin-bottom: 1rem; }
+
+        /* =========================================
+           LAYOUT & UTILITIES
+           ========================================= */
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        .bg-light { background-color: var(--bg-light); }
+        section { padding: 6rem 0; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+        .section-header p { font-size: 1.125rem; }
+
+        /* =========================================
+           BUTTONS
+           ========================================= */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; border: none; transition: var(--transition); }
+        .btn-lg { padding: 1rem 2rem; font-size: 1.125rem; }
+        .btn-block { width: 100%; }
+        .btn-primary { background-color: var(--primary); color: var(--white); }
+        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-secondary { background-color: var(--white); color: var(--primary); }
+        .btn-secondary:hover { background-color: var(--bg-light); transform: translateY(-2px); }
+        .btn-outline { background-color: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline:hover { background-color: var(--primary); color: var(--white); }
+
+        /* =========================================
+           HEADER & NAVIGATION
+           ========================================= */
+        header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; transition: var(--transition); border-bottom: 1px solid transparent; }
+        header.scrolled { border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+        .nav-container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .logo span { color: var(--text-main); }
+        .nav-links { display: none; gap: 2rem; }
+        .nav-links a { font-weight: 500; color: var(--text-main); position: relative; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background-color: var(--primary); transition: var(--transition); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-actions { display: flex; align-items: center; gap: 1rem; }
+        .mobile-menu-btn { display: block; background: none; border: none; font-size: 1.5rem; color: var(--text-main); cursor: pointer; }
+        @media (min-width: 992px) { .nav-links { display: flex; } .mobile-menu-btn { display: none; } }
+
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: var(--white); z-index: 2000; padding: 2rem; transition: var(--transition); display: flex; flex-direction: column; }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-close { align-self: flex-end; font-size: 2rem; cursor: pointer; color: var(--text-main); }
+        .mobile-nav-links { display: flex; flex-direction: column; gap: 2rem; margin-top: 4rem; text-align: center; }
+        .mobile-nav-links a { font-size: 1.25rem; font-weight: 600; }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero { padding-top: 120px; background: linear-gradient(135deg, var(--bg-teal-tint) 0%, var(--white) 100%); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+        .hero-container { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
+        .hero-badge { display: inline-block; padding: 0.5rem 1rem; background-color: var(--primary-light); color: var(--primary-dark); border-radius: 50px; font-weight: 600; font-size: 0.875rem; margin-bottom: 1.5rem; }
+        .hero h1 span { color: var(--primary); }
+        .hero-content p { font-size: 1.125rem; margin-bottom: 2rem; max-width: 500px; }
+        .hero-buttons { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .trust-metrics { display: flex; gap: 2rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+        .metric-number { display: block; font-size: 1.75rem; font-weight: 700; color: var(--text-main); }
+        .metric-label { font-size: 0.875rem; color: var(--text-muted); }
+        .hero-image-wrapper { position: relative; }
+        .hero-image { border-radius: 24px; box-shadow: var(--shadow-lg); width: 100%; object-fit: cover; aspect-ratio: 4/3; }
+        .floating-card { position: absolute; background: var(--white); padding: 1rem 1.5rem; border-radius: 16px; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 1rem; animation: float 6s ease-in-out infinite; }
+        .floating-card.top-right { top: -20px; right: -20px; }
+        .icon-circle { width: 48px; height: 48px; border-radius: 50%; background-color: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        @media (min-width: 992px) { .hero-container { grid-template-columns: 1fr 1fr; } }
+
+        /* =========================================
+           TREATMENTS & DOCTORS & FAQ
+           ========================================= */
+        .treatments-grid, .doctors-grid, .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .treatment-card { background: var(--white); padding: 2.5rem; border-radius: 16px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); transition: var(--transition); }
+        .treatment-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .treatment-icon { width: 64px; height: 64px; border-radius: 16px; background-color: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.75rem; margin-bottom: 1.5rem; }
+        .learn-more { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); font-weight: 600; margin-top: 1rem; }
+        .learn-more:hover { gap: 0.75rem; }
+
+        .why-us-container { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
+        @media (min-width: 992px) { .why-us-container { grid-template-columns: 1fr 1fr; } }
+        .why-us-image { position: relative; border-radius: 24px; overflow: hidden; }
+        .experience-badge { position: absolute; bottom: 2rem; left: 2rem; background: var(--primary); color: var(--white); padding: 1.5rem; border-radius: 16px; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-lg); }
+        .experience-badge .years { font-size: 2.5rem; font-weight: 700; }
+        .experience-badge .text { font-size: 0.875rem; font-weight: 500; line-height: 1.2; }
+        .features-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+        .features-list li { display: flex; gap: 1rem; align-items: flex-start; }
+        .features-list i { color: var(--primary); font-size: 1.5rem; margin-top: 0.25rem; }
+        
+        .doctor-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); }
+        .doctor-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+        .doctor-image { height: 300px; overflow: hidden; }
+        .doctor-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .doctor-card:hover .doctor-image img { transform: scale(1.05); }
+        .doctor-info { padding: 2rem; }
+        .doctor-info .specialty { display: block; color: var(--primary); font-weight: 600; font-size: 0.875rem; margin-bottom: 0.75rem; }
+
+        .testimonial-card { background: var(--bg-light); padding: 2rem; border-radius: 16px; border: 1px solid var(--border); }
+        .stars { color: #fbbf24; margin-bottom: 1rem; }
+        .testimonial-card p { font-style: italic; margin-bottom: 1.5rem; }
+        .patient-info span { color: var(--primary); font-size: 0.875rem; font-weight: 500; }
+
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-question { padding: 1.5rem 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .faq-question h3 { margin: 0; font-size: 1.125rem; }
+        .faq-question i { color: var(--primary); transition: var(--transition); }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-answer p { padding-bottom: 1.5rem; }
+
+        /* =========================================
+           APPOINTMENT & FOOTER
+           ========================================= */
+        .cta-box { background-color: var(--primary); border-radius: 24px; padding: 4rem 2rem; color: var(--white); display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+        @media (min-width: 992px) { .cta-box { grid-template-columns: 1fr 1fr; padding: 4rem; } }
+        .cta-content h2 { color: var(--white); }
+        .cta-content p { color: var(--primary-light); font-size: 1.125rem; }
+        .appointment-form { background: var(--white); padding: 2rem; border-radius: 16px; display: flex; flex-direction: column; gap: 1rem; }
+        .appointment-form input, .appointment-form select { padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem; width: 100%; }
+        .appointment-form input:focus, .appointment-form select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+
+        footer { background-color: #0f172a; color: #cbd5e1; padding-top: 5rem; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-logo { color: var(--white); margin-bottom: 1rem; }
+        .footer-logo span { color: var(--white); }
+        .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .social-links a { width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--white); }
+        .social-links a:hover { background-color: var(--primary); }
+        .footer-col h4 { color: var(--white); margin-bottom: 1.5rem; }
+        .footer-col ul { display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-col a:hover { color: var(--white); padding-left: 5px; }
+        .contact-info li { display: flex; gap: 1rem; align-items: flex-start; }
+        .contact-info i { color: var(--primary); margin-top: 0.25rem; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 1.5rem 0; text-align: center; font-size: 0.875rem; }
+
+        /* =========================================
+           ANIMATIONS
+           ========================================= */
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .animate-on-scroll.fade-in-right { transform: translateX(30px); }
+        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0) translateX(0); }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-eye"></i>
+                Prism <span>Healthcure</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#treatments">Specialties</a>
+                <a href="#doctors">Specialists</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#appointment" class="btn btn-primary">Book Appointment</a>
+                <button class="mobile-menu-btn" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-close"><i class="fa-solid fa-xmark"></i></div>
+        <nav class="mobile-nav-links">
+            <a href="#hero">Home</a>
+            <a href="#treatments">Specialties</a>
+            <a href="#doctors">Specialists</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#faq">FAQ</a>
+            <a href="#appointment" class="btn btn-primary">Book Appointment</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content animate-on-scroll">
+                <div class="hero-badge">Advanced Eye Care</div>
+                <h1>See the World with <br><span>Perfect Clarity</span></h1>
+                <p>Prism Healthcure offers state-of-the-art ophthalmology services. From advanced LASIK to pediatric eye care, trust our experts for a brighter tomorrow.</p>
+                <div class="hero-buttons">
+                    <a href="#appointment" class="btn btn-primary btn-lg">Book an Appointment</a>
+                    <a href="#treatments" class="btn btn-outline btn-lg">Explore Treatments</a>
+                </div>
+                <div class="trust-metrics">
+                    <div class="metric"><span class="metric-number">25k+</span><span class="metric-label">Happy Patients</span></div>
+                    <div class="metric"><span class="metric-number">99%</span><span class="metric-label">Success Rate</span></div>
+                    <div class="metric"><span class="metric-number">20+</span><span class="metric-label">Expert Doctors</span></div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper animate-on-scroll fade-in-right">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Premium Ophthalmology Clinic" class="hero-image">
+                <div class="floating-card top-right">
+                    <div class="icon-circle"><i class="fa-solid fa-microscope"></i></div>
+                    <div><h4>Advanced Tech</h4><p>Latest equipment</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Section -->
+    <section id="treatments" class="treatments bg-light">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Our Eye Care Specialties</h2>
+                <p>Comprehensive diagnostic and therapeutic treatments tailored to your vision needs.</p>
+            </div>
+            <div class="treatments-grid">
+                <div class="treatment-card animate-on-scroll delay-1">
+                    <div class="treatment-icon"><i class="fa-solid fa-eye-dropper"></i></div>
+                    <h3>Cataract Surgery</h3><p>Advanced laser-assisted cataract removal with premium intraocular lens (IOL) implants.</p><a href="#" class="learn-more">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="treatment-card animate-on-scroll delay-2">
+                    <div class="treatment-icon"><i class="fa-solid fa-glasses"></i></div>
+                    <h3>LASIK & Refractive</h3><p>Painless, bladeless laser vision correction to free you from glasses and contacts.</p><a href="#" class="learn-more">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="treatment-card animate-on-scroll delay-3">
+                    <div class="treatment-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Retina Care</h3><p>Specialized treatments for diabetic retinopathy, macular degeneration, and detachments.</p><a href="#" class="learn-more">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="treatment-card animate-on-scroll delay-1">
+                    <div class="treatment-icon"><i class="fa-solid fa-circle-notch"></i></div>
+                    <h3>Glaucoma Clinic</h3><p>Early detection and advanced medical, laser, and surgical management of glaucoma.</p><a href="#" class="learn-more">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="treatment-card animate-on-scroll delay-2">
+                    <div class="treatment-icon"><i class="fa-solid fa-dna"></i></div>
+                    <h3>Cornea Services</h3><p>Comprehensive care for corneal diseases including transplants and keratoconus treatments.</p><a href="#" class="learn-more">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="treatment-card animate-on-scroll delay-3">
+                    <div class="treatment-icon"><i class="fa-solid fa-child"></i></div>
+                    <h3>Pediatric Ophthalmology</h3><p>Gentle and expert eye care for children, addressing squints, lazy eye, and refractive errors.</p><a href="#" class="learn-more">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container why-us-container">
+            <div class="why-us-image animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&q=80&w=800" alt="Advanced Eye Surgery">
+                <div class="experience-badge">
+                    <span class="years">15+</span><span class="text">Years of<br>Excellence</span>
+                </div>
+            </div>
+            <div class="why-us-content animate-on-scroll fade-in-right">
+                <h2>Why Choose Prism Healthcure?</h2>
+                <p>We combine top-tier medical expertise with cutting-edge technology and compassionate care to deliver unparalleled visual outcomes.</p>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check-circle"></i><div><h4>State-of-the-art Technology</h4><p>Using the latest diagnostic and surgical equipment.</p></div></li>
+                    <li><i class="fa-solid fa-check-circle"></i><div><h4>Internationally Trained Doctors</h4><p>Our specialists bring global expertise to your care.</p></div></li>
+                    <li><i class="fa-solid fa-check-circle"></i><div><h4>Patient-Centric Approach</h4><p>Comfortable, transparent, and ethical healthcare.</p></div></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="doctors bg-light">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Meet Our Specialists</h2>
+                <p>Expert ophthalmologists dedicated to preserving and enhancing your vision.</p>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card animate-on-scroll delay-1">
+                    <div class="doctor-image"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=600" alt="Dr. Sarah Jenkins"></div>
+                    <div class="doctor-info"><h3>Dr. Sarah Jenkins</h3><span class="specialty">Senior Refractive & LASIK Surgeon</span><p>15+ years of experience in advanced laser vision correction.</p></div>
+                </div>
+                <div class="doctor-card animate-on-scroll delay-2">
+                    <div class="doctor-image"><img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600" alt="Dr. Rajesh Kumar"></div>
+                    <div class="doctor-info"><h3>Dr. Rajesh Kumar</h3><span class="specialty">Cataract & Glaucoma Specialist</span><p>Expert in complex cataract surgeries and minimally invasive glaucoma procedures.</p></div>
+                </div>
+                <div class="doctor-card animate-on-scroll delay-3">
+                    <div class="doctor-image"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600" alt="Dr. Emily Chen"></div>
+                    <div class="doctor-info"><h3>Dr. Emily Chen</h3><span class="specialty">Retina & Vitreous Surgeon</span><p>Specializing in diabetic eye disease and macular degeneration management.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq bg-light">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our eye care services.</p>
+            </div>
+            <div class="faq-container animate-on-scroll">
+                <div class="faq-item">
+                    <div class="faq-question"><h3>Is LASIK surgery painful?</h3><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer"><p>No, LASIK is generally painless. We use anesthetic eye drops to numb the eye before the procedure.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><h3>How long does cataract surgery take?</h3><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer"><p>Cataract surgery is an outpatient procedure that typically takes only 15 to 30 minutes.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><h3>Do you accept insurance?</h3><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer"><p>Yes, Prism Healthcure is empanelled with most major health insurance providers.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment CTA -->
+    <section id="appointment" class="appointment-cta">
+        <div class="container">
+            <div class="cta-box animate-on-scroll">
+                <div class="cta-content">
+                    <h2>Ready for Better Vision?</h2>
+                    <p>Schedule a comprehensive eye checkup or consultation with our experts today. Your vision is our priority.</p>
+                </div>
+                <div class="cta-form-container">
+                    <form class="appointment-form" onsubmit="event.preventDefault(); alert('Appointment requested!');">
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <select required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="checkup">General Eye Checkup</option>
+                            <option value="cataract">Cataract Evaluation</option>
+                            <option value="lasik">LASIK Consultation</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <button type="submit" class="btn btn-secondary btn-block">Request Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="logo footer-logo"><i class="fa-solid fa-eye"></i> Prism <span>Healthcure</span></a>
+                <p>Delivering premium, compassionate, and advanced ophthalmology care to illuminate your life.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="contact-info">
+                    <li><i class="fa-solid fa-location-dot"></i> 123 Health Avenue, Medical District</li>
+                    <li><i class="fa-solid fa-phone"></i> +1 (800) 123-4567</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@prismhealthcure.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><div class="container"><p>&copy; 2026 Prism Healthcure. All rights reserved.</p></div></div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+            
+            function toggleMenu() {
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            }
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            mobileMenuClose.addEventListener('click', toggleMenu);
+            mobileNavLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+            // Sticky Header
+            const header = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+            });
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(faq => {
+                        faq.classList.remove('active');
+                        faq.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // Intersection Observer
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            animateElements.forEach(el => scrollObserver.observe(el));
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 80;
+                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
