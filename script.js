@@ -74,30 +74,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. GSAP SCROLL ANIMATIONS
-    if (window.innerWidth >= 992) {
-        gsap.registerPlugin(ScrollTrigger);
-        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        if (document.querySelector(".hero")) {
-            const heroTitle = document.querySelector("#hero-title");
-            if(heroTitle) {
-                heroTitle.innerHTML = heroTitle.textContent.split(" ").map(word => `<span style="display:inline-block; overflow:hidden;"><span style="display:inline-block;" class="hero-word">${word}</span></span>`).join(" ");
-            }
-            tl.from(".hero-badge", { y: 20, opacity: 0, duration: 0.8, delay: 0.2 })
-              .from(".hero-word", { y: 100, opacity: 0, duration: 1, stagger: 0.1 }, "-=0.6")
-              .from(".hero-content p", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
-              .from(".hero-buttons .btn", { y: 20, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.6")
-              .from(".trust-metrics .metric", { y: 20, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.4")
-              .from(".hero-image-wrapper", { scale: 0.9, opacity: 0, duration: 1.2, ease: "expo.out" }, "-=1.5")
-              .from(".floating-card", { y: 30, opacity: 0, duration: 1, ease: "elastic.out(1, 0.5)" }, "-=0.8");
-            gsap.to(".hero-image", { yPercent: 15, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
-        }
-        document.querySelectorAll("section, .page-header").forEach(section => {
-            gsap.from(section.querySelectorAll(".section-header, .about-content p, .vm-card, .info-card, .faq-item"), { scrollTrigger: { trigger: section, start: "top 80%" }, y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power2.out" });
-        });
-        const cardGrids = document.querySelectorAll(".doctors-grid, .testimonials-grid");
-        cardGrids.forEach(grid => {
-            gsap.from(grid.querySelectorAll("article"), { scrollTrigger: { trigger: grid, start: "top 80%" }, y: 60, opacity: 0, duration: 0.8, stagger: 0.2, ease: "back.out(1.2)" });
-        });
-    }
+    // 4. Animations Disabled for Performance
 });
