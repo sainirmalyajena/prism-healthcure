@@ -1,14 +1,16 @@
 /* =========================================
    VARIABLES & RESET (Premium Emerald & Gold)
    ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
-    --primary: #005a52;       /* Deep Emerald Teal */
+    --primary: #024e47;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;       /* Deep Emerald Teal */
     --primary-light: #e6f0ef;
     --primary-dark: #003d38;
     
-    --accent: #d4af37;        /* Luxury Gold/Champagne */
+    --accent: #DCA11D;        /* Luxury Gold/Champagne */
     --accent-light: #fbf8f1;
     
     --text-main: #111827;
@@ -23,9 +25,9 @@
     --border: #f1f5f9;
     
     /* Luxurious Soft Shadows */
-    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.03);
-    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 20px 40px rgba(0, 90, 82, 0.08);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 20px 50px rgba(2, 78, 71, 0.1), 0 8px 16px rgba(0, 0, 0, 0.03);
     
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -41,7 +43,7 @@ html {
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     color: var(--text-main);
     background-color: var(--bg-main);
     line-height: 1.7;
@@ -68,6 +70,7 @@ img {
    TYPOGRAPHY
    ========================================= */
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
     color: var(--text-main);
@@ -127,6 +130,7 @@ section {
    BUTTONS (Premium Styling)
    ========================================= */
 .btn {
+    font-family: var(--font-heading);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -214,6 +218,7 @@ header.scrolled {
 }
 
 .logo {
+    font-family: var(--font-heading);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -233,6 +238,7 @@ header.scrolled {
 }
 
 .nav-links a {
+    font-family: var(--font-heading);
     font-weight: 600;
     color: var(--text-main);
     position: relative;
@@ -1030,9 +1036,11 @@ footer {
 /* Mobile Navigation Bug Fix */
 @media (max-width: 991px) {
     .nav-actions .btn {
+    font-family: var(--font-heading);
         display: none;
     }
     .logo {
+    font-family: var(--font-heading);
         font-size: 1.25rem;
     }
 }
@@ -1049,7 +1057,8 @@ footer {
     .hero-container, .why-us-container, .cta-box { gap: 1.5rem; }
     .hero { min-height: auto; padding-top: 120px; padding-bottom: 2rem; }
     .hero-buttons { flex-direction: column; width: 100%; gap: 0.75rem; margin-bottom: 1.5rem; }
-    .hero-buttons .btn { width: 100%; padding: 1rem; font-size: 1rem; }
+    .hero-buttons .btn {
+    font-family: var(--font-heading); width: 100%; padding: 1rem; font-size: 1rem; }
     .trust-metrics { flex-direction: row; gap: 1rem; justify-content: space-between; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem; }
     .metric-number { font-size: 1.5rem; }
     .metric-label { font-size: 0.75rem; }
@@ -1090,6 +1099,7 @@ footer {
         margin-bottom: 2rem;
     }
     .hero-buttons .btn {
+    font-family: var(--font-heading);
         width: 100%;
     }
     .trust-metrics {
