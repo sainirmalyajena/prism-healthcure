@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     <meta name="robots" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -56,9 +56,23 @@
             </nav>
             <div class="nav-actions">
                 <a href="contact.html" class="btn btn-primary">Book Appointment</a>
+                <button class="mobile-menu-btn" aria-label="Open Mobile Menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" role="dialog" aria-label="Mobile Menu" aria-hidden="true">
+        <div class="mobile-menu-close" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></div>
+        <nav class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="treatments.html">Treatments</a>
+            <a href="doctors.html">Our Doctors</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn btn-primary">Book Appointment</a>
+        </nav>
+    </div>
 
     <div class="page-header">
         <div class="container animate-on-scroll">
@@ -101,7 +115,7 @@
                 <h4>Contact Us</h4>
                 <ul class="contact-info">
                     <li><i class="fa-solid fa-location-dot"></i> 123 Health Avenue, Medical District</li>
-                    <li><i class="fa-solid fa-phone"></i> +1 (800) 123-4567</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 90769 93279</li>
                     <li><i class="fa-solid fa-envelope"></i> contact@prismhealthcure.com</li>
                 </ul>
             </div>
@@ -122,3 +136,4 @@
     </a>
 </body>
 </html>
+

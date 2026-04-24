@@ -1,4 +1,4 @@
-/* =========================================
+﻿/* =========================================
    VARIABLES & RESET (Premium Emerald & Gold)
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -1145,23 +1145,29 @@ footer {
 }
 .orb {
     position: absolute; border-radius: 50%; filter: blur(100px);
-    opacity: 0.5; animation: float 25s infinite ease-in-out alternate;
+    animation: floatOrb 25s infinite ease-in-out alternate;
 }
-.orb-1 { width: 50vw; height: 50vw; background: #005a52; top: -10%; left: -10%; }
-.orb-2 { width: 40vw; height: 40vw; background: #d4af37; bottom: -10%; right: -10%; animation-delay: -5s; }
-.orb-3 { width: 30vw; height: 30vw; background: #a2d2c8; top: 40%; left: 30%; animation-delay: -10s; }
+.orb-1 { width: 600px; height: 600px; background: #005a52; opacity: 0.12; top: -150px; left: -150px; }
+.orb-2 { width: 500px; height: 500px; background: #d4af37; opacity: 0.10; bottom: -120px; right: -120px; animation-delay: -5s; }
+.orb-3 { width: 400px; height: 400px; background: #a2d2c8; opacity: 0.10; top: 40%; left: 30%; animation-delay: -10s; }
 
-@keyframes float {
+@media (max-width: 768px) {
+    .orb-1 { width: 300px; height: 300px; opacity: 0.08; top: -80px; left: -80px; }
+    .orb-2 { width: 250px; height: 250px; opacity: 0.07; bottom: -60px; right: -60px; }
+    .orb-3 { display: none; }
+}
+
+@keyframes floatOrb {
     0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(50px, -50px) scale(1.1); }
-    100% { transform: translate(-30px, 30px) scale(0.9); }
+    50% { transform: translate(30px, -30px) scale(1.05); }
+    100% { transform: translate(-20px, 20px) scale(0.95); }
 }
 
 /* Glassmorphism Upgrades */
 .doctor-card, .testimonial-card, .vm-card, .info-card {
-    background: rgba(255, 255, 255, 0.4) !important;
-    backdrop-filter: blur(25px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
     box-shadow: 0 8px 32px 0 rgba(0, 90, 82, 0.1) !important;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s !important;
@@ -1174,5 +1180,15 @@ footer {
 .doctor-image img { transition: transform 0.8s ease; }
 .doctor-card:hover .doctor-image img { transform: scale(1.08); }
 
-/* Remove old intersection observer conflicts */
-.animate-on-scroll { opacity: 0; visibility: hidden; transition: none !important; transform: none !important; }
+/* GSAP-compatible: hidden via opacity only, GSAP reveals with autoAlpha:1 */
+.animate-on-scroll { opacity: 0; }
+
+/* Hide floating card on mobile to prevent overflow */
+@media (max-width: 991px) {
+    .floating-card { display: none !important; }
+}
+
+/* Prevent ALL horizontal overflow site-wide */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+
