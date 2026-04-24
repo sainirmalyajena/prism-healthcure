@@ -1152,3 +1152,108 @@ footer {
 
 
 /* Simplified for maximum performance */
+/* =========================================
+   MOBILE OPTIMIZATION (HealthExpress Style)
+   ========================================= */
+.sticky-mobile-cta {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* 1. Sticky Bottom CTA */
+    .sticky-mobile-cta {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid #e5e7eb;
+        padding: 10px 15px;
+        gap: 10px;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+    }
+    .sticky-mobile-cta .cta-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 0;
+        border-radius: 12px;
+        font-weight: 700;
+        font-family: var(--font-heading);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: transform 0.2s;
+    }
+    .sticky-mobile-cta .cta-btn:active {
+        transform: scale(0.96);
+    }
+    .cta-call {
+        background: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+    }
+    .cta-wa {
+        background: #25D366;
+        color: white;
+        border: 2px solid #25D366;
+    }
+
+    /* Hide standard floating whatsapp on mobile to avoid clash */
+    .whatsapp-widget {
+        display: none !important;
+    }
+
+    /* 2. Hero Compactness */
+    .hero {
+        padding-top: 100px;
+        min-height: auto;
+        padding-bottom: 2rem;
+    }
+    .hero-container {
+        gap: 2rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    .trust-metrics {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    /* 3. Swipeable Horizontal Cards */
+    .doctors-grid, .pricing-grid, .testimonials-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 1rem;
+        gap: 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    .doctors-grid::-webkit-scrollbar, .pricing-grid::-webkit-scrollbar, .testimonials-grid::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+    .doctor-card, .pricing-card, .testimonial-card {
+        min-width: 85vw;
+        scroll-snap-align: center;
+        margin-bottom: 0;
+    }
+    
+    /* Add bottom padding to body so sticky CTA doesn't cover content */
+    body {
+        padding-bottom: 70px;
+    }
+}
