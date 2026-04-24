@@ -1,0 +1,11 @@
+﻿{
+  "name": "prism-healthcure",
+  "version": "1.0.0",
+  "description": "Prism Healthcure - Premium Ophthalmology Website",
+  "scripts": {
+    "build": "node optimize-images.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.0"
+  }
+}
