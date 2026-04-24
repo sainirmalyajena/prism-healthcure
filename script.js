@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Make elements visible for GSAP
-    gsap.set('.animate-on-scroll', { autoAlpha: 1 });
+    // Content is visible by default - GSAP animates FROM invisible states
 
     // Hero Section Timeline
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
