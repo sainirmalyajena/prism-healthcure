@@ -22,11 +22,11 @@
     <meta property="twitter:title" content="Best Eye Hospital & Top Specialists | Prism Healthcure">
     <meta property="twitter:description" content="State-of-the-art ophthalmology services for LASIK, Cataract, and Glaucoma. Providing world-class vision care.">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap&font-display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles.min.css">
 
     <!-- Local Business Schema Markup (JSON-LD) for SEO -->
     <script type="application/ld+json">
@@ -71,10 +71,26 @@
     </script>
 
     <!-- Performance & Favicon -->
-    <link rel="preload" href="hero_clinic.png" as="image">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="hero_clinic.webp" as="image" type="image/webp">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap&font-display=swap" as="style">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23005a52' d='M256 128C114.6 128 0 256 0 256s114.6 128 256 128 256-128 256-128-114.6-128-256-128zm0 213.3c-47.1 0-85.3-38.2-85.3-85.3s38.2-85.3 85.3-85.3 85.3 38.2 85.3 85.3-38.2 85.3-85.3 85.3z'/></svg>">
-</head>
+    <!-- Prefetch inner pages for faster navigation -->
+    <link rel="prefetch" href="about.html">
+    <link rel="prefetch" href="doctors.html">
+    <link rel="prefetch" href="treatments.html">
+    <link rel="prefetch" href="contact.html">
+    <!-- Critical CSS inline for above-the-fold -->
+    <style>
+        body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;background:#fff;overflow-x:hidden}
+        header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);z-index:1000;border-bottom:1px solid rgba(255,255,255,.1)}
+        .nav-container{display:flex;align-items:center;justify-content:space-between;height:85px;width:100%;max-width:1280px;margin:0 auto;padding:0 1.5rem}
+        .logo{display:flex;align-items:center;gap:.5rem;font-size:1.75rem;font-weight:800;color:#005a52;letter-spacing:-.03em;text-decoration:none}
+        .hero{padding-top:140px;min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#fff 0%,#f0fdfa 100%)}
+        .hero-container{display:grid;grid-template-columns:1fr;gap:4rem;align-items:center;width:100%;max-width:1280px;margin:0 auto;padding:0 1.5rem}
+        @media(min-width:992px){.hero-container{grid-template-columns:1fr 1fr}}
+        .mobile-menu-btn{display:block;background:none;border:none;font-size:1.5rem;color:#111827;cursor:pointer}
+        @media(min-width:992px){.mobile-menu-btn{display:none}}
+    </style></head>
 <body>
 
     <!-- Ambient Background -->
@@ -141,7 +157,7 @@
                     </div>
                 </div>
                 <div class="hero-image-wrapper animate-on-scroll fade-in-right">
-                    <img src="hero_clinic.png" alt="Luxurious and modern state-of-the-art ophthalmology hospital lobby at Prism Healthcure" class="hero-image" fetchpriority="high">
+                    <picture><source srcset="hero_clinic.webp" type="image/webp"><img src="hero_clinic.png" alt="Luxurious and modern state-of-the-art ophthalmology hospital lobby at Prism Healthcure" class="hero-image" fetchpriority="high" width="800" height="600"></picture>
                     <div class="floating-card top-right" aria-hidden="true">
                         <div class="icon-circle"><i class="fa-solid fa-microscope"></i></div>
                         <div><h4>Advanced Tech</h4><p style="margin:0; font-size:0.875rem;">Latest equipment</p></div>
@@ -154,7 +170,7 @@
         <section class="why-us bg-light" aria-labelledby="why-us-title">
             <div class="container why-us-container">
                 <div class="why-us-image animate-on-scroll">
-                    <img src="laser_tech.png" alt="Advanced ophthalmic laser surgery machine used by specialists at Prism Healthcure" loading="lazy">
+                    <picture><source srcset="laser_tech.webp" type="image/webp"><img src="laser_tech.png" alt="Advanced ophthalmic laser surgery machine used by specialists at Prism Healthcure" loading="lazy" width="800" height="600" decoding="async"></picture>
                     <div class="experience-badge" aria-hidden="true">
                         <span class="years">15+</span><span class="text">Years of<br>Excellence</span>
                     </div>
@@ -312,9 +328,9 @@
 
     
     <!-- GSAP Animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
 
 
     <!-- Floating WhatsApp Widget -->
@@ -323,4 +339,7 @@
     </a>
 </body>
 </html>
+
+
+
 
