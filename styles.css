@@ -976,8 +976,7 @@ footer {
 /* =========================================
    ANIMATIONS
    ========================================= */
-.animate-on-scroll {
-    opacity: 0;
+.animate-on-scroll { opacity: 1;
     transform: translateY(40px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1229,7 +1228,7 @@ footer {
 .doctor-card:hover .doctor-image img { transform: scale(1.08); }
 
 /* GSAP-compatible: hidden via opacity only, GSAP reveals with autoAlpha:1 */
-.animate-on-scroll { opacity: 0; }
+.animate-on-scroll { opacity: 1; }
 
 /* Hide floating card on mobile to prevent overflow */
 @media (max-width: 991px) {
