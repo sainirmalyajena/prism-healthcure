@@ -1269,3 +1269,14 @@ footer {
         padding: 0 1rem;
     }
 }
+/* Official Logo Adjustments */
+.logo img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+@media (max-width: 768px) {
+    .logo img {
+        height: 35px;
+    }
+}
