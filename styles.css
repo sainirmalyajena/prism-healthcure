@@ -1257,3 +1257,15 @@ footer {
         padding-bottom: 70px;
     }
 }
+/* Hamburger overlap fix */
+@media (max-width: 400px) {
+    .logo {
+        font-size: 1.3rem;
+    }
+    .logo span {
+        display: inline-block;
+    }
+    .nav-container {
+        padding: 0 1rem;
+    }
+}
