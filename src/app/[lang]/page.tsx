@@ -30,6 +30,27 @@ export default async function PrismHomePage({ params }: PageProps) {
     { icon: Heart, title: d.treatments.pediatric.title, desc: d.treatments.pediatric.desc, slug: 'pediatric' },
   ];
 
+
+
+  const doctors = [
+    { name: 'Dr. Sameer Gupta', role: 'Senior Ophthalmic Surgeon', spec: 'Cataract & Refractive', exp: '18+ Yrs Exp', img: '/assets/doctor-senior.png', education: 'MBBS, MS (AIIMS)' },
+    { name: 'Dr. Anjali Verma', role: 'Retina Specialist', spec: 'Vitreoretinal Surgery', exp: '15+ Yrs Exp', img: '/assets/doctor-female.png', education: 'MS, DNB (Sankara Nethralaya)' },
+    { name: 'Dr. Vikram Seth', role: 'Glaucoma Consultant', spec: 'Cornea & Glaucoma', exp: '20+ Yrs Exp', img: '/assets/doctor-senior.png', education: 'MBBS, MD, FRCS (London)' }
+  ];
+
+  const testimonials = [
+    { name: 'Rajesh Kumar', location: 'Delhi', surgery: d.treatments.cataract.title, text: lang === 'hi' ? 'Prism Healthcure में पूरा अनुभव असाधारण था। डॉ मेहता ने सब कुछ स्पष्ट रूप से समझाया और सर्जरी पूरी तरह से दर्द रहित थी।' : 'The entire experience at Prism Healthcure was exceptional. Dr. Mehta explained everything clearly and the surgery was completely painless. I can see perfectly now!', rating: 5 },
+    { name: 'Sunita Devi', location: 'Noida', surgery: 'LASIK', text: lang === 'hi' ? '15 साल तक चश्मा पहनने के बाद, आखिरकार मैंने यहाँ लैसिक करवाया। प्रक्रिया में केवल 10 मिनट लगे। जीवन बदल गया!' : 'After 15 years of wearing glasses, I finally got LASIK done here. The procedure took only 10 minutes and I could see clearly the next morning. Life-changing!', rating: 5 },
+    { name: 'Amit Patel', location: 'Gurgaon', surgery: d.treatments.glaucoma.title, text: lang === 'hi' ? 'उनकी उन्नत स्क्रीनिंग की बदौलत मेरे ग्लूकोमा का जल्दी पता चल गया। उपचार योजना बहुत प्रभावी रही है।' : 'My glaucoma was detected early thanks to their advanced screening. The treatment plan has been very effective. Highly recommend their expertise.', rating: 5 },
+  ];
+
+  const faqs = [
+    { q: lang === 'hi' ? 'आप किस प्रकार के मोतियाबिंद लेंस प्रदान करते हैं?' : 'What types of cataract lenses do you offer?', a: lang === 'hi' ? 'हम मोनोफोकल, मल्टीफोकल, टोरिक और एक्सटेंडेड डेप्थ-ऑफ-फोकस लेंस सहित प्रीमियम आईओएल की एक पूरी श्रृंखला पेश करते हैं।' : 'We offer a full range of premium IOLs including monofocal, multifocal, toric, and extended depth-of-focus lenses. Our surgeons will recommend the best option based on your lifestyle and vision needs.' },
+    { q: lang === 'hi' ? 'क्या लैसिक सर्जरी दर्दनाक है?' : 'Is LASIK surgery painful?', a: lang === 'hi' ? 'नहीं। लैसिक वस्तुतः दर्द रहित है।' : 'No. LASIK is virtually painless. We use numbing eye drops before the procedure. Most patients feel only mild pressure during the 10-15 minute procedure.' },
+    { q: lang === 'hi' ? 'मोतियाबिंद की सर्जरी में कितना समय लगता है?' : 'How long does cataract surgery take?', a: lang === 'hi' ? 'वास्तविक सर्जरी में प्रति आँख केवल 15-20 मिनट लगते हैं।' : 'The actual surgery takes only 15-20 minutes per eye. You can go home the same day.' },
+    { q: lang === 'hi' ? 'क्या आप बीमा स्वीकार करते हैं?' : 'Do you accept insurance?', a: lang === 'hi' ? 'हाँ, हम सभी प्रमुख बीमा प्रदाताओं के साथ काम करते हैं।' : 'Yes, we work with all major insurance providers and offer cashless treatment at our facility.' },
+  ];
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'MedicalOrganization',
@@ -71,25 +92,6 @@ export default async function PrismHomePage({ params }: PageProps) {
       }
     }))
   };
-
-  const doctors = [
-    { name: 'Dr. Arjun Mehta', role: lang === 'hi' ? 'मुख्य नेत्र रोग विशेषज्ञ' : 'Chief Ophthalmologist', spec: d.treatments.cataract.title + ' & LASIK', exp: '18+ ' + (lang === 'hi' ? 'वर्ष' : 'Years'), img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=300' },
-    { name: 'Dr. Priya Sharma', role: lang === 'hi' ? 'रेटिना विशेषज्ञ' : 'Retina Specialist', spec: 'Retina & Vitreous', exp: '14+ ' + (lang === 'hi' ? 'वर्ष' : 'Years'), img: 'https://images.unsplash.com/photo-1594824476967-48c8b964ae17?auto=format&fit=crop&q=80&w=300&h=300' },
-    { name: 'Dr. Vikram Singh', role: lang === 'hi' ? 'ग्लूकोमा विशेषज्ञ' : 'Glaucoma Expert', spec: 'Glaucoma & Neuro', exp: '12+ ' + (lang === 'hi' ? 'वर्ष' : 'Years'), img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300' },
-  ];
-
-  const testimonials = [
-    { name: 'Rajesh Kumar', location: 'Delhi', surgery: d.treatments.cataract.title, text: lang === 'hi' ? 'Prism Healthcure में पूरा अनुभव असाधारण था। डॉ मेहता ने सब कुछ स्पष्ट रूप से समझाया और सर्जरी पूरी तरह से दर्द रहित थी।' : 'The entire experience at Prism Healthcure was exceptional. Dr. Mehta explained everything clearly and the surgery was completely painless. I can see perfectly now!', rating: 5 },
-    { name: 'Sunita Devi', location: 'Noida', surgery: 'LASIK', text: lang === 'hi' ? '15 साल तक चश्मा पहनने के बाद, आखिरकार मैंने यहाँ लैसिक करवाया। प्रक्रिया में केवल 10 मिनट लगे। जीवन बदल गया!' : 'After 15 years of wearing glasses, I finally got LASIK done here. The procedure took only 10 minutes and I could see clearly the next morning. Life-changing!', rating: 5 },
-    { name: 'Amit Patel', location: 'Gurgaon', surgery: d.treatments.glaucoma.title, text: lang === 'hi' ? 'उनकी उन्नत स्क्रीनिंग की बदौलत मेरे ग्लूकोमा का जल्दी पता चल गया। उपचार योजना बहुत प्रभावी रही है।' : 'My glaucoma was detected early thanks to their advanced screening. The treatment plan has been very effective. Highly recommend their expertise.', rating: 5 },
-  ];
-
-  const faqs = [
-    { q: lang === 'hi' ? 'आप किस प्रकार के मोतियाबिंद लेंस प्रदान करते हैं?' : 'What types of cataract lenses do you offer?', a: lang === 'hi' ? 'हम मोनोफोकल, मल्टीफोकल, टोरिक और एक्सटेंडेड डेप्थ-ऑफ-फोकस लेंस सहित प्रीमियम आईओएल की एक पूरी श्रृंखला पेश करते हैं।' : 'We offer a full range of premium IOLs including monofocal, multifocal, toric, and extended depth-of-focus lenses. Our surgeons will recommend the best option based on your lifestyle and vision needs.' },
-    { q: lang === 'hi' ? 'क्या लैसिक सर्जरी दर्दनाक है?' : 'Is LASIK surgery painful?', a: lang === 'hi' ? 'नहीं। लैसिक वस्तुतः दर्द रहित है।' : 'No. LASIK is virtually painless. We use numbing eye drops before the procedure. Most patients feel only mild pressure during the 10-15 minute procedure.' },
-    { q: lang === 'hi' ? 'मोतियाबिंद की सर्जरी में कितना समय लगता है?' : 'How long does cataract surgery take?', a: lang === 'hi' ? 'वास्तविक सर्जरी में प्रति आँख केवल 15-20 मिनट लगते हैं।' : 'The actual surgery takes only 15-20 minutes per eye. You can go home the same day.' },
-    { q: lang === 'hi' ? 'क्या आप बीमा स्वीकार करते हैं?' : 'Do you accept insurance?', a: lang === 'hi' ? 'हाँ, हम सभी प्रमुख बीमा प्रदाताओं के साथ काम करते हैं।' : 'Yes, we work with all major insurance providers and offer cashless treatment at our facility.' },
-  ];
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
@@ -263,11 +265,7 @@ export default async function PrismHomePage({ params }: PageProps) {
             <p className="text-slate-500 text-sm md:text-lg leading-relaxed">{d.specialists_desc}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
-            {[
-              { name: 'Dr. Sameer Gupta', role: 'Senior Ophthalmic Surgeon', spec: 'Cataract & Refractive', exp: '18+ Yrs Exp', img: '/assets/doctor-senior.png', education: 'MBBS, MS (AIIMS)' },
-              { name: 'Dr. Anjali Verma', role: 'Retina Specialist', spec: 'Vitreoretinal Surgery', exp: '15+ Yrs Exp', img: '/assets/doctor-female.png', education: 'MS, DNB (Sankara Nethralaya)' },
-              { name: 'Dr. Vikram Seth', role: 'Glaucoma Consultant', spec: 'Cornea & Glaucoma', exp: '20+ Yrs Exp', img: '/assets/doctor-senior.png', education: 'MBBS, MD, FRCS (London)' }
-            ].map((doc, i) => (
+            {doctors.map((doc, i) => (
               <div key={i} className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-teal-900/10 transition-all duration-500 hover:-translate-y-2">
                 <div className="aspect-[5/4] overflow-hidden bg-slate-100 relative">
                   <img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" />
