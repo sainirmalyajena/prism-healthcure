@@ -82,7 +82,7 @@ export default async function PrismHomePage({ params }: PageProps) {
             </div>
           </div>
           <div className="relative mt-4 lg:mt-0">
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Premium Ophthalmology Clinic" className="w-full h-full object-cover" loading="eager" /></div>
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5"><img src="/hero-clinic.png" alt="Prism Healthcure Premium Eye Care Clinic" className="w-full h-full object-cover" loading="eager" /></div>
             <div className="absolute -bottom-5 right-3 md:-bottom-6 md:right-6 bg-white p-4 md:p-5 rounded-2xl shadow-xl ring-1 ring-black/5 flex items-center gap-3" style={{ zIndex: 10 }}><div className="w-11 h-11 bg-teal-100 rounded-xl flex items-center justify-center text-teal-700"><Award className="w-6 h-6" /></div><div><h4 className="font-bold text-gray-900 text-sm">NABH Accredited</h4><p className="text-xs text-gray-400">Quality Certified</p></div></div>
           </div>
         </div>
