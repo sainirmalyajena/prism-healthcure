@@ -1,7 +1,7 @@
 import PrismHeader from './components/PrismHeader';
 import AppointmentForm from './components/AppointmentForm';
 import WhatsAppButton from './components/WhatsAppButton';
-import { Eye, Microscope, Droplets, Glasses, Target, Dna, CheckCircle2, ChevronDown, Star, MapPin, Phone, Mail, Clock, Shield, Award, Users, Heart, Calendar, Stethoscope, FileText, Building2, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Eye, Microscope, Droplets, Glasses, Target, Dna, CheckCircle2, ChevronDown, Star, MapPin, Phone, Mail, Clock, Shield, Award, Users, Heart, Calendar, Stethoscope, FileText, Building2, Instagram, Globe } from 'lucide-react';
 import Link from 'next/link';
 import { getDictionary } from '@/get-dictionary';
 import { Metadata } from 'next';
@@ -263,8 +263,8 @@ export default async function PrismHomePage({ params }: PageProps) {
               <p className="text-sm leading-relaxed mb-8 text-slate-400 max-w-xs">{d.premium_eye_care}</p>
               <div className="flex items-center gap-4">
                 <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
-                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
-                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
+                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Globe className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
+                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Globe className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
               </div>
             </div>
 
