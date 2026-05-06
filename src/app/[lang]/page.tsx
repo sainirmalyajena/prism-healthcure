@@ -1,7 +1,7 @@
 import PrismHeader from './components/PrismHeader';
 import AppointmentForm from './components/AppointmentForm';
 import WhatsAppButton from './components/WhatsAppButton';
-import { Eye, Microscope, Droplets, Glasses, Target, Dna, CheckCircle2, ChevronDown, Star, MapPin, Phone, Mail, Clock, Shield, Award, Users, Heart } from 'lucide-react';
+import { Eye, Microscope, Droplets, Glasses, Target, Dna, CheckCircle2, ChevronDown, Star, MapPin, Phone, Mail, Clock, Shield, Award, Users, Heart, Calendar, Stethoscope, FileText, Building2 } from 'lucide-react';
 import Link from 'next/link';
 import { getDictionary } from '@/get-dictionary';
 import { Metadata } from 'next';
@@ -113,6 +113,53 @@ export default async function PrismHomePage({ params }: PageProps) {
           </div>
         </div>
       </div>
+
+      {/* PARTNER HOSPITALS */}
+      <section className="py-12 border-b border-gray-100 bg-slate-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 text-center">
+          <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">{lang === 'hi' ? 'हमारे नेटवर्क में शामिल' : 'Empanelled With Top Hospitals'}</p>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+            {['ASG Eye Hospital', 'Centre for Sight', "Dr. Agarwal's", 'Eye-Q Vision', 'Vasan Eye Care'].map((h, i) => (
+              <div key={i} className="px-6 py-4 bg-white rounded-xl shadow-sm border border-gray-200 font-black text-slate-800 text-lg md:text-xl flex items-center justify-center min-w-[160px]">
+                {h}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-20 md:py-28 bg-white border-b border-gray-50">
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-teal-700 font-bold text-sm uppercase tracking-widest">{d.how_it_works.title}</span>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mt-3 mb-4">{d.how_it_works.subtitle}</h2>
+            <p className="text-gray-500 text-base md:text-lg">{d.how_it_works.desc}</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
+            <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-teal-100 via-teal-200 to-emerald-100 z-0"></div>
+            
+            {[
+              { icon: Calendar, step: d.how_it_works.steps[0] },
+              { icon: Stethoscope, step: d.how_it_works.steps[1] },
+              { icon: FileText, step: d.how_it_works.steps[2] },
+              { icon: Heart, step: d.how_it_works.steps[3] }
+            ].map((s, i) => (
+              <div key={i} className="relative z-10 flex flex-col items-center text-center group">
+                <div className="w-24 h-24 bg-white rounded-full shadow-[0_10px_30px_rgba(13,148,136,0.1)] border-4 border-teal-50 flex items-center justify-center text-teal-600 mb-6 group-hover:scale-110 group-hover:border-teal-100 group-hover:shadow-[0_15px_40px_rgba(13,148,136,0.2)] transition-all duration-300">
+                  <s.icon className="w-10 h-10" />
+                  <div className="absolute top-0 right-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-black text-sm border-4 border-white shadow-sm">
+                    {i + 1}
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{s.step.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed max-w-[200px] mx-auto">{s.step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* TREATMENTS */}
       <section id="treatments" className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
@@ -170,17 +217,20 @@ export default async function PrismHomePage({ params }: PageProps) {
             <div><h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{d.services}</h4><ul className="space-y-3 text-sm"><li>{d.treatments.cataract.title}</li><li>{d.treatments.lasik.title}</li><li>{d.treatments.retina.title}</li><li>{d.treatments.glaucoma.title}</li><li>{d.treatments.pediatric.title}</li></ul></div>
             <div><h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{d.contact}</h4><ul className="space-y-4 text-sm"><li className="flex items-center gap-3"><Phone className="w-4 h-4 text-teal-500 shrink-0" /><a href="tel:9076993279" className="hover:text-white transition-colors">90769-93279</a></li><li className="flex items-center gap-3"><Mail className="w-4 h-4 text-teal-500 shrink-0" /><a href="mailto:contact@prismhealthcure.com" className="hover:text-white transition-colors">contact@prismhealthcure.com</a></li><li className="flex items-center gap-3"><Clock className="w-4 h-4 text-teal-500 shrink-0" />Available 24/7</li></ul></div>
           </div>
+          <div className="pt-8 pb-8 border-t border-slate-800">
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">{d.footer_seo.title}</h4>
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-slate-500">
+              {d.footer_seo.cities.map((city: string, i: number) => (
+                <span key={i} className="hover:text-teal-400 transition-colors cursor-default">{city}</span>
+              ))}
+            </div>
+          </div>
           <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
             <p>&copy; {new Date().getFullYear()} Prism Healthcure. {d.all_rights}</p>
             <div className="flex gap-6"><Link href={`/${lang}/privacy`} className="hover:text-teal-400 transition-colors">Privacy Policy</Link><Link href={`/${lang}/terms`} className="hover:text-teal-400 transition-colors">Terms of Service</Link></div>
           </div>
         </div>
       </footer>
-      {/* MOBILE STICKY CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200 px-4 py-3 flex gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
-        <a href="tel:9076993279" className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-teal-700 bg-teal-50 border border-teal-100 text-sm active:scale-[0.97] transition-transform"><Phone className="w-4 h-4" /> {dictionary.sticky_cta.call}</a>
-        <Link href="#appointment" className="flex-1 py-3 rounded-xl font-bold text-white bg-teal-700 text-center text-sm shadow-lg shadow-teal-700/20 active:scale-[0.97] transition-transform">{dictionary.sticky_cta.book}</Link>
-      </div>
     </div>
   );
 }

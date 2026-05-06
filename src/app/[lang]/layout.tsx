@@ -44,6 +44,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
+import MobileStickyBar from "./components/MobileStickyBar";
+
 export default async function RootLayout({
   children,
   params,
@@ -61,8 +63,9 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col overflow-x-hidden font-sans antialiased text-slate-900 selection:bg-teal-900 selection:text-white">
+      <body className="min-h-screen flex flex-col overflow-x-hidden font-sans antialiased text-slate-900 selection:bg-teal-900 selection:text-white pb-16 md:pb-0">
         <main className="flex-1">{children}</main>
+        <MobileStickyBar dict={dictionary.prism_page.sticky_bar} />
       </body>
     </html>
   );

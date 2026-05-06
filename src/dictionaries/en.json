@@ -64,6 +64,25 @@
         "quick_links": "Quick Links",
         "services": "Surgeries We Cover",
         "contact": "Contact Support",
-        "all_rights": "All rights reserved."
+        "all_rights": "All rights reserved.",
+        "how_it_works": {
+            "title": "How It Works",
+            "subtitle": "Your Journey to Clear Vision",
+            "desc": "A simple, hassle-free process to get the best eye care.",
+            "steps": [
+                { "title": "Book Free Consult", "desc": "Quick appointment setup" },
+                { "title": "Expert Diagnosis", "desc": "Checkup at partner hospitals" },
+                { "title": "Cashless Approval", "desc": "We handle all insurance paperwork" },
+                { "title": "Surgery & Care", "desc": "Dedicated 24/7 care coordinator" }
+            ]
+        },
+        "sticky_bar": {
+            "call_now": "Call Now",
+            "whatsapp": "WhatsApp"
+        },
+        "footer_seo": {
+            "title": "Areas We Serve",
+            "cities": ["Delhi / NCR", "Mumbai", "Bangalore", "Hyderabad", "Chennai", "Kolkata", "Pune", "Ahmedabad", "Jaipur", "Lucknow", "Indore", "Chandigarh"]
+        }
     }
 }
