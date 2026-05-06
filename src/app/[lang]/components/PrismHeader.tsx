@@ -19,7 +19,22 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    // Intersection Observer for Scroll Reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -52,14 +67,14 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
         <Link href={`/${lang}`} className="flex flex-col group transition-all" onClick={() => setIsOpen(false)}>
           <span className={cn(
-            "text-xl md:text-2xl font-black font-outfit tracking-tighter leading-none transition-colors",
-            scrolled ? "bg-gradient-to-br from-teal-700 via-teal-900 to-slate-900 bg-clip-text text-transparent" : "text-white"
+            "text-xl md:text-2xl font-black font-outfit tracking-tighter leading-none transition-all duration-300",
+            scrolled ? "text-gradient-teal" : "text-white group-hover:text-teal-300"
           )}>
             PRISM
           </span>
           <span className={cn(
             "text-[10px] md:text-[11px] uppercase tracking-[0.4em] block font-black ml-0.5 mt-0.5 transition-colors",
-            scrolled ? "text-teal-600/70" : "text-teal-400"
+            scrolled ? "text-teal-600/80" : "text-teal-400 group-hover:text-white"
           )}>
             Healthcure
           </span>

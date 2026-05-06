@@ -99,7 +99,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <PrismHeader lang={lang} dict={dictionary.navigation} />
       <WhatsAppButton />
-      <section id="hero" className="relative pt-24 md:pt-28 pb-12 md:pb-16 min-h-screen flex flex-col justify-center overflow-hidden bg-[#020617]">
+      <section id="hero" className="relative pt-24 md:pt-28 pb-12 md:pb-16 min-h-screen flex flex-col justify-center overflow-hidden bg-[#020617] animate-fade-in">
         {/* Animated Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-teal-500/20 rounded-full blur-[120px] animate-float-slow" />
@@ -234,7 +234,7 @@ export default async function PrismHomePage({ params }: PageProps) {
         </div>
       </section>
       {/* TREATMENTS */}
-      <section id="treatments" className="py-16 md:py-28 bg-white scroll-mt-24">
+      <section id="treatments" className="py-16 md:py-28 bg-white scroll-mt-24 reveal">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-teal-700 font-bold text-xs md:text-sm uppercase tracking-widest">{d.specialties_title}</span>
@@ -257,7 +257,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       </section>
 
       {/* DOCTORS */}
-      <section id="doctors" className="py-16 md:py-28 bg-slate-50 scroll-mt-24">
+      <section id="doctors" className="py-16 md:py-28 bg-slate-50 scroll-mt-24 reveal">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-teal-700 font-bold text-xs md:text-sm uppercase tracking-widest">{d.expert_team}</span>
@@ -290,7 +290,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-16 md:py-28 bg-white">
+      <section className="py-16 md:py-28 bg-white reveal">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 order-2 lg:order-1">
             <img src="/assets/clinic-interior.png" alt="Advanced Eye Surgery Center" className="w-full h-[300px] md:h-[500px] object-cover" loading="lazy" />
@@ -319,7 +319,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" className="py-16 md:py-28 bg-slate-50 scroll-mt-24">
+      <section id="testimonials" className="py-16 md:py-28 bg-slate-50 scroll-mt-24 reveal">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-teal-700 font-bold text-xs md:text-sm uppercase tracking-widest">{d.patient_stories}</span>
@@ -350,7 +350,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-16 md:py-28 bg-white scroll-mt-24">
+      <section id="faq" className="py-16 md:py-28 bg-white scroll-mt-24 reveal">
         <div className="max-w-3xl mx-auto px-5 md:px-8">
           <div className="text-center mb-12">
             <span className="text-teal-700 font-bold text-xs md:text-sm uppercase tracking-widest">{d.have_questions}</span>
@@ -373,7 +373,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       </section>
 
       {/* APPOINTMENT */}
-      <section id="appointment" className="py-16 md:py-24 bg-slate-50 scroll-mt-24">
+      <section id="appointment" className="py-16 md:py-24 bg-slate-50 scroll-mt-24 reveal">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="bg-gradient-to-br from-teal-700 to-teal-800 rounded-3xl p-6 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center shadow-2xl shadow-teal-900/20">
             <div>
