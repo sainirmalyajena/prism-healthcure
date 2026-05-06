@@ -21,10 +21,8 @@ export default function WhatsAppButton() {
               <MessageCircle className="w-5 h-5 text-green-600" />
             </div>
           </div>
-          <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
         </div>
         <div className="flex flex-col">
-          <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest leading-none mb-0.5">Active Now</span>
           <span className="text-[13px] font-extrabold text-slate-800 leading-none">Chat with Expert</span>
         </div>
         <div className="ml-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/20">
