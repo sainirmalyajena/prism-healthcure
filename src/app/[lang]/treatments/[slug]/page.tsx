@@ -5,6 +5,7 @@ import { Clock, Shield, Heart, ChevronDown, CheckCircle2, Phone, AlertTriangle, 
 import PrismHeader from '../../components/PrismHeader';
 import { getDictionary } from '@/get-dictionary';
 import { notFound } from 'next/navigation';
+import AppointmentForm from '../../components/AppointmentForm';
 
 interface Props { params: Promise<{ lang: string; slug: string }>; }
 
