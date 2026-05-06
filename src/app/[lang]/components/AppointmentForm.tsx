@@ -53,7 +53,7 @@ export default function AppointmentForm() {
         <div className="w-20 h-20 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
           <CheckCircle2 className="w-10 h-10" />
         </div>
-        <h3 className="text-2xl font-black text-slate-900 mb-3">Request Received!</h3>
+        <h3 className="text-2xl font-extrabold text-slate-900 mb-3">Request Received!</h3>
         <p className="text-slate-600 mb-8 leading-relaxed">Our senior care coordinator will contact you within 15 minutes to confirm your slot.</p>
         <button 
           onClick={() => setSuccess(false)}
@@ -155,7 +155,7 @@ export default function AppointmentForm() {
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className="w-full bg-teal-700 hover:bg-teal-800 text-white font-black py-5 px-6 rounded-2xl transition-all shadow-xl shadow-teal-700/20 active:scale-[0.98] disabled:opacity-70 flex justify-center items-center gap-3 mt-2"
+          className="w-full bg-teal-600 hover:bg-teal-700 text-white font-extrabold py-5 px-6 rounded-2xl transition-all shadow-xl shadow-teal-600/20 active:scale-[0.98] disabled:opacity-70 flex justify-center items-center gap-3 mt-2"
         >
           {isSubmitting ? (
             <>

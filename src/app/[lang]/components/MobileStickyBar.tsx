@@ -11,19 +11,19 @@ export default function MobileStickyBar({ dict }: MobileStickyBarProps) {
     <div className="md:hidden fixed bottom-0 left-0 w-full z-[90] bg-white border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] pb-safe flex">
       <a 
         href="tel:9076993279" 
-        className="flex-1 flex flex-col items-center justify-center py-3 border-r border-gray-200 text-teal-800 hover:bg-teal-50 transition-colors"
+        className="flex-1 flex flex-col items-center justify-center py-3.5 border-r border-gray-100 text-teal-700 hover:bg-teal-50 transition-colors"
       >
         <Phone className="w-5 h-5 mb-1" />
-        <span className="text-[11px] font-bold uppercase tracking-wider">{dict.call_now}</span>
+        <span className="text-[13px] font-bold tracking-tight">{dict.call_now}</span>
       </a>
       <a 
         href="https://wa.me/919076993279?text=Hello,%20I%20need%20assistance%20with%20eye%20surgery" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="flex-1 flex flex-col items-center justify-center py-3 text-emerald-600 hover:bg-emerald-50 transition-colors"
+        className="flex-1 flex flex-col items-center justify-center py-3.5 text-emerald-600 hover:bg-emerald-50 transition-colors"
       >
         <MessageCircle className="w-5 h-5 mb-1" />
-        <span className="text-[11px] font-bold uppercase tracking-wider">{dict.whatsapp}</span>
+        <span className="text-[13px] font-bold tracking-tight">{dict.whatsapp}</span>
       </a>
     </div>
   );

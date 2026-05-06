@@ -118,9 +118,9 @@ export default async function PrismHomePage({ params }: PageProps) {
       <section className="py-12 border-b border-gray-100 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-8 text-center">
           <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">{lang === 'hi' ? 'हमारे नेटवर्क में शामिल' : 'Empanelled With Top Hospitals'}</p>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             {['ASG Eye Hospital', 'Centre for Sight', "Dr. Agarwal's", 'Eye-Q Vision', 'Vasan Eye Care'].map((h, i) => (
-              <div key={i} className="px-6 py-4 bg-white rounded-xl shadow-sm border border-gray-200 font-black text-slate-800 text-lg md:text-xl flex items-center justify-center min-w-[160px]">
+              <div key={i} className="px-5 py-3 bg-white rounded-xl shadow-sm border border-gray-100 font-bold text-slate-700 text-base md:text-lg flex items-center justify-center min-w-[140px]">
                 {h}
               </div>
             ))}
@@ -132,9 +132,9 @@ export default async function PrismHomePage({ params }: PageProps) {
       <section className="py-20 md:py-28 bg-white border-b border-gray-50">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-teal-700 font-bold text-sm uppercase tracking-widest">{d.how_it_works.title}</span>
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mt-3 mb-4">{d.how_it_works.subtitle}</h2>
-            <p className="text-gray-500 text-base md:text-lg">{d.how_it_works.desc}</p>
+            <span className="text-teal-600 font-bold text-sm uppercase tracking-widest">{d.how_it_works.title}</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3 mb-4">{d.how_it_works.subtitle}</h2>
+            <p className="text-slate-500 text-base md:text-lg">{d.how_it_works.desc}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
@@ -147,14 +147,14 @@ export default async function PrismHomePage({ params }: PageProps) {
               { icon: Heart, step: d.how_it_works.steps[3] }
             ].map((s, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center text-center group">
-                <div className="w-24 h-24 bg-white rounded-full shadow-[0_10px_30px_rgba(13,148,136,0.1)] border-4 border-teal-50 flex items-center justify-center text-teal-600 mb-6 group-hover:scale-110 group-hover:border-teal-100 group-hover:shadow-[0_15px_40px_rgba(13,148,136,0.2)] transition-all duration-300">
-                  <s.icon className="w-10 h-10" />
-                  <div className="absolute top-0 right-0 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-black text-sm border-4 border-white shadow-sm">
+                <div className="w-20 h-20 bg-white rounded-full shadow-[0_8px_25px_rgba(13,148,136,0.08)] border-2 border-teal-50 flex items-center justify-center text-teal-600 mb-6 group-hover:scale-105 group-hover:border-teal-100 group-hover:shadow-[0_12px_35px_rgba(13,148,136,0.15)] transition-all duration-300">
+                  <s.icon className="w-9 h-9" />
+                  <div className="absolute top-0 right-0 w-7 h-7 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-xs border-2 border-white shadow-sm">
                     {i + 1}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{s.step.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed max-w-[200px] mx-auto">{s.step.desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{s.step.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed max-w-[200px] mx-auto">{s.step.desc}</p>
               </div>
             ))}
           </div>
