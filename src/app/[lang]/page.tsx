@@ -63,8 +63,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PrismHeader lang={lang} dict={dictionary.navigation} />
       <WhatsAppButton />
-      {/* HERO SECTION */}
-      <section id="hero" className="relative pt-32 md:pt-48 pb-20 md:pb-32 min-h-[90vh] md:min-h-screen flex flex-col justify-center overflow-hidden bg-[#020617]">
+      <section id="hero" className="relative pt-24 md:pt-28 pb-12 md:pb-16 min-h-screen flex flex-col justify-center overflow-hidden bg-[#020617]">
         {/* Animated Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-teal-500/20 rounded-full blur-[120px] animate-float-slow" />
@@ -76,57 +75,57 @@ export default async function PrismHomePage({ params }: PageProps) {
           <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] mask-image:linear-gradient(to_bottom,transparent,black,transparent)"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center relative z-10 w-full flex-1">
-          <div className="lg:col-span-7 space-y-8 animate-reveal">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10 w-full flex-1">
+          <div className="lg:col-span-7 space-y-6 animate-reveal">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 shadow-xl">
-                <span className="flex h-2 w-2 rounded-full bg-teal-400 animate-pulse"></span>
-                <span className="text-xs font-bold text-teal-300 uppercase tracking-[0.2em]">{d.header_title}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 shadow-xl">
+                <span className="flex h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+                <span className="text-[10px] font-bold text-teal-300 uppercase tracking-[0.2em]">{d.header_title}</span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05] tracking-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
                 Your Trusted <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-400">Partner for</span> <br/>
+                <span className="text-gradient-indigo">Partner for</span> <br/>
                 <span className="relative inline-block">
                   Cashless
-                  <svg className="absolute -bottom-2 left-0 w-full h-3 text-teal-500/40 -z-10" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0,10 Q50,0 100,10" stroke="currentColor" strokeWidth="8" fill="none" /></svg>
+                  <svg className="absolute -bottom-1 left-0 w-full h-2 text-teal-500/40 -z-10" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0,10 Q50,0 100,10" stroke="currentColor" strokeWidth="8" fill="none" /></svg>
                 </span> Eye Surgery
               </h1>
             </div>
 
-            <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-xl font-medium">
-              We facilitate high-quality eye care at India&apos;s leading hospital chains with <span className="text-white font-bold underline decoration-teal-500/50 decoration-4 underline-offset-4">100% Cashless Support</span>.
+            <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl font-medium">
+              We facilitate high-quality eye care at India&apos;s leading hospital chains with <span className="text-white font-bold underline decoration-teal-500/50 decoration-2 underline-offset-4">100% Cashless Support</span>.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               {d.hero_points.map((point: string, i: number) => (
-                <div key={i} className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all group">
-                  <div className="w-8 h-8 rounded-lg bg-teal-500/20 flex items-center justify-center text-teal-400 group-hover:bg-teal-500 group-hover:text-white transition-all">
-                    <CheckCircle2 className="w-5 h-5" />
+                <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all group">
+                  <div className="w-7 h-7 rounded-lg bg-teal-500/20 flex items-center justify-center text-teal-400 group-hover:bg-teal-500 group-hover:text-white transition-all">
+                    <CheckCircle2 className="w-4 h-4" />
                   </div>
-                  <span className="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">{point}</span>
+                  <span className="text-[13px] font-semibold text-slate-300 group-hover:text-white transition-colors">{point}</span>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-6 pt-4 border-t border-white/10">
-              <div className="flex -space-x-3">
+              <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="w-12 h-12 rounded-full border-2 border-[#020617] bg-slate-800 overflow-hidden ring-4 ring-teal-500/10">
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-[#020617] bg-slate-800 overflow-hidden ring-2 ring-teal-500/10">
                     <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="Patient" className="w-full h-full object-cover" />
                   </div>
                 ))}
-                <div className="w-12 h-12 rounded-full border-2 border-[#020617] bg-teal-600 flex items-center justify-center text-white text-xs font-bold ring-4 ring-teal-500/10">
+                <div className="w-10 h-10 rounded-full border-2 border-[#020617] bg-teal-600 flex items-center justify-center text-white text-[10px] font-bold ring-2 ring-teal-500/10">
                   25k+
                 </div>
               </div>
-              <p className="text-slate-400 text-sm font-medium">
+              <p className="text-slate-400 text-[13px] font-medium leading-tight">
                 <span className="text-white font-bold">Trusted by 25,000+</span> patients across <br className="hidden sm:block"/> 15+ major cities in India.
               </p>
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative w-full max-w-[480px] mx-auto lg:ml-auto animate-reveal" style={{ animationDelay: '0.2s' }}>
+          <div className="lg:col-span-5 relative w-full max-w-[420px] mx-auto lg:ml-auto animate-reveal" style={{ animationDelay: '0.2s' }}>
             {/* Form Glow Effect */}
             <div className="absolute inset-0 bg-teal-500/20 blur-[60px] rounded-full scale-90 pointer-events-none"></div>
             <AppointmentForm />
@@ -134,9 +133,9 @@ export default async function PrismHomePage({ params }: PageProps) {
         </div>
 
         {/* Floating Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-slate-500">
-          <span className="text-[10px] font-bold uppercase tracking-widest opacity-50">Scroll to Explore</span>
-          <div className="w-px h-12 bg-gradient-to-b from-teal-500 to-transparent"></div>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-slate-500">
+          <span className="text-[9px] font-bold uppercase tracking-widest opacity-50">Scroll to Explore</span>
+          <div className="w-px h-8 bg-gradient-to-b from-teal-500 to-transparent"></div>
         </div>
       </section>
 

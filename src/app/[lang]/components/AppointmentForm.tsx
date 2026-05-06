@@ -56,78 +56,78 @@ export default function AppointmentForm() {
       </div>
 
       <div className={cn(
-        "w-full glass-card p-8 md:p-10 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-white/50 relative z-10 transition-all duration-500 hover:shadow-[0_30px_80px_rgba(0,0,0,0.15)]",
-        success ? "min-h-[450px] flex flex-col items-center justify-center text-center" : ""
+        "w-full glass-card p-6 md:p-7 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-white/50 relative z-10 transition-all duration-500 hover:shadow-[0_30px_80px_rgba(0,0,0,0.15)]",
+        success ? "min-h-[400px] flex flex-col items-center justify-center text-center" : ""
       )}>
         {success ? (
           <div className="animate-reveal">
-            <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner border border-emerald-100">
-              <CheckCircle2 className="w-10 h-10" />
+            <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner border border-emerald-100">
+              <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-extrabold text-slate-900 mb-3">Request Received!</h3>
-            <p className="text-slate-600 mb-8 leading-relaxed max-w-xs mx-auto">Our senior care coordinator will contact you within 15 minutes to confirm your slot.</p>
+            <h3 className="text-xl font-extrabold text-slate-900 mb-2">Request Received!</h3>
+            <p className="text-slate-500 text-sm mb-6 leading-relaxed max-w-xs mx-auto">Our coordinator will contact you within 15 mins.</p>
             <button 
               onClick={() => setSuccess(false)}
-              className="text-teal-600 font-bold hover:text-teal-700 transition-colors flex items-center gap-2 mx-auto"
+              className="text-teal-600 text-sm font-bold hover:text-teal-700 transition-colors flex items-center gap-2 mx-auto"
             >
-              Book another consultation <ChevronRight className="w-4 h-4" />
+              Book another slot <ChevronRight className="w-4 h-4" />
             </button>
           </div>
         ) : (
           <>
-            <div className="mb-8">
-              <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">Book Your Slot</h3>
-              <p className="text-slate-500 font-medium">Get a free consultation at our partner hospital today.</p>
+            <div className="mb-6">
+              <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 mb-1">Book Your Slot</h3>
+              <p className="text-slate-500 text-sm font-medium">Free consultation at our partner hospital.</p>
             </div>
             
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
               {error && (
-                <div className="bg-red-50/80 backdrop-blur-sm text-red-600 p-4 rounded-2xl text-sm flex items-start gap-3 border border-red-100">
-                  <AlertCircle className="w-5 h-5 shrink-0" />
+                <div className="bg-red-50/80 backdrop-blur-sm text-red-600 p-3 rounded-xl text-xs flex items-start gap-2 border border-red-100">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
                   <p>{error}</p>
                 </div>
               )}
 
               <div className="space-y-1">
                 <div className="relative">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     {...register('name')}
                     placeholder="Full Name"
-                    className="w-full pl-12 pr-5 py-4 bg-white/60 border border-slate-200/60 rounded-2xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 font-medium"
+                    className="w-full pl-10 pr-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 text-sm font-medium"
                   />
                 </div>
-                {errors.name && <p className="text-[11px] text-red-500 font-semibold ml-2">{errors.name.message}</p>}
+                {errors.name && <p className="text-[10px] text-red-500 font-semibold ml-2">{errors.name.message}</p>}
               </div>
 
               <div className="space-y-1">
                 <div className="relative">
-                  <PhoneIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                  <PhoneIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     {...register('mobile')}
                     placeholder="Mobile Number"
-                    className="w-full pl-12 pr-5 py-4 bg-white/60 border border-slate-200/60 rounded-2xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 font-medium"
+                    className="w-full pl-10 pr-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 text-sm font-medium"
                   />
                 </div>
-                {errors.mobile && <p className="text-[11px] text-red-500 font-semibold ml-2">{errors.mobile.message}</p>}
+                {errors.mobile && <p className="text-[10px] text-red-500 font-semibold ml-2">{errors.mobile.message}</p>}
               </div>
 
               <div className="space-y-1">
                 <div className="relative">
-                  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     {...register('city')}
                     placeholder="City / Pincode"
-                    className="w-full pl-12 pr-5 py-4 bg-white/60 border border-slate-200/60 rounded-2xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 font-medium"
+                    className="w-full pl-10 pr-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 text-sm font-medium"
                   />
                 </div>
-                {errors.city && <p className="text-[11px] text-red-500 font-semibold ml-2">{errors.city.message}</p>}
+                {errors.city && <p className="text-[10px] text-red-500 font-semibold ml-2">{errors.city.message}</p>}
               </div>
 
               <div className="space-y-1">
                 <select
                   {...register('service')}
-                  className="w-full px-5 py-4 bg-white/60 border border-slate-200/60 rounded-2xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 appearance-none font-medium cursor-pointer"
+                  className="w-full px-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 appearance-none text-sm font-medium cursor-pointer"
                 >
                   <option value="cataract">Cataract Surgery</option>
                   <option value="lasik">LASIK / Vision Correction</option>
@@ -140,21 +140,21 @@ export default function AppointmentForm() {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-extrabold py-5 px-6 rounded-2xl transition-all shadow-[0_15px_30px_rgba(13,148,136,0.3)] active:scale-[0.98] disabled:opacity-70 flex justify-center items-center gap-3 mt-4 group"
+                className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-extrabold py-4 px-6 rounded-xl transition-all shadow-[0_12px_24px_rgba(13,148,136,0.3)] active:scale-[0.98] disabled:opacity-70 flex justify-center items-center gap-2 mt-2 group"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    <span>Processing...</span>
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span className="text-sm">Processing...</span>
                   </>
                 ) : (
                   <>
-                    <span>Request Appointment</span>
-                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <span className="text-sm">Request Appointment</span>
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </button>
-              <p className="text-center text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-tight">By clicking, you agree to our Terms & Conditions</p>
+              <p className="text-center text-[9px] text-slate-400 mt-2 font-bold uppercase tracking-tight">Terms & Conditions Apply</p>
             </form>
           </>
         )}
