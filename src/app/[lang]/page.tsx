@@ -64,29 +64,55 @@ export default async function PrismHomePage({ params }: PageProps) {
       <PrismHeader lang={lang} dict={dictionary.navigation} />
       <WhatsAppButton />
       {/* HERO */}
-      <section id="hero" className="relative pt-24 md:pt-28 pb-20 md:pb-28 bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 min-h-[90vh] md:min-h-screen flex items-center overflow-hidden">
+      <section id="hero" className="relative pt-24 md:pt-32 pb-12 md:pb-20 bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 min-h-[90vh] md:min-h-screen flex flex-col justify-center overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-          <div className="space-y-6 md:space-y-8">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10 w-full flex-1">
+          <div className="lg:col-span-7 space-y-6 md:space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-100/80 text-teal-800 rounded-full text-xs md:text-sm font-bold tracking-wide backdrop-blur-sm"><Shield className="w-4 h-4" /> {d.header_title}</div>
             <h1 className="text-[2.5rem] md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.15] tracking-tight">
               {d.hero_title}
             </h1>
-            <p className="text-base md:text-lg text-gray-500 max-w-lg leading-relaxed">{d.hero_subtitle}</p>
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <Link href="#appointment" className="bg-teal-700 text-white px-8 py-4 rounded-full font-bold text-base hover:bg-teal-800 transition-all shadow-lg shadow-teal-700/20 hover:-translate-y-0.5 text-center">{d.book_btn}</Link>
-              <a href="tel:9076993279" className="border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-full font-bold text-base hover:border-teal-200 hover:bg-teal-50 transition-all text-center flex items-center justify-center gap-2"><Phone className="w-4 h-4" /> {d.call_btn}</a>
-            </div>
-            <div className="grid grid-cols-3 gap-4 md:gap-8 pt-6 border-t border-gray-100 mt-6">
-              {[{ val: '25,000+', label: d.stats.patients },{ val: '99.2%', label: d.stats.success },{ val: '15+', label: d.stats.exp }].map((s, i) => (<div key={i}><span className="block text-2xl md:text-3xl font-black text-gray-900">{s.val}</span><span className="text-[10px] md:text-xs font-semibold text-gray-400 uppercase tracking-wider">{s.label}</span></div>))}
+            
+            <ul className="space-y-4 pt-2">
+              {d.hero_points.map((point: string, i: number) => (
+                <li key={i} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-teal-600 shrink-0 mt-0.5" />
+                  <span className="text-lg md:text-xl text-gray-700 font-medium">{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a href="tel:9076993279" className="border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-full font-bold text-base hover:border-teal-200 hover:bg-teal-50 transition-all text-center flex items-center justify-center gap-2"><Phone className="w-5 h-5" /> {d.call_btn}: 90769-93279</a>
             </div>
           </div>
-          <div className="relative mt-4 lg:mt-0">
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5"><img src="/hero-clinic.png" alt="Prism Healthcure Premium Eye Care Clinic" className="w-full h-full object-cover" loading="eager" /></div>
-            <div className="absolute -bottom-5 right-3 md:-bottom-6 md:right-6 bg-white p-4 md:p-5 rounded-2xl shadow-xl ring-1 ring-black/5 flex items-center gap-3" style={{ zIndex: 10 }}><div className="w-11 h-11 bg-teal-100 rounded-xl flex items-center justify-center text-teal-700"><Shield className="w-6 h-6" /></div><div><h4 className="font-bold text-gray-900 text-sm">100% Cashless</h4><p className="text-xs text-gray-400">Insurance Support</p></div></div>
+          
+          <div className="lg:col-span-5 relative mt-4 lg:mt-0 w-full max-w-md mx-auto lg:max-w-full">
+            <div className="absolute inset-0 bg-gradient-to-tr from-teal-200 to-emerald-100 blur-3xl opacity-40 rounded-full transform scale-110 -z-10" />
+            <AppointmentForm />
           </div>
         </div>
       </section>
+
+      {/* TRUST BAR */}
+      <div className="border-y border-gray-100 bg-white relative z-20">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+            <div className="flex items-center justify-center gap-4 pt-4 md:pt-0">
+              <div className="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-700 shrink-0"><Users className="w-6 h-6" /></div>
+              <p className="font-bold text-gray-700 text-sm md:text-base leading-tight max-w-[160px]">{d.trust_bar.patients}</p>
+            </div>
+            <div className="flex items-center justify-center gap-4 pt-8 md:pt-0">
+              <div className="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-700 shrink-0"><Shield className="w-6 h-6" /></div>
+              <p className="font-bold text-gray-700 text-sm md:text-base leading-tight max-w-[160px]">{d.trust_bar.hospital}</p>
+            </div>
+            <div className="flex items-center justify-center gap-4 pt-8 md:pt-0">
+              <div className="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-700 shrink-0"><Award className="w-6 h-6" /></div>
+              <p className="font-bold text-gray-700 text-sm md:text-base leading-tight max-w-[160px]">{d.trust_bar.insurance}</p>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* TREATMENTS */}
       <section id="treatments" className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-8">

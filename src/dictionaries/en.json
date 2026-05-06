@@ -11,6 +11,17 @@
         "header_title": "100% Cashless Medical Assistance",
         "hero_title": "Your Trusted Partner for Cashless Eye Surgery",
         "hero_subtitle": "We help you get the best treatment at top empanelled hospitals like ASG Eye Hospital. Enjoy a free first consultation and hassle-free cashless insurance approval.",
+        "hero_points": [
+            "100% Cashless Insurance Approval",
+            "Top Empanelled Hospitals (ASG & More)",
+            "Free First Expert Consultation",
+            "Dedicated 24/7 Care Coordinator"
+        ],
+        "trust_bar": {
+            "patients": "Trusted by 25,000+ Patients",
+            "hospital": "Empanelled with ASG Eye Hospital",
+            "insurance": "Cashless with 20+ Insurers"
+        },
         "book_btn": "Book Free Consultation",
         "call_btn": "Call for Assistance",
         "stats": {
