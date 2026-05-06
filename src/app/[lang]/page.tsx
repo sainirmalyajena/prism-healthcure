@@ -1,7 +1,7 @@
 import PrismHeader from './components/PrismHeader';
 import AppointmentForm from './components/AppointmentForm';
 import WhatsAppButton from './components/WhatsAppButton';
-import { Eye, Microscope, Droplets, Glasses, Target, Dna, CheckCircle2, ChevronDown, Star, MapPin, Phone, Mail, Clock, Shield, Award, Users, Heart, Calendar, Stethoscope, FileText, Building2 } from 'lucide-react';
+import { Eye, Microscope, Droplets, Glasses, Target, Dna, CheckCircle2, ChevronDown, Star, MapPin, Phone, Mail, Clock, Shield, Award, Users, Heart, Calendar, Stethoscope, FileText, Building2, Instagram, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
 import { getDictionary } from '@/get-dictionary';
 import { Metadata } from 'next';
@@ -217,62 +217,126 @@ export default async function PrismHomePage({ params }: PageProps) {
       {/* DOCTORS */}
       <section id="doctors" className="py-20 md:py-28 bg-slate-50">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14"><span className="text-teal-700 font-bold text-sm uppercase tracking-widest">{d.expert_team}</span><h2 className="text-3xl md:text-5xl font-black text-gray-900 mt-3 mb-4">{d.meet_specialists}</h2><p className="text-gray-500 text-base md:text-lg">{d.specialists_desc}</p></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {doctors.map((doc, i) => (<div key={i} className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-teal-50 transition-all duration-300 hover:-translate-y-1"><div className="aspect-[4/3] overflow-hidden bg-gradient-to-br from-teal-100 to-teal-50"><img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div><div className="p-6"><h3 className="text-xl font-bold text-gray-900">{doc.name}</h3><p className="text-teal-700 font-semibold text-sm mt-1">{doc.role}</p><div className="flex items-center gap-3 mt-4 pt-4 border-t border-gray-50"><span className="text-xs font-semibold text-gray-400 bg-gray-50 px-3 py-1.5 rounded-full">{doc.spec}</span><span className="text-xs font-semibold text-teal-700 bg-teal-50 px-3 py-1.5 rounded-full">{doc.exp}</span></div></div></div>))}
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-teal-700 font-bold text-sm uppercase tracking-widest">{d.expert_team}</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3 mb-4">{d.meet_specialists}</h2>
+            <p className="text-slate-500 text-base md:text-lg">{d.specialists_desc}</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+            {[
+              { name: 'Dr. Sameer Gupta', role: 'Senior Ophthalmic Surgeon', spec: 'Cataract & Refractive', exp: '18+ Yrs Exp', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400', education: 'MBBS, MS (AIIMS)' },
+              { name: 'Dr. Anjali Verma', role: 'Retina Specialist', spec: 'Vitreoretinal Surgery', exp: '15+ Yrs Exp', img: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400', education: 'MS, DNB (Sankara Nethralaya)' },
+              { name: 'Dr. Vikram Seth', role: 'Glaucoma Consultant', spec: 'Cornea & Glaucoma', exp: '20+ Yrs Exp', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400', education: 'MBBS, MD, FRCS (London)' }
+            ].map((doc, i) => (
+              <div key={i} className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-teal-900/10 transition-all duration-500 hover:-translate-y-2">
+                <div className="aspect-[5/4] overflow-hidden bg-slate-100 relative">
+                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                  <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold text-teal-700 uppercase tracking-wider shadow-sm">
+                    {doc.exp}
+                  </div>
+                </div>
+                <div className="p-7">
+                  <p className="text-[10px] font-bold text-teal-600 uppercase tracking-[0.2em] mb-1">{doc.role}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-1">{doc.name}</h3>
+                  <p className="text-slate-400 text-xs font-medium mb-4">{doc.education}</p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200/50">
+                      {doc.spec}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-      {/* WHY CHOOSE US */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 order-2 lg:order-1"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&q=80&w=800" alt="Advanced Eye Surgery" className="w-full h-[350px] md:h-[500px] object-cover" loading="lazy" /><div className="absolute bottom-5 left-5 md:bottom-8 md:left-8 bg-teal-700 text-white p-5 rounded-2xl shadow-xl flex items-center gap-4"><span className="text-4xl font-black">24/7</span><span className="text-sm font-medium text-teal-100 leading-tight">{lang === 'hi' ? <>समर्पित<br/>सहायता</> : <>Dedicated<br/>Assistance</>}</span></div></div>
-          <div className="order-1 lg:order-2"><span className="text-teal-700 font-bold text-sm uppercase tracking-widest">{d.why_prism}</span><h2 className="text-3xl md:text-5xl font-black text-gray-900 mt-3 mb-6">{d.vision_deserves_best}</h2><p className="text-gray-500 text-base md:text-lg mb-10 leading-relaxed">{d.vision_desc}</p><div className="space-y-6">{d.why_points.map((f: any, i: number) => (<div key={i} className="flex gap-4"><CheckCircle2 className="w-6 h-6 text-teal-600 shrink-0 mt-0.5" /><div><h4 className="text-base font-bold text-gray-900">{f.title}</h4><p className="text-sm text-gray-500 mt-0.5">{f.desc}</p></div></div>))}</div></div>
-        </div>
-      </section>
-      {/* TESTIMONIALS */}
-      <section id="testimonials" className="py-20 md:py-28 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14"><span className="text-teal-700 font-bold text-sm uppercase tracking-widest">{d.patient_stories}</span><h2 className="text-3xl md:text-5xl font-black text-gray-900 mt-3 mb-4">{d.what_patients_say}</h2></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">{testimonials.map((t, i) => (<div key={i} className="bg-white p-7 md:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow"><div className="flex gap-1 mb-4">{Array.from({ length: t.rating }).map((_, j) => (<Star key={j} className="w-4 h-4 text-amber-400 fill-amber-400" />))}</div><p className="text-gray-600 text-sm leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p><div className="flex items-center gap-3 pt-4 border-t border-gray-50"><div className="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold text-sm">{t.name.charAt(0)}</div><div><p className="font-bold text-gray-900 text-sm">{t.name}</p><p className="text-xs text-gray-400">{t.location} · {t.surgery}</p></div></div></div>))}</div>
-        </div>
-      </section>
-      {/* FAQ */}
-      <section id="faq" className="py-20 md:py-28 bg-white">
-        <div className="max-w-3xl mx-auto px-5 md:px-8">
-          <div className="text-center mb-14"><span className="text-teal-700 font-bold text-sm uppercase tracking-widest">{d.have_questions}</span><h2 className="text-3xl md:text-5xl font-black text-gray-900 mt-3">{d.faqs_title}</h2></div>
-          <div className="space-y-3">{faqs.map((faq, i) => (<details key={i} className="group bg-slate-50 rounded-2xl border border-gray-100 overflow-hidden"><summary className="flex items-center justify-between cursor-pointer p-5 md:p-6 text-left font-bold text-gray-900 text-base hover:bg-slate-100 transition-colors list-none [&::-webkit-details-marker]:hidden">{faq.q}<ChevronDown className="w-5 h-5 text-gray-400 shrink-0 ml-4 group-open:rotate-180 transition-transform duration-200" /></summary><div className="px-5 md:px-6 pb-5 md:pb-6 text-gray-500 text-sm leading-relaxed -mt-1">{faq.a}</div></details>))}</div>
-        </div>
-      </section>
-      {/* APPOINTMENT */}
-      <section id="appointment" className="py-16 md:py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="bg-gradient-to-br from-teal-700 to-teal-800 rounded-3xl p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center shadow-2xl shadow-teal-900/20">
-            <div><h2 className="text-3xl md:text-5xl font-black text-white mb-5 leading-tight">{d.ready_vision}</h2><p className="text-base md:text-lg text-teal-100 leading-relaxed max-w-md">{d.ready_desc}</p><div className="flex items-center gap-3 mt-8 text-teal-200 text-sm"><Shield className="w-5 h-5" /><span>{d.confidential}</span></div></div>
-            <AppointmentForm />
-          </div>
-        </div>
-      </section>
+
       {/* FOOTER */}
-      <footer className="bg-slate-900 text-slate-400 pt-16 pb-8">
+      <footer className="bg-[#020617] text-slate-400 pt-20 pb-8">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-            <div className="sm:col-span-2 lg:col-span-1"><div className="flex flex-col mb-6"><span className="text-2xl font-black font-outfit tracking-tighter leading-none text-white">PRISM</span><span className="text-[11px] uppercase tracking-[0.4em] text-teal-400 block font-black ml-0.5 mt-1">Healthcure</span></div><p className="text-sm leading-relaxed mb-6 text-slate-400">{d.premium_eye_care}</p></div>
-            <div><h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{d.quick_links}</h4><ul className="space-y-3 text-sm"><li><Link href={`/${lang}#hero`} className="hover:text-teal-400 transition-colors">{dictionary.navigation.home}</Link></li><li><Link href={`/${lang}#treatments`} className="hover:text-teal-400 transition-colors">{d.specialties_title}</Link></li><li><Link href={`/${lang}#doctors`} className="hover:text-teal-400 transition-colors">{dictionary.navigation.doctors}</Link></li><li><Link href={`/${lang}#testimonials`} className="hover:text-teal-400 transition-colors">{d.patient_stories}</Link></li><li><Link href={`/${lang}#faq`} className="hover:text-teal-400 transition-colors">FAQ</Link></li></ul></div>
-            <div><h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{d.services}</h4><ul className="space-y-3 text-sm"><li>{d.treatments.cataract.title}</li><li>{d.treatments.lasik.title}</li><li>{d.treatments.retina.title}</li><li>{d.treatments.glaucoma.title}</li><li>{d.treatments.pediatric.title}</li></ul></div>
-            <div><h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{d.contact}</h4><ul className="space-y-4 text-sm"><li className="flex items-center gap-3"><Phone className="w-4 h-4 text-teal-500 shrink-0" /><a href="tel:9076993279" className="hover:text-white transition-colors">90769-93279</a></li><li className="flex items-center gap-3"><Mail className="w-4 h-4 text-teal-500 shrink-0" /><a href="mailto:contact@prismhealthcure.com" className="hover:text-white transition-colors">contact@prismhealthcure.com</a></li><li className="flex items-center gap-3"><Clock className="w-4 h-4 text-teal-500 shrink-0" />Available 24/7</li></ul></div>
-          </div>
-          <div className="pt-8 pb-8 border-t border-slate-800">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">{d.footer_seo.title}</h4>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-slate-500">
-              {d.footer_seo.cities.map((city: string, i: number) => (
-                <span key={i} className="hover:text-teal-400 transition-colors cursor-default">{city}</span>
-              ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div className="sm:col-span-2 lg:col-span-1">
+              <div className="flex flex-col mb-8">
+                <span className="text-2xl font-black font-outfit tracking-tighter leading-none text-white">PRISM</span>
+                <span className="text-[11px] uppercase tracking-[0.4em] text-teal-400 block font-black ml-0.5 mt-1">Healthcure</span>
+              </div>
+              <p className="text-sm leading-relaxed mb-8 text-slate-400 max-w-xs">{d.premium_eye_care}</p>
+              <div className="flex items-center gap-4">
+                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
+                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
+                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em] mb-6">{d.quick_links}</h4>
+              <ul className="space-y-4 text-[13px] font-medium">
+                <li><Link href={`/${lang}#hero`} className="hover:text-teal-400 transition-colors">Home</Link></li>
+                <li><Link href={`/${lang}#treatments`} className="hover:text-teal-400 transition-colors">Treatments</Link></li>
+                <li><Link href={`/${lang}#doctors`} className="hover:text-teal-400 transition-colors">Specialists</Link></li>
+                <li><Link href={`/${lang}#testimonials`} className="hover:text-teal-400 transition-colors">Testimonials</Link></li>
+                <li><Link href={`/${lang}#faq`} className="hover:text-teal-400 transition-colors">FAQs</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em] mb-6">{d.services}</h4>
+              <ul className="space-y-4 text-[13px] font-medium">
+                <li className="hover:text-teal-400 cursor-default transition-colors">Cataract Surgery</li>
+                <li className="hover:text-teal-400 cursor-default transition-colors">LASIK Vision Correction</li>
+                <li className="hover:text-teal-400 cursor-default transition-colors">Retina & Diabetic Care</li>
+                <li className="hover:text-teal-400 cursor-default transition-colors">Glaucoma Treatment</li>
+                <li className="hover:text-teal-400 cursor-default transition-colors">Pediatric Eye Care</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em] mb-6">{d.contact}</h4>
+              <ul className="space-y-5 text-[13px] font-medium">
+                <li className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-500 shrink-0 border border-teal-500/20"><Phone className="w-4 h-4" /></div>
+                  <div className="flex flex-col"><span className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Call Support</span><a href="tel:9076993279" className="text-white hover:text-teal-400 transition-colors">90769-93279</a></div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-500 shrink-0 border border-teal-500/20"><Mail className="w-4 h-4" /></div>
+                  <div className="flex flex-col"><span className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Email Us</span><a href="mailto:contact@prismhealthcure.com" className="text-white hover:text-teal-400 transition-colors">contact@prismhealthcure.com</a></div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-500 shrink-0 border border-teal-500/20"><MapPin className="w-4 h-4" /></div>
+                  <div className="flex flex-col"><span className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Head Office</span><span className="text-white">New Delhi, India</span></div>
+                </li>
+              </ul>
             </div>
           </div>
-          <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-            <p>&copy; {new Date().getFullYear()} Prism Healthcure. {d.all_rights}</p>
-            <div className="flex gap-6"><Link href={`/${lang}/privacy`} className="hover:text-teal-400 transition-colors">Privacy Policy</Link><Link href={`/${lang}/terms`} className="hover:text-teal-400 transition-colors">Terms of Service</Link></div>
+
+          {/* Legal & Trust Details */}
+          <div className="pt-10 pb-10 border-t border-white/5 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="flex flex-wrap gap-x-8 gap-y-4">
+               <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-1">GST Number</span>
+                  <span className="text-xs font-bold text-slate-400">07AAXCPXXXXX1Z1 (Sample)</span>
+               </div>
+               <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-1">Company CIN</span>
+                  <span className="text-xs font-bold text-slate-400">U85110DL2024PTCXXXXXX</span>
+               </div>
+            </div>
+            <div className="flex flex-col md:items-end">
+               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-2">{d.footer_seo.title}</span>
+               <div className="flex flex-wrap md:justify-end gap-x-3 gap-y-1 text-[10px] text-slate-500 font-bold uppercase tracking-tight">
+                  {d.footer_seo.cities.slice(0, 15).map((city: string, i: number) => (
+                    <span key={i} className="hover:text-teal-400 transition-colors cursor-default">{city}</span>
+                  ))}
+               </div>
+            </div>
+          </div>
+
+          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-bold text-slate-600 uppercase tracking-widest">
+            <p>&copy; {new Date().getFullYear()} Prism Healthcure India. {d.all_rights}</p>
+            <div className="flex gap-8">
+              <Link href={`/${lang}/privacy`} className="hover:text-teal-400 transition-colors">Privacy Policy</Link>
+              <Link href={`/${lang}/terms`} className="hover:text-teal-400 transition-colors">Terms of Service</Link>
+            </div>
           </div>
         </div>
       </footer>
