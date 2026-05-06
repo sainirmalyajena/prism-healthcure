@@ -88,13 +88,6 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
             </Link>
           </div>
 
-          <a 
-            href="tel:9076993279" 
-            className="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-teal-700 transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            90769-93279
-          </a>
           <Link 
             href={`/${lang}#appointment`} 
             className="bg-teal-700 text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-teal-800 transition-all shadow-lg shadow-teal-700/20 hover:shadow-teal-700/30 hover:-translate-y-0.5 active:translate-y-0"
