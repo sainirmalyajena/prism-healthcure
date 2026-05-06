@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { User, Phone as PhoneIcon, ChevronRight, CheckCircle2, AlertCircle, MapPin } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
