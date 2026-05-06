@@ -108,23 +108,6 @@ export default async function PrismHomePage({ params }: PageProps) {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-6 pt-4 border-t border-white/10">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-[#020617] bg-slate-800 overflow-hidden ring-2 ring-teal-500/10">
-                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="Patient" className="w-full h-full object-cover" />
-                  </div>
-                ))}
-                <div className="w-10 h-10 rounded-full border-2 border-[#020617] bg-teal-600 flex items-center justify-center text-white text-[10px] font-bold ring-2 ring-teal-500/10">
-                  25k+
-                </div>
-              </div>
-              <p className="text-slate-400 text-[13px] font-medium leading-tight">
-                <span className="text-white font-bold">Trusted by 25,000+</span> patients across <br className="hidden sm:block"/> 15+ major cities in India.
-              </p>
-            </div>
-          </div>
-
           <div className="lg:col-span-5 relative w-full max-w-[420px] mx-auto lg:ml-auto animate-reveal" style={{ animationDelay: '0.2s' }}>
             {/* Form Glow Effect */}
             <div className="absolute inset-0 bg-teal-500/20 blur-[60px] rounded-full scale-90 pointer-events-none"></div>
@@ -140,20 +123,29 @@ export default async function PrismHomePage({ params }: PageProps) {
       </section>
 
       {/* TRUST BAR */}
-      <div className="bg-[#020617] py-10 relative z-20">
+      <div className="bg-[#020617] py-12 md:py-16 relative z-20 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/5">
-            <div className="flex items-center justify-center gap-4 pt-4 md:pt-0">
-              <div className="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-700 shrink-0"><Users className="w-6 h-6" /></div>
-              <p className="font-bold text-gray-700 text-sm md:text-base leading-tight max-w-[160px]">{d.trust_bar.patients}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            <div className="flex items-center justify-center gap-5 pt-0">
+              <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-teal-400 shrink-0 shadow-xl shadow-black/20"><Users className="w-7 h-7" /></div>
+              <div className="flex flex-col">
+                <p className="font-extrabold text-white text-base md:text-lg leading-tight">25,000+ Patients</p>
+                <p className="text-slate-500 text-[11px] font-bold uppercase tracking-widest mt-1">Across 15+ Major Cities</p>
+              </div>
             </div>
-            <div className="flex items-center justify-center gap-4 pt-8 md:pt-0">
-              <div className="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-700 shrink-0"><Shield className="w-6 h-6" /></div>
-              <p className="font-bold text-gray-700 text-sm md:text-base leading-tight max-w-[160px]">{d.trust_bar.hospital}</p>
+            <div className="flex items-center justify-center gap-5 pt-10 md:pt-0">
+              <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-teal-400 shrink-0 shadow-xl shadow-black/20"><Shield className="w-7 h-7" /></div>
+              <div className="flex flex-col">
+                <p className="font-extrabold text-white text-base md:text-lg leading-tight">{d.trust_bar.hospital}</p>
+                <p className="text-slate-500 text-[11px] font-bold uppercase tracking-widest mt-1">Certified Network</p>
+              </div>
             </div>
-            <div className="flex items-center justify-center gap-4 pt-8 md:pt-0">
-              <div className="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-700 shrink-0"><Award className="w-6 h-6" /></div>
-              <p className="font-bold text-gray-700 text-sm md:text-base leading-tight max-w-[160px]">{d.trust_bar.insurance}</p>
+            <div className="flex items-center justify-center gap-5 pt-10 md:pt-0">
+              <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-teal-400 shrink-0 shadow-xl shadow-black/20"><Award className="w-7 h-7" /></div>
+              <div className="flex flex-col">
+                <p className="font-extrabold text-white text-base md:text-lg leading-tight">{d.trust_bar.insurance}</p>
+                <p className="text-slate-500 text-[11px] font-bold uppercase tracking-widest mt-1">Instant Approvals</p>
+              </div>
             </div>
           </div>
         </div>
