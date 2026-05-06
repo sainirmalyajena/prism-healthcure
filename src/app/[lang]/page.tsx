@@ -1,5 +1,6 @@
 import PrismHeader from './components/PrismHeader';
 import AppointmentForm from './components/AppointmentForm';
+import WhatsAppButton from './components/WhatsAppButton';
 import { Eye, Microscope, Droplets, Glasses, Target, Dna, CheckCircle2, ChevronDown, Star, MapPin, Phone, Mail, Clock, Shield, Award, Users, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { getDictionary } from '@/get-dictionary';
@@ -21,13 +22,22 @@ export default async function PrismHomePage({ params }: PageProps) {
   const d = dictionary.prism_page;
 
   const treatments = [
-    { icon: Droplets, title: d.treatments.cataract.title, desc: d.treatments.cataract.desc },
-    { icon: Glasses, title: d.treatments.lasik.title, desc: d.treatments.lasik.desc },
-    { icon: Eye, title: d.treatments.retina.title, desc: d.treatments.retina.desc },
-    { icon: Target, title: d.treatments.glaucoma.title, desc: d.treatments.glaucoma.desc },
-    { icon: Dna, title: d.treatments.cornea.title, desc: d.treatments.cornea.desc },
-    { icon: Heart, title: d.treatments.pediatric.title, desc: d.treatments.pediatric.desc },
+    { icon: Droplets, title: d.treatments.cataract.title, desc: d.treatments.cataract.desc, slug: 'cataract' },
+    { icon: Glasses, title: d.treatments.lasik.title, desc: d.treatments.lasik.desc, slug: 'lasik' },
+    { icon: Eye, title: d.treatments.retina.title, desc: d.treatments.retina.desc, slug: 'retina' },
+    { icon: Target, title: d.treatments.glaucoma.title, desc: d.treatments.glaucoma.desc, slug: 'glaucoma' },
+    { icon: Dna, title: d.treatments.cornea.title, desc: d.treatments.cornea.desc, slug: 'cornea' },
+    { icon: Heart, title: d.treatments.pediatric.title, desc: d.treatments.pediatric.desc, slug: 'pediatric' },
   ];
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'MedicalOrganization',
+    name: 'Prism Healthcure', url: 'https://prismhealthcure.com',
+    telephone: '+919076993279', email: 'contact@prismhealthcure.com',
+    medicalSpecialty: 'Ophthalmology',
+    openingHours: 'Mo-Su 00:00-23:59',
+    description: 'Premium ophthalmology care — Cataract, LASIK, Retina, Glaucoma treatments by top specialists.',
+  };
 
   const doctors = [
     { name: 'Dr. Arjun Mehta', role: lang === 'hi' ? 'मुख्य नेत्र रोग विशेषज्ञ' : 'Chief Ophthalmologist', spec: d.treatments.cataract.title + ' & LASIK', exp: '18+ ' + (lang === 'hi' ? 'वर्ष' : 'Years'), img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=300' },
@@ -50,7 +60,9 @@ export default async function PrismHomePage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PrismHeader lang={lang} dict={dictionary.navigation} />
+      <WhatsAppButton />
       {/* HERO */}
       <section id="hero" className="relative pt-24 md:pt-28 pb-20 md:pb-28 bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 min-h-[90vh] md:min-h-screen flex items-center overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
@@ -63,7 +75,7 @@ export default async function PrismHomePage({ params }: PageProps) {
             <p className="text-base md:text-lg text-gray-500 max-w-lg leading-relaxed">{d.hero_subtitle}</p>
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Link href="#appointment" className="bg-teal-700 text-white px-8 py-4 rounded-full font-bold text-base hover:bg-teal-800 transition-all shadow-lg shadow-teal-700/20 hover:-translate-y-0.5 text-center">{d.book_btn}</Link>
-              <a href="tel:9307861041" className="border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-full font-bold text-base hover:border-teal-200 hover:bg-teal-50 transition-all text-center flex items-center justify-center gap-2"><Phone className="w-4 h-4" /> {d.call_btn}</a>
+              <a href="tel:9076993279" className="border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-full font-bold text-base hover:border-teal-200 hover:bg-teal-50 transition-all text-center flex items-center justify-center gap-2"><Phone className="w-4 h-4" /> {d.call_btn}</a>
             </div>
             <div className="grid grid-cols-3 gap-4 md:gap-8 pt-6 border-t border-gray-100 mt-6">
               {[{ val: '25,000+', label: d.stats.patients },{ val: '99.2%', label: d.stats.success },{ val: '15+', label: d.stats.exp }].map((s, i) => (<div key={i}><span className="block text-2xl md:text-3xl font-black text-gray-900">{s.val}</span><span className="text-[10px] md:text-xs font-semibold text-gray-400 uppercase tracking-wider">{s.label}</span></div>))}
@@ -80,7 +92,7 @@ export default async function PrismHomePage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14"><span className="text-teal-700 font-bold text-sm uppercase tracking-widest">{d.specialties_title}</span><h2 className="text-3xl md:text-5xl font-black text-gray-900 mt-3 mb-4">{d.comp_eye_care}</h2><p className="text-gray-500 text-base md:text-lg">{d.eye_care_desc}</p></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {treatments.map((t, i) => (<div key={i} className="group bg-white p-7 md:p-8 rounded-2xl border border-gray-100 hover:border-teal-200 hover:shadow-xl hover:shadow-teal-50 hover:-translate-y-1 transition-all duration-300"><div className="w-14 h-14 bg-teal-50 group-hover:bg-teal-100 rounded-2xl flex items-center justify-center text-teal-700 mb-5 transition-colors"><t.icon className="w-7 h-7" /></div><h3 className="text-lg font-bold text-gray-900 mb-2">{t.title}</h3><p className="text-gray-500 text-sm leading-relaxed">{t.desc}</p></div>))}
+            {treatments.map((t, i) => (<Link href={`/${lang}/treatments/${t.slug}`} key={i} className="group bg-white p-7 md:p-8 rounded-2xl border border-gray-100 hover:border-teal-200 hover:shadow-xl hover:shadow-teal-50 hover:-translate-y-1 transition-all duration-300 block"><div className="w-14 h-14 bg-teal-50 group-hover:bg-teal-100 rounded-2xl flex items-center justify-center text-teal-700 mb-5 transition-colors"><t.icon className="w-7 h-7" /></div><h3 className="text-lg font-bold text-gray-900 mb-2">{t.title}</h3><p className="text-gray-500 text-sm leading-relaxed">{t.desc}</p><span className="inline-flex items-center gap-1 mt-4 text-teal-700 text-sm font-bold group-hover:gap-2 transition-all">Learn more →</span></Link>))}
           </div>
         </div>
       </section>
@@ -130,7 +142,7 @@ export default async function PrismHomePage({ params }: PageProps) {
             <div className="sm:col-span-2 lg:col-span-1"><div className="flex flex-col mb-6"><span className="text-2xl font-black font-outfit tracking-tighter leading-none text-white">PRISM</span><span className="text-[11px] uppercase tracking-[0.4em] text-teal-400 block font-black ml-0.5 mt-1">Healthcure</span></div><p className="text-sm leading-relaxed mb-6 text-slate-400">{d.premium_eye_care}</p></div>
             <div><h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{d.quick_links}</h4><ul className="space-y-3 text-sm"><li><Link href={`/${lang}#hero`} className="hover:text-teal-400 transition-colors">{dictionary.navigation.home}</Link></li><li><Link href={`/${lang}#treatments`} className="hover:text-teal-400 transition-colors">{d.specialties_title}</Link></li><li><Link href={`/${lang}#doctors`} className="hover:text-teal-400 transition-colors">{dictionary.navigation.doctors}</Link></li><li><Link href={`/${lang}#testimonials`} className="hover:text-teal-400 transition-colors">{d.patient_stories}</Link></li><li><Link href={`/${lang}#faq`} className="hover:text-teal-400 transition-colors">FAQ</Link></li></ul></div>
             <div><h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{d.services}</h4><ul className="space-y-3 text-sm"><li>{d.treatments.cataract.title}</li><li>{d.treatments.lasik.title}</li><li>{d.treatments.retina.title}</li><li>{d.treatments.glaucoma.title}</li><li>{d.treatments.pediatric.title}</li></ul></div>
-            <div><h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{d.contact}</h4><ul className="space-y-4 text-sm"><li className="flex items-center gap-3"><Phone className="w-4 h-4 text-teal-500 shrink-0" /><a href="tel:9307861041" className="hover:text-white transition-colors">93078-61041</a></li><li className="flex items-center gap-3"><Mail className="w-4 h-4 text-teal-500 shrink-0" /><a href="mailto:contact@prismhealthcure.com" className="hover:text-white transition-colors">contact@prismhealthcure.com</a></li><li className="flex items-center gap-3"><Clock className="w-4 h-4 text-teal-500 shrink-0" />Mon–Sat: 8 AM – 8 PM</li></ul></div>
+            <div><h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">{d.contact}</h4><ul className="space-y-4 text-sm"><li className="flex items-center gap-3"><Phone className="w-4 h-4 text-teal-500 shrink-0" /><a href="tel:9076993279" className="hover:text-white transition-colors">90769-93279</a></li><li className="flex items-center gap-3"><Mail className="w-4 h-4 text-teal-500 shrink-0" /><a href="mailto:contact@prismhealthcure.com" className="hover:text-white transition-colors">contact@prismhealthcure.com</a></li><li className="flex items-center gap-3"><Clock className="w-4 h-4 text-teal-500 shrink-0" />Available 24/7</li></ul></div>
           </div>
           <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
             <p>&copy; {new Date().getFullYear()} Prism Healthcure. {d.all_rights}</p>
@@ -140,7 +152,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       </footer>
       {/* MOBILE STICKY CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200 px-4 py-3 flex gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
-        <a href="tel:9307861041" className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-teal-700 bg-teal-50 border border-teal-100 text-sm active:scale-[0.97] transition-transform"><Phone className="w-4 h-4" /> {dictionary.sticky_cta.call}</a>
+        <a href="tel:9076993279" className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-teal-700 bg-teal-50 border border-teal-100 text-sm active:scale-[0.97] transition-transform"><Phone className="w-4 h-4" /> {dictionary.sticky_cta.call}</a>
         <Link href="#appointment" className="flex-1 py-3 rounded-xl font-bold text-white bg-teal-700 text-center text-sm shadow-lg shadow-teal-700/20 active:scale-[0.97] transition-transform">{dictionary.sticky_cta.book}</Link>
       </div>
     </div>

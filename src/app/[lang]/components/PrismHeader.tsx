@@ -89,11 +89,11 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
           </div>
 
           <a 
-            href="tel:9307861041" 
+            href="tel:9076993279" 
             className="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-teal-700 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            93078-61041
+            90769-93279
           </a>
           <Link 
             href={`/${lang}#appointment`} 
@@ -165,11 +165,11 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
             {lang === 'hi' ? 'अपॉइंटमेंट बुक करें' : 'Book Appointment'}
           </Link>
           <a 
-            href="tel:9307861041" 
+            href="tel:9076993279" 
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl font-semibold text-teal-700 bg-teal-50 border border-teal-100 active:scale-[0.98] transition-transform"
           >
             <Phone className="w-5 h-5" />
-            {lang === 'hi' ? 'कॉल करें 93078-61041' : 'Call 93078-61041'}
+            {lang === 'hi' ? 'कॉल करें 90769-93279' : 'Call 90769-93279'}
           </a>
         </div>
       </div>

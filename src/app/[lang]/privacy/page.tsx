@@ -29,7 +29,7 @@ export default async function PrismPrivacyPage({ params }: PageProps) {
               <section><h2 className="text-xl font-bold text-slate-900 mb-3">2. Data We Collect</h2><ul className="list-disc pl-5 mt-2 space-y-2"><li>Basic identifiers: Name, Phone Number, and Email.</li><li>Clinical details: Current eye conditions, desired treatments.</li><li>Insurance information for cashless coordination.</li></ul></section>
               <section><h2 className="text-xl font-bold text-slate-900 mb-3">3. Purpose</h2><ul className="list-disc pl-5 mt-2 space-y-2"><li>Facilitating appointments with senior ophthalmologists.</li><li>Providing personalized treatment guidance and cost estimations.</li><li>Managing hospital admissions and insurance pre-authorizations.</li></ul></section>
               <section><h2 className="text-xl font-bold text-slate-900 mb-3">4. Information Sharing</h2><p>Your data is shared <strong>exclusively</strong> with our partner clinics and surgeons. We do not sell your information.</p></section>
-              <section><h2 className="text-xl font-bold text-slate-900 mb-3">5. Contact Us</h2><p><strong>Email:</strong> contact@prismhealthcure.com<br /><strong>Phone:</strong> +91 93078 61041</p></section>
+              <section><h2 className="text-xl font-bold text-slate-900 mb-3">5. Contact Us</h2><p><strong>Email:</strong> contact@prismhealthcure.com<br /><strong>Phone:</strong> +91 90769 93279</p></section>
             </div>
           </div>
         </div>
