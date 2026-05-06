@@ -31,12 +31,45 @@ export default async function PrismHomePage({ params }: PageProps) {
   ];
 
   const jsonLd = {
-    '@context': 'https://schema.org', '@type': 'MedicalOrganization',
-    name: 'Prism Healthcure', url: 'https://prismhealthcure.com',
-    telephone: '+919076993279', email: 'contact@prismhealthcure.com',
-    medicalSpecialty: 'Ophthalmology',
-    openingHours: 'Mo-Su 00:00-23:59',
-    description: 'Medical assistance network providing 100% cashless eye surgery and free consultations at top empanelled hospitals like ASG.',
+    '@context': 'https://schema.org',
+    '@type': 'MedicalOrganization',
+    name: 'Prism Healthcure',
+    alternateName: lang === 'hi' ? 'प्रिज्म हेल्थक्योर' : 'Prism Healthcure India',
+    url: 'https://prismhealthcure.com',
+    logo: 'https://prismhealthcure.com/prism-logo.jpg',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+91-90769-93279',
+      contactType: 'customer service',
+      areaServed: 'IN',
+      availableLanguage: ['English', 'Hindi']
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'New Delhi',
+      addressRegion: 'Delhi',
+      postalCode: '110001',
+      addressCountry: 'IN'
+    },
+    medicalSpecialty: ['Ophthalmology', 'Surgery'],
+    description: d.premium_eye_care,
+    sameAs: [
+      'https://www.instagram.com/prismhealthcure',
+      'https://www.linkedin.com/company/prism-healthcure'
+    ]
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
   };
 
   const doctors = [
@@ -61,6 +94,7 @@ export default async function PrismHomePage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <PrismHeader lang={lang} dict={dictionary.navigation} />
       <WhatsAppButton />
       <section id="hero" className="relative pt-24 md:pt-28 pb-12 md:pb-16 min-h-screen flex flex-col justify-center overflow-hidden bg-[#020617]">
