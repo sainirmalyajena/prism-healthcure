@@ -63,41 +63,87 @@ export default async function PrismHomePage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PrismHeader lang={lang} dict={dictionary.navigation} />
       <WhatsAppButton />
-      {/* HERO */}
-      <section id="hero" className="relative pt-24 md:pt-32 pb-12 md:pb-20 bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 min-h-[90vh] md:min-h-screen flex flex-col justify-center overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10 w-full flex-1">
-          <div className="lg:col-span-7 space-y-6 md:space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-100/80 text-teal-800 rounded-full text-xs md:text-sm font-bold tracking-wide backdrop-blur-sm"><Shield className="w-4 h-4" /> {d.header_title}</div>
-            <h1 className="text-[2.5rem] md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.15] tracking-tight">
-              {d.hero_title}
-            </h1>
-            
-            <ul className="space-y-4 pt-2">
-              {d.hero_points.map((point: string, i: number) => (
-                <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-teal-600 shrink-0 mt-0.5" />
-                  <span className="text-lg md:text-xl text-gray-700 font-medium">{point}</span>
-                </li>
-              ))}
-            </ul>
+      {/* HERO SECTION */}
+      <section id="hero" className="relative pt-32 md:pt-48 pb-20 md:pb-32 min-h-[90vh] md:min-h-screen flex flex-col justify-center overflow-hidden bg-[#020617]">
+        {/* Animated Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-teal-500/20 rounded-full blur-[120px] animate-float-slow" />
+          <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-indigo-500/20 rounded-full blur-[100px] animate-float" />
+          <div className="absolute -bottom-[10%] left-[20%] w-[35%] h-[35%] bg-emerald-500/10 rounded-full blur-[120px] animate-float-slow" style={{ animationDelay: '-2s' }} />
+          
+          {/* Subtle Grid Pattern */}
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] mask-image:linear-gradient(to_bottom,transparent,black,transparent)"></div>
+        </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="tel:9076993279" className="border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-full font-bold text-base hover:border-teal-200 hover:bg-teal-50 transition-all text-center flex items-center justify-center gap-2"><Phone className="w-5 h-5" /> {d.call_btn}: 90769-93279</a>
+        <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center relative z-10 w-full flex-1">
+          <div className="lg:col-span-7 space-y-8 animate-reveal">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 shadow-xl">
+                <span className="flex h-2 w-2 rounded-full bg-teal-400 animate-pulse"></span>
+                <span className="text-xs font-bold text-teal-300 uppercase tracking-[0.2em]">{d.header_title}</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05] tracking-tight">
+                Your Trusted <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-400">Partner for</span> <br/>
+                <span className="relative inline-block">
+                  Cashless
+                  <svg className="absolute -bottom-2 left-0 w-full h-3 text-teal-500/40 -z-10" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0,10 Q50,0 100,10" stroke="currentColor" strokeWidth="8" fill="none" /></svg>
+                </span> Eye Surgery
+              </h1>
+            </div>
+
+            <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-xl font-medium">
+              We facilitate high-quality eye care at India&apos;s leading hospital chains with <span className="text-white font-bold underline decoration-teal-500/50 decoration-4 underline-offset-4">100% Cashless Support</span>.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+              {d.hero_points.map((point: string, i: number) => (
+                <div key={i} className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all group">
+                  <div className="w-8 h-8 rounded-lg bg-teal-500/20 flex items-center justify-center text-teal-400 group-hover:bg-teal-500 group-hover:text-white transition-all">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">{point}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-6 pt-4 border-t border-white/10">
+              <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} className="w-12 h-12 rounded-full border-2 border-[#020617] bg-slate-800 overflow-hidden ring-4 ring-teal-500/10">
+                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="Patient" className="w-full h-full object-cover" />
+                  </div>
+                ))}
+                <div className="w-12 h-12 rounded-full border-2 border-[#020617] bg-teal-600 flex items-center justify-center text-white text-xs font-bold ring-4 ring-teal-500/10">
+                  25k+
+                </div>
+              </div>
+              <p className="text-slate-400 text-sm font-medium">
+                <span className="text-white font-bold">Trusted by 25,000+</span> patients across <br className="hidden sm:block"/> 15+ major cities in India.
+              </p>
             </div>
           </div>
-          
-          <div className="lg:col-span-5 relative mt-4 lg:mt-0 w-full max-w-md mx-auto lg:max-w-full">
-            <div className="absolute inset-0 bg-gradient-to-tr from-teal-200 to-emerald-100 blur-3xl opacity-40 rounded-full transform scale-110 -z-10" />
+
+          <div className="lg:col-span-5 relative w-full max-w-[480px] mx-auto lg:ml-auto animate-reveal" style={{ animationDelay: '0.2s' }}>
+            {/* Form Glow Effect */}
+            <div className="absolute inset-0 bg-teal-500/20 blur-[60px] rounded-full scale-90 pointer-events-none"></div>
             <AppointmentForm />
           </div>
+        </div>
+
+        {/* Floating Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-slate-500">
+          <span className="text-[10px] font-bold uppercase tracking-widest opacity-50">Scroll to Explore</span>
+          <div className="w-px h-12 bg-gradient-to-b from-teal-500 to-transparent"></div>
         </div>
       </section>
 
       {/* TRUST BAR */}
-      <div className="border-y border-gray-100 bg-white relative z-20">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+      <div className="bg-[#020617] py-10 relative z-20">
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/5">
             <div className="flex items-center justify-center gap-4 pt-4 md:pt-0">
               <div className="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-700 shrink-0"><Users className="w-6 h-6" /></div>
               <p className="font-bold text-gray-700 text-sm md:text-base leading-tight max-w-[160px]">{d.trust_bar.patients}</p>

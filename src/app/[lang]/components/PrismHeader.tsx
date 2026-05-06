@@ -47,14 +47,20 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
       "fixed top-0 left-0 w-full z-[100] transition-all duration-500",
       scrolled
         ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)] py-2"
-        : "bg-white/70 backdrop-blur-md py-4"
+        : "bg-transparent py-6"
     )}>
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
         <Link href={`/${lang}`} className="flex flex-col group transition-all" onClick={() => setIsOpen(false)}>
-          <span className="text-xl md:text-2xl font-black font-outfit tracking-tighter leading-none bg-gradient-to-br from-teal-700 via-teal-900 to-slate-900 bg-clip-text text-transparent group-hover:from-teal-600 group-hover:to-teal-800">
+          <span className={cn(
+            "text-xl md:text-2xl font-black font-outfit tracking-tighter leading-none transition-colors",
+            scrolled ? "bg-gradient-to-br from-teal-700 via-teal-900 to-slate-900 bg-clip-text text-transparent" : "text-white"
+          )}>
             PRISM
           </span>
-          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-teal-600/70 block font-black ml-0.5 mt-0.5 group-hover:text-teal-600 transition-colors">
+          <span className={cn(
+            "text-[10px] md:text-[11px] uppercase tracking-[0.4em] block font-black ml-0.5 mt-0.5 transition-colors",
+            scrolled ? "text-teal-600/70" : "text-teal-400"
+          )}>
             Healthcure
           </span>
         </Link>
@@ -64,7 +70,12 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
             <Link 
               key={link.href} 
               href={link.href} 
-              className="px-4 py-2 text-[13px] font-semibold text-slate-600 hover:text-teal-700 rounded-lg hover:bg-teal-50/60 transition-all duration-200"
+              className={cn(
+                "px-4 py-2 text-[13px] font-bold rounded-lg transition-all duration-200",
+                scrolled 
+                  ? "text-slate-600 hover:text-teal-700 hover:bg-teal-50/60" 
+                  : "text-white/80 hover:text-white hover:bg-white/10"
+              )}
             >
               {link.label}
             </Link>
@@ -72,17 +83,28 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
         </nav>
         
         <div className="hidden lg:flex items-center gap-4">
-          <div className="flex items-center gap-1 mr-2 px-3 py-1.5 bg-slate-100 rounded-full">
-            <Globe className="w-3.5 h-3.5 text-slate-400" />
+          <div className={cn(
+            "flex items-center gap-1 mr-2 px-3 py-1.5 rounded-full transition-colors",
+            scrolled ? "bg-slate-100" : "bg-white/10 backdrop-blur-md border border-white/10"
+          )}>
+            <Globe className={cn("w-3.5 h-3.5", scrolled ? "text-slate-400" : "text-white/60")} />
             <Link 
               href={redirectedPathname('en')}
-              className={cn("text-[11px] font-bold px-2 py-0.5 rounded-full transition-all", lang === 'en' ? "bg-white text-teal-700 shadow-sm" : "text-slate-500 hover:text-slate-700")}
+              className={cn("text-[11px] font-bold px-2 py-0.5 rounded-full transition-all", 
+                lang === 'en' 
+                  ? (scrolled ? "bg-white text-teal-700 shadow-sm" : "bg-white/20 text-white shadow-sm") 
+                  : (scrolled ? "text-slate-500 hover:text-slate-700" : "text-white/50 hover:text-white")
+              )}
             >
               EN
             </Link>
             <Link 
               href={redirectedPathname('hi')}
-              className={cn("text-[11px] font-bold px-2 py-0.5 rounded-full transition-all", lang === 'hi' ? "bg-white text-teal-700 shadow-sm" : "text-slate-500 hover:text-slate-700")}
+              className={cn("text-[11px] font-bold px-2 py-0.5 rounded-full transition-all", 
+                lang === 'hi' 
+                  ? (scrolled ? "bg-white text-teal-700 shadow-sm" : "bg-white/20 text-white shadow-sm") 
+                  : (scrolled ? "text-slate-500 hover:text-slate-700" : "text-white/50 hover:text-white")
+              )}
             >
               हिन्दी
             </Link>
@@ -90,7 +112,12 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
 
           <Link 
             href={`/${lang}#appointment`} 
-            className="bg-teal-700 text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-teal-800 transition-all shadow-lg shadow-teal-700/20 hover:shadow-teal-700/30 hover:-translate-y-0.5 active:translate-y-0"
+            className={cn(
+              "px-7 py-3 rounded-full text-sm font-bold transition-all shadow-lg hover:-translate-y-0.5 active:translate-y-0",
+              scrolled 
+                ? "bg-teal-700 text-white hover:bg-teal-800 shadow-teal-700/20" 
+                : "bg-white text-teal-900 hover:bg-teal-50 shadow-black/20"
+            )}
           >
             {lang === 'hi' ? 'अपॉइंटमेंट' : 'Book Appointment'}
           </Link>
@@ -99,13 +126,19 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
         <div className="flex lg:hidden items-center gap-2">
             <Link 
               href={redirectedPathname(lang === 'en' ? 'hi' : 'en')}
-              className="text-[11px] font-black px-3 py-2 bg-slate-100 text-slate-600 rounded-xl flex items-center gap-1"
+              className={cn(
+                "text-[11px] font-black px-3 py-2 rounded-xl flex items-center gap-1 transition-colors",
+                scrolled ? "bg-slate-100 text-slate-600" : "bg-white/10 text-white border border-white/10"
+              )}
             >
               <Globe className="w-3 h-3" />
               {lang === 'en' ? 'हिन्दी' : 'EN'}
             </Link>
             <button 
-                className="p-2.5 text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
+                className={cn(
+                  "p-2.5 rounded-xl transition-colors",
+                  scrolled ? "text-slate-700 hover:bg-slate-100" : "text-white hover:bg-white/10"
+                )}
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle Menu"
             >
