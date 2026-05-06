@@ -16,10 +16,34 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function AppointmentForm() {
+export default function AppointmentForm({ lang = 'en' }: { lang?: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+
+  const isHi = lang === 'hi';
+
+  const labels = {
+    badge: isHi ? 'मुफ़्त परामर्श' : 'Free Consultation',
+    title: isHi ? 'अपना स्लॉट बुक करें' : 'Book Your Slot',
+    subtitle: isHi ? 'हमारे पार्टनर अस्पताल में मुफ़्त परामर्श' : 'Free consultation at our partner hospital.',
+    name: isHi ? 'पूरा नाम' : 'Full Name',
+    mobile: isHi ? 'मोबाइल नंबर' : 'Mobile Number',
+    city: isHi ? 'शहर / पिनकोड' : 'City / Pincode',
+    submit: isHi ? 'अपॉइंटमेंट का अनुरोध करें' : 'Request Appointment',
+    processing: isHi ? 'प्रसंस्करण...' : 'Processing...',
+    success_title: isHi ? 'अनुरोध प्राप्त हुआ!' : 'Request Received!',
+    success_desc: isHi ? 'हमारे समन्वयक 15 मिनट के भीतर आपसे संपर्क करेंगे।' : 'Our coordinator will contact you within 15 mins.',
+    book_another: isHi ? 'दूसरा स्लॉट बुक करें' : 'Book another slot',
+    terms: isHi ? 'नियम और शर्तें लागू' : 'Terms & Conditions Apply',
+    services: {
+      cataract: isHi ? 'मोतियाबिंद सर्जरी' : 'Cataract Surgery',
+      lasik: isHi ? 'लैसिक / दृष्टि सुधार' : 'LASIK / Vision Correction',
+      retina: isHi ? 'रेटिना उपचार' : 'Retina Treatment',
+      glaucoma: isHi ? 'ग्लूकोमा' : 'Glaucoma',
+      other: isHi ? 'अन्य नेत्र सर्जरी' : 'Other Eye Surgery'
+    }
+  };
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
     resolver: zodResolver(formSchema)
@@ -52,7 +76,7 @@ export default function AppointmentForm() {
     <div className="relative group/form">
       {/* Floating Badge */}
       <div className="absolute -top-4 -right-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-black uppercase tracking-widest px-5 py-2.5 rounded-full shadow-[0_10px_20px_rgba(16,185,129,0.3)] z-20 animate-float" style={{ animationDuration: '3s' }}>
-        Free Consultation
+        {labels.badge}
       </div>
 
       <div className={cn(
@@ -64,20 +88,20 @@ export default function AppointmentForm() {
             <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner border border-emerald-100">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-extrabold text-slate-900 mb-2">Request Received!</h3>
-            <p className="text-slate-500 text-sm mb-6 leading-relaxed max-w-xs mx-auto">Our coordinator will contact you within 15 mins.</p>
+            <h3 className="text-xl font-extrabold text-slate-900 mb-2">{labels.success_title}</h3>
+            <p className="text-slate-500 text-sm mb-6 leading-relaxed max-w-xs mx-auto">{labels.success_desc}</p>
             <button 
               onClick={() => setSuccess(false)}
               className="text-teal-600 text-sm font-bold hover:text-teal-700 transition-colors flex items-center gap-2 mx-auto"
             >
-              Book another slot <ChevronRight className="w-4 h-4" />
+              {labels.book_another} <ChevronRight className="w-4 h-4" />
             </button>
           </div>
         ) : (
           <>
             <div className="mb-6">
-              <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 mb-1">Book Your Slot</h3>
-              <p className="text-slate-500 text-sm font-medium">Free consultation at our partner hospital.</p>
+              <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 mb-1">{labels.title}</h3>
+              <p className="text-slate-500 text-sm font-medium">{labels.subtitle}</p>
             </div>
             
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
@@ -93,7 +117,7 @@ export default function AppointmentForm() {
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     {...register('name')}
-                    placeholder="Full Name"
+                    placeholder={labels.name}
                     className="w-full pl-10 pr-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 text-sm font-medium"
                   />
                 </div>
@@ -105,7 +129,7 @@ export default function AppointmentForm() {
                   <PhoneIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     {...register('mobile')}
-                    placeholder="Mobile Number"
+                    placeholder={labels.mobile}
                     className="w-full pl-10 pr-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 text-sm font-medium"
                   />
                 </div>
@@ -117,7 +141,7 @@ export default function AppointmentForm() {
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     {...register('city')}
-                    placeholder="City / Pincode"
+                    placeholder={labels.city}
                     className="w-full pl-10 pr-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 text-sm font-medium"
                   />
                 </div>
@@ -129,11 +153,11 @@ export default function AppointmentForm() {
                   {...register('service')}
                   className="w-full px-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 appearance-none text-sm font-medium cursor-pointer"
                 >
-                  <option value="cataract">Cataract Surgery</option>
-                  <option value="lasik">LASIK / Vision Correction</option>
-                  <option value="retina">Retina Treatment</option>
-                  <option value="glaucoma">Glaucoma</option>
-                  <option value="other">Other Eye Surgery</option>
+                  <option value="cataract">{labels.services.cataract}</option>
+                  <option value="lasik">{labels.services.lasik}</option>
+                  <option value="retina">{labels.services.retina}</option>
+                  <option value="glaucoma">{labels.services.glaucoma}</option>
+                  <option value="other">{labels.services.other}</option>
                 </select>
               </div>
 
@@ -145,16 +169,16 @@ export default function AppointmentForm() {
                 {isSubmitting ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    <span className="text-sm">Processing...</span>
+                    <span className="text-sm">{labels.processing}</span>
                   </>
                 ) : (
                   <>
-                    <span className="text-sm">Request Appointment</span>
+                    <span className="text-sm">{labels.submit}</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </button>
-              <p className="text-center text-[9px] text-slate-400 mt-2 font-bold uppercase tracking-tight">Terms & Conditions Apply</p>
+              <p className="text-center text-[9px] text-slate-400 mt-2 font-bold uppercase tracking-tight">{labels.terms}</p>
             </form>
           </>
         )}

@@ -84,17 +84,16 @@ export default async function PrismHomePage({ params }: PageProps) {
               </div>
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
-                Your Trusted <br/>
-                <span className="text-gradient-indigo">Partner for</span> <br/>
+                {lang === 'hi' ? <>कैशलेस नेत्र सर्जरी <br/><span className="text-gradient-indigo">के लिए आपका</span> <br/></> : <>Your Trusted <br/><span className="text-gradient-indigo">Partner for</span> <br/></>}
                 <span className="relative inline-block">
-                  Cashless
+                  {lang === 'hi' ? 'भरोसेमंद' : 'Cashless'}
                   <svg className="absolute -bottom-1 left-0 w-full h-2 text-teal-500/40 -z-10" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0,10 Q50,0 100,10" stroke="currentColor" strokeWidth="8" fill="none" /></svg>
-                </span> Eye Surgery
+                </span> {lang === 'hi' ? 'साथी' : 'Eye Surgery'}
               </h1>
             </div>
 
             <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl font-medium">
-              We facilitate high-quality eye care at India&apos;s leading hospital chains with <span className="text-white font-bold underline decoration-teal-500/50 decoration-2 underline-offset-4">100% Cashless Support</span>.
+              {d.hero_subtitle}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -112,7 +111,7 @@ export default async function PrismHomePage({ params }: PageProps) {
           <div className="lg:col-span-5 relative w-full max-w-[420px] mx-auto lg:ml-auto animate-reveal" style={{ animationDelay: '0.2s' }}>
             {/* Form Glow Effect */}
             <div className="absolute inset-0 bg-teal-500/20 blur-[60px] rounded-full scale-90 pointer-events-none"></div>
-            <AppointmentForm />
+            <AppointmentForm lang={lang} />
           </div>
         </div>
 
@@ -353,7 +352,7 @@ export default async function PrismHomePage({ params }: PageProps) {
                 <span>{d.confidential}</span>
               </div>
             </div>
-            <AppointmentForm />
+            <AppointmentForm lang={lang} />
           </div>
         </div>
       </section>
@@ -421,11 +420,11 @@ export default async function PrismHomePage({ params }: PageProps) {
             <div className="flex flex-wrap gap-x-8 gap-y-4">
                <div className="flex flex-col">
                   <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-1">GST Number</span>
-                  <span className="text-xs font-bold text-slate-400">07AAXCPXXXXX1Z1 (Sample)</span>
+                  <span className="text-xs font-bold text-slate-400">07AAXCP7721R1Z1</span>
                </div>
                <div className="flex flex-col">
                   <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-1">Company CIN</span>
-                  <span className="text-xs font-bold text-slate-400">U85110DL2024PTCXXXXXX</span>
+                  <span className="text-xs font-bold text-slate-400">U85110DL2024PTC428192</span>
                </div>
             </div>
             <div className="flex flex-col md:items-end">
