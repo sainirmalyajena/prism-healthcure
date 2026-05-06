@@ -11,10 +11,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params;
   const isHi = lang === 'hi';
   const prismBaseUrl = 'https://prismhealthcure.com';
-  const title = isHi ? 'Prism Healthcure | प्रीमियम नेत्र विज्ञान और नेत्र देखभाल' : 'Prism Healthcure | Premium Ophthalmology & Eye Care';
+  const title = isHi ? 'Prism Healthcure | 100% कैशलेस चिकित्सा सहायता' : 'Prism Healthcure | Cashless Eye Surgery Assistance';
   const description = isHi
-    ? 'शीर्ष नेत्र विशेषज्ञों द्वारा मोतियाबिंद, लैसिक, रेटिना और ग्लूकोमा सहित उन्नत नेत्र उपचार।'
-    : 'Advanced eye treatments including Cataract, LASIK, Retina, and Glaucoma care by top ophthalmologists. Book your consultation today.';
+    ? 'ASG जैसे शीर्ष अस्पतालों में मोतियाबिंद, लैसिक और अन्य नेत्र शल्य चिकित्सा के लिए कैशलेस सहायता और मुफ़्त परामर्श।'
+    : '100% cashless medical assistance for LASIK, Cataract, and other eye surgeries at top empanelled hospitals like ASG.';
 
   return {
     title: { default: title, template: '%s | Prism Healthcure' },

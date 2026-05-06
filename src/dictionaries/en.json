@@ -1,58 +1,58 @@
 {
     "navigation": {
         "home": "Home",
-        "doctors": "Our Doctors"
+        "doctors": "Network Specialists"
     },
     "sticky_cta": {
-        "call": "Call Now",
-        "book": "Book Now"
+        "call": "Call for Help",
+        "book": "Get Free Consult"
     },
     "prism_page": {
-        "header_title": "Advanced Eye Care Centre",
-        "hero_title": "See the World with Perfect Clarity",
-        "hero_subtitle": "Prism Healthcure delivers world-class ophthalmology care — from advanced LASIK to pediatric eye treatments. Trust our expert team for a brighter, clearer tomorrow.",
+        "header_title": "100% Cashless Medical Assistance",
+        "hero_title": "Your Trusted Partner for Cashless Eye Surgery",
+        "hero_subtitle": "We help you get the best treatment at top empanelled hospitals like ASG Eye Hospital. Enjoy a free first consultation and hassle-free cashless insurance approval.",
         "book_btn": "Book Free Consultation",
-        "call_btn": "Call Now",
+        "call_btn": "Call for Assistance",
         "stats": {
-            "patients": "Happy Patients",
-            "success": "Success Rate",
-            "exp": "Years Experience"
+            "patients": "Patients Helped",
+            "success": "Cashless Approvals",
+            "exp": "Empanelled Hospitals"
         },
-        "specialties_title": "Our Specialties",
-        "comp_eye_care": "Comprehensive Eye Care",
-        "eye_care_desc": "Advanced diagnostic and therapeutic treatments tailored to every vision need.",
+        "specialties_title": "Surgeries We Facilitate",
+        "comp_eye_care": "Comprehensive Eye Surgery Assistance",
+        "eye_care_desc": "From booking your free consult to getting your insurance approved, we assist with all major eye surgeries.",
         "treatments": {
-            "cataract": { "title": "Cataract Surgery", "desc": "Advanced laser-assisted cataract removal with premium IOL implants for crystal-clear vision restoration." },
-            "lasik": { "title": "LASIK & Refractive", "desc": "Painless, bladeless laser vision correction using latest femtosecond technology." },
-            "retina": { "title": "Retina Care", "desc": "Specialized treatments for diabetic retinopathy, macular degeneration, and retinal detachment." },
-            "glaucoma": { "title": "Glaucoma Clinic", "desc": "Early detection and advanced medical, laser, and surgical management of glaucoma." },
-            "cornea": { "title": "Cornea Services", "desc": "Comprehensive care for corneal diseases including transplants and keratoconus treatment." },
-            "pediatric": { "title": "Pediatric Eye Care", "desc": "Gentle expert eye care for children — squint correction, lazy eye, and vision screening." }
+            "cataract": { "title": "Cataract Surgery", "desc": "Assistance for laser-assisted cataract removal with premium IOL implants at top hospitals." },
+            "lasik": { "title": "LASIK & Refractive", "desc": "Facilitating painless, bladeless laser vision correction using the latest technology." },
+            "retina": { "title": "Retina Care", "desc": "Connecting you with specialized surgeons for diabetic retinopathy and retinal detachment." },
+            "glaucoma": { "title": "Glaucoma Surgery", "desc": "Expert guidance and network access for advanced surgical management of glaucoma." },
+            "cornea": { "title": "Cornea Transplants", "desc": "Assistance in finding top specialists for corneal diseases and transplants." },
+            "pediatric": { "title": "Pediatric Eye Surgery", "desc": "Helping your child get gentle expert care for squint correction and pediatric cataracts." }
         },
-        "expert_team": "Expert Team",
-        "meet_specialists": "Meet Our Specialists",
-        "specialists_desc": "Internationally trained ophthalmologists dedicated to your vision health.",
-        "why_prism": "Why Prism Healthcure",
-        "vision_deserves_best": "Your Vision Deserves the Best",
-        "vision_desc": "We combine world-class medical expertise with cutting-edge technology and compassionate, personalized care.",
+        "expert_team": "Our Medical Network",
+        "meet_specialists": "Consult Top Network Specialists",
+        "specialists_desc": "We connect you with highly experienced ophthalmologists across our empanelled hospital network.",
+        "why_prism": "How We Help You",
+        "vision_deserves_best": "We Handle The Hassle, You Focus On Recovery",
+        "vision_desc": "Prism Healthcure is your dedicated medical concierge, ensuring you get the best care without the stress of paperwork or hospital bills.",
         "why_points": [
-            { "title": "Latest Technology", "desc": "Femtosecond lasers, OCT imaging, and AI-powered diagnostics." },
-            { "title": "Globally Trained Doctors", "desc": "Our surgeons bring expertise from top international institutions." },
-            { "title": "Patient-First Approach", "desc": "Transparent pricing, comfortable facilities, and ethical care." },
-            { "title": "Cashless Insurance", "desc": "We work with all major insurers for hassle-free treatment." }
+            { "title": "Free First Consultation", "desc": "We arrange your initial expert consultation at absolutely zero cost to you." },
+            { "title": "Top Hospital Network", "desc": "Get treated at leading empanelled facilities like ASG Eye Hospital." },
+            { "title": "100% Cashless Insurance", "desc": "We manage all TPA approvals and insurance paperwork so you don't have to pay upfront." },
+            { "title": "Dedicated Care Coordinator", "desc": "A personal guide to assist you from hospital admission through discharge." }
         ],
         "patient_stories": "Patient Stories",
-        "what_patients_say": "What Our Patients Say",
+        "what_patients_say": "Patients We've Helped",
         "have_questions": "Have Questions?",
         "faqs_title": "Frequently Asked Questions",
-        "ready_vision": "Ready for Better Vision?",
-        "ready_desc": "Schedule a comprehensive eye checkup or consultation with our experts. Your vision is our priority.",
-        "confidential": "Your information is 100% confidential",
-        "book_appointment": "Book Appointment",
-        "premium_eye_care": "Premium ophthalmology care delivering advanced, compassionate eye treatments for every age.",
+        "ready_vision": "Ready for Hassle-Free Surgery?",
+        "ready_desc": "Let us help you book your free consultation and handle your insurance approval. We are available 24/7.",
+        "confidential": "Your medical information is strictly confidential",
+        "book_appointment": "Get Free Assistance",
+        "premium_eye_care": "Your dedicated medical assistance network for hassle-free, cashless eye surgeries at top hospitals.",
         "quick_links": "Quick Links",
-        "services": "Services",
-        "contact": "Contact",
+        "services": "Surgeries We Cover",
+        "contact": "Contact Support",
         "all_rights": "All rights reserved."
     }
 }

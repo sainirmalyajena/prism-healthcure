@@ -11,8 +11,8 @@ interface PageProps { params: Promise<{ lang: any }>; }
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   return {
-    title: lang === 'hi' ? 'Prism Healthcure | प्रीमियम नेत्र विज्ञान और नेत्र देखभाल' : 'Free Eye Consultation & Cashless Surgery | Prism Healthcure India',
-    description: lang === 'hi' ? 'शीर्ष नेत्र विशेषज्ञों द्वारा मोतियाबिंद, लैसिक, रेटिना और ग्लूकोमा सहित उन्नत नेत्र उपचार।' : 'State-of-the-art ophthalmology services for LASIK, Cataract, and Glaucoma. Providing world-class vision care.',
+    title: lang === 'hi' ? 'Prism Healthcure | 100% कैशलेस चिकित्सा सहायता' : 'Cashless Eye Surgery Assistance | Prism Healthcure India',
+    description: lang === 'hi' ? 'ASG जैसे शीर्ष अस्पतालों में मोतियाबिंद, लैसिक और अन्य नेत्र शल्य चिकित्सा के लिए कैशलेस सहायता और मुफ़्त परामर्श।' : '100% cashless medical assistance for LASIK, Cataract, and other eye surgeries at top empanelled hospitals like ASG.',
   };
 }
 
@@ -36,7 +36,7 @@ export default async function PrismHomePage({ params }: PageProps) {
     telephone: '+919076993279', email: 'contact@prismhealthcure.com',
     medicalSpecialty: 'Ophthalmology',
     openingHours: 'Mo-Su 00:00-23:59',
-    description: 'Premium ophthalmology care — Cataract, LASIK, Retina, Glaucoma treatments by top specialists.',
+    description: 'Medical assistance network providing 100% cashless eye surgery and free consultations at top empanelled hospitals like ASG.',
   };
 
   const doctors = [
@@ -69,8 +69,8 @@ export default async function PrismHomePage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
           <div className="space-y-6 md:space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-100/80 text-teal-800 rounded-full text-xs md:text-sm font-bold tracking-wide backdrop-blur-sm"><Shield className="w-4 h-4" /> {d.header_title}</div>
-            <h1 className="text-[2.5rem] md:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.08] tracking-tight">
-              {lang === 'hi' ? (<>पूर्ण स्पष्टता के साथ<br className="hidden sm:block" /> दुनिया को <span className="text-teal-700">देखें</span></>) : (<>See the World<br className="hidden sm:block" /> with <span className="text-teal-700">Perfect Clarity</span></>)}
+            <h1 className="text-[2.5rem] md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.15] tracking-tight">
+              {d.hero_title}
             </h1>
             <p className="text-base md:text-lg text-gray-500 max-w-lg leading-relaxed">{d.hero_subtitle}</p>
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -83,7 +83,7 @@ export default async function PrismHomePage({ params }: PageProps) {
           </div>
           <div className="relative mt-4 lg:mt-0">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5"><img src="/hero-clinic.png" alt="Prism Healthcure Premium Eye Care Clinic" className="w-full h-full object-cover" loading="eager" /></div>
-            <div className="absolute -bottom-5 right-3 md:-bottom-6 md:right-6 bg-white p-4 md:p-5 rounded-2xl shadow-xl ring-1 ring-black/5 flex items-center gap-3" style={{ zIndex: 10 }}><div className="w-11 h-11 bg-teal-100 rounded-xl flex items-center justify-center text-teal-700"><Award className="w-6 h-6" /></div><div><h4 className="font-bold text-gray-900 text-sm">NABH Accredited</h4><p className="text-xs text-gray-400">Quality Certified</p></div></div>
+            <div className="absolute -bottom-5 right-3 md:-bottom-6 md:right-6 bg-white p-4 md:p-5 rounded-2xl shadow-xl ring-1 ring-black/5 flex items-center gap-3" style={{ zIndex: 10 }}><div className="w-11 h-11 bg-teal-100 rounded-xl flex items-center justify-center text-teal-700"><Shield className="w-6 h-6" /></div><div><h4 className="font-bold text-gray-900 text-sm">100% Cashless</h4><p className="text-xs text-gray-400">Insurance Support</p></div></div>
           </div>
         </div>
       </section>
@@ -108,7 +108,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       {/* WHY CHOOSE US */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 order-2 lg:order-1"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&q=80&w=800" alt="Advanced Eye Surgery" className="w-full h-[350px] md:h-[500px] object-cover" loading="lazy" /><div className="absolute bottom-5 left-5 md:bottom-8 md:left-8 bg-teal-700 text-white p-5 rounded-2xl shadow-xl flex items-center gap-4"><span className="text-4xl font-black">15+</span><span className="text-sm font-medium text-teal-100 leading-tight">{lang === 'hi' ? <>वर्षों की<br/>उत्कृष्टता</> : <>Years of<br/>Excellence</>}</span></div></div>
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 order-2 lg:order-1"><img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&q=80&w=800" alt="Advanced Eye Surgery" className="w-full h-[350px] md:h-[500px] object-cover" loading="lazy" /><div className="absolute bottom-5 left-5 md:bottom-8 md:left-8 bg-teal-700 text-white p-5 rounded-2xl shadow-xl flex items-center gap-4"><span className="text-4xl font-black">24/7</span><span className="text-sm font-medium text-teal-100 leading-tight">{lang === 'hi' ? <>समर्पित<br/>सहायता</> : <>Dedicated<br/>Assistance</>}</span></div></div>
           <div className="order-1 lg:order-2"><span className="text-teal-700 font-bold text-sm uppercase tracking-widest">{d.why_prism}</span><h2 className="text-3xl md:text-5xl font-black text-gray-900 mt-3 mb-6">{d.vision_deserves_best}</h2><p className="text-gray-500 text-base md:text-lg mb-10 leading-relaxed">{d.vision_desc}</p><div className="space-y-6">{d.why_points.map((f: any, i: number) => (<div key={i} className="flex gap-4"><CheckCircle2 className="w-6 h-6 text-teal-600 shrink-0 mt-0.5" /><div><h4 className="text-base font-bold text-gray-900">{f.title}</h4><p className="text-sm text-gray-500 mt-0.5">{f.desc}</p></div></div>))}</div></div>
         </div>
       </section>
