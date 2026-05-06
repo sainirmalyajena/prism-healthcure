@@ -9,7 +9,7 @@ import { User, Phone as PhoneIcon, ChevronRight, CheckCircle2, AlertCircle, MapP
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   mobile: z.string().min(10, 'Please enter a valid phone number'),
-  city: z.string().min(1, 'Please select your city'),
+  city: z.string().min(2, 'Please enter your city or pincode'),
   service: z.string().min(1, 'Please select a service'),
 });
 
@@ -119,38 +119,17 @@ export default function AppointmentForm() {
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">City</label>
+          <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">City / Pincode</label>
           <div className="relative group">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-teal-600 transition-colors pointer-events-none">
               <MapPin className="w-5 h-5" />
             </div>
-            <select 
+            <input 
               {...register('city')}
-              className={`w-full pl-12 pr-4 py-4 bg-slate-50 border rounded-2xl outline-none transition-all appearance-none cursor-pointer ${errors.city ? 'border-red-300 bg-red-50/30' : 'border-slate-100 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10'}`}
-              defaultValue=""
-            >
-              <option value="" disabled>Select your city</option>
-              <optgroup label="Tier 1 Cities">
-                <option value="Delhi/NCR">Delhi/NCR</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Hyderabad">Hyderabad</option>
-                <option value="Chennai">Chennai</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="Pune">Pune</option>
-                <option value="Ahmedabad">Ahmedabad</option>
-              </optgroup>
-              <optgroup label="Tier 2 Cities">
-                <option value="Jaipur">Jaipur</option>
-                <option value="Lucknow">Lucknow</option>
-                <option value="Chandigarh">Chandigarh</option>
-                <option value="Indore">Indore</option>
-                <option value="Surat">Surat</option>
-                <option value="Nagpur">Nagpur</option>
-                <option value="Kochi">Kochi</option>
-                <option value="Other">Other City</option>
-              </optgroup>
-            </select>
+              type="text"
+              placeholder="Enter your City or Pincode"
+              className={`w-full pl-12 pr-4 py-4 bg-slate-50 border rounded-2xl outline-none transition-all ${errors.city ? 'border-red-300 bg-red-50/30' : 'border-slate-100 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10'}`}
+            />
           </div>
           {errors.city && <span className="text-red-500 text-xs font-medium mt-1 block ml-1">{errors.city.message}</span>}
         </div>
