@@ -230,13 +230,13 @@ export default async function PrismHomePage({ params }: PageProps) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
             {[
-              { name: 'Dr. Sameer Gupta', role: 'Senior Ophthalmic Surgeon', spec: 'Cataract & Refractive', exp: '18+ Yrs Exp', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400', education: 'MBBS, MS (AIIMS)' },
-              { name: 'Dr. Anjali Verma', role: 'Retina Specialist', spec: 'Vitreoretinal Surgery', exp: '15+ Yrs Exp', img: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400', education: 'MS, DNB (Sankara Nethralaya)' },
-              { name: 'Dr. Vikram Seth', role: 'Glaucoma Consultant', spec: 'Cornea & Glaucoma', exp: '20+ Yrs Exp', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400', education: 'MBBS, MD, FRCS (London)' }
+              { name: 'Dr. Sameer Gupta', role: 'Senior Ophthalmic Surgeon', spec: 'Cataract & Refractive', exp: '18+ Yrs Exp', img: '/assets/doctor-senior.png', education: 'MBBS, MS (AIIMS)' },
+              { name: 'Dr. Anjali Verma', role: 'Retina Specialist', spec: 'Vitreoretinal Surgery', exp: '15+ Yrs Exp', img: '/assets/doctor-female.png', education: 'MS, DNB (Sankara Nethralaya)' },
+              { name: 'Dr. Vikram Seth', role: 'Glaucoma Consultant', spec: 'Cornea & Glaucoma', exp: '20+ Yrs Exp', img: '/assets/doctor-senior.png', education: 'MBBS, MD, FRCS (London)' }
             ].map((doc, i) => (
               <div key={i} className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-teal-900/10 transition-all duration-500 hover:-translate-y-2">
                 <div className="aspect-[5/4] overflow-hidden bg-slate-100 relative">
-                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold text-teal-700 uppercase tracking-wider shadow-sm">
                     {doc.exp}
                   </div>
@@ -261,7 +261,7 @@ export default async function PrismHomePage({ params }: PageProps) {
       <section className="py-16 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 order-2 lg:order-1">
-            <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&q=80&w=800" alt="Advanced Eye Surgery" className="w-full h-[300px] md:h-[500px] object-cover" loading="lazy" />
+            <img src="/assets/clinic-interior.png" alt="Advanced Eye Surgery Center" className="w-full h-[300px] md:h-[500px] object-cover" loading="lazy" />
             <div className="absolute bottom-5 left-5 md:bottom-8 md:left-8 bg-teal-700 text-white p-4 md:p-5 rounded-2xl shadow-xl flex items-center gap-4">
               <span className="text-3xl md:text-4xl font-extrabold">24/7</span>
               <span className="text-xs md:text-sm font-medium text-teal-100 leading-tight">{lang === 'hi' ? <>समर्पित<br/>सहायता</> : <>Dedicated<br/>Assistance</>}</span>
