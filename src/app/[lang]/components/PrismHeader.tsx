@@ -115,8 +115,8 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
       </div>
 
       <div className={cn(
-        "fixed inset-0 top-0 bg-white z-[99] transition-all duration-400 lg:hidden flex flex-col",
-        isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
+        "fixed inset-0 bg-white z-[999] transition-transform duration-300 lg:hidden flex flex-col h-[100dvh] w-full",
+        isOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
       )}>
         <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
           <div className="flex flex-col">
