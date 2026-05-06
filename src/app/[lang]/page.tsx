@@ -152,9 +152,11 @@ export default async function PrismHomePage({ params }: PageProps) {
         </div>
 
         {/* Floating Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-slate-500">
-          <span className="text-[9px] font-bold uppercase tracking-widest opacity-50">Scroll to Explore</span>
-          <div className="w-px h-8 bg-gradient-to-b from-teal-500 to-transparent"></div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500/80 z-30 pointer-events-none group">
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">Scroll</span>
+          <div className="relative w-5 h-8 rounded-full border-2 border-white/10 flex justify-center p-1">
+            <div className="w-1 h-1.5 bg-teal-400 rounded-full animate-bounce"></div>
+          </div>
         </div>
       </section>
 
