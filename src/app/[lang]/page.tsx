@@ -107,8 +107,7 @@ export default async function PrismHomePage({ params }: PageProps) {
           <div className="absolute -bottom-[10%] left-[20%] w-[35%] h-[35%] bg-emerald-500/10 rounded-full blur-[120px] animate-float-slow" style={{ animationDelay: '-2s' }} />
           
           {/* Subtle Grid Pattern */}
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
-          <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] mask-image:linear-gradient(to_bottom,transparent,black,transparent)"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" aria-hidden="true"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10 w-full flex-1">
@@ -148,14 +147,6 @@ export default async function PrismHomePage({ params }: PageProps) {
             {/* Form Glow Effect */}
             <div className="absolute inset-0 bg-teal-500/20 blur-[60px] rounded-full scale-90 pointer-events-none"></div>
             <AppointmentForm lang={lang} />
-          </div>
-        </div>
-
-        {/* Floating Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500/80 z-30 pointer-events-none group">
-          <span className="text-[10px] font-black uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">Scroll</span>
-          <div className="relative w-5 h-8 rounded-full border-2 border-white/10 flex justify-center p-1">
-            <div className="w-1 h-1.5 bg-teal-400 rounded-full animate-bounce"></div>
           </div>
         </div>
       </section>
@@ -402,9 +393,8 @@ export default async function PrismHomePage({ params }: PageProps) {
               </div>
               <p className="text-sm leading-relaxed mb-8 text-slate-400 max-w-xs">{d.premium_eye_care}</p>
               <div className="flex items-center gap-4">
-                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Globe className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
-                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Globe className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
-                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Globe className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
+                <a href="https://www.instagram.com/prismhealthcure" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Globe className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
+                <a href="https://www.linkedin.com/company/prism-healthcure" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-teal-500 transition-all border border-white/10 group"><Globe className="w-5 h-5 group-hover:scale-110 transition-transform" /></a>
               </div>
             </div>
 
