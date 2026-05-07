@@ -21,8 +21,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description,
     metadataBase: new URL(prismBaseUrl),
     alternates: {
-      canonical: `${prismBaseUrl}/${lang}`,
-      languages: { 'en-IN': `${prismBaseUrl}/en`, 'hi-IN': `${prismBaseUrl}/hi` },
+      canonical: isHi ? `${prismBaseUrl}/hi` : prismBaseUrl,
+      languages: { 
+        'en-IN': prismBaseUrl, 
+        'hi-IN': `${prismBaseUrl}/hi`,
+        'x-default': prismBaseUrl
+      },
+    },
+    verification: {
+      google: 'ADD_YOUR_GOOGLE_SEARCH_CONSOLE_CODE_HERE',
     },
     keywords: ['ophthalmology India', 'cataract surgery cost', 'LASIK eye surgery', 'best eye doctor Delhi', 'retina specialist', 'glaucoma treatment', 'cashless eye surgery', 'Prism Healthcure', 'eye care network'],
     authors: [{ name: 'Prism Healthcure' }],

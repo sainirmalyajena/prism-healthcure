@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PrismHeader from '../components/PrismHeader';
+import PrismFooter from '../components/PrismFooter';
 import { getDictionary } from '@/get-dictionary';
 
 interface PageProps { params: Promise<{ lang: string }>; }
@@ -34,6 +35,7 @@ export default async function PrismPrivacyPage({ params }: PageProps) {
           </div>
         </div>
       </div>
+      <PrismFooter lang={lang} dict={dictionary.prism_page} />
     </div>
   );
 }

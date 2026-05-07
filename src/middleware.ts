@@ -30,7 +30,16 @@ export function middleware(request: NextRequest) {
     )
 
     if (pathnameIsMissingLocale) {
-        const locale = getLocale(request)
+        const locale = getLocale(request) || i18n.defaultLocale
+        
+        // If the locale is the default locale (en), we rewrite instead of redirect 
+        // to keep the URL clean (e.g., / instead of /en)
+        if (locale === i18n.defaultLocale) {
+            return NextResponse.rewrite(
+                new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url)
+            )
+        }
+
         return NextResponse.redirect(
             new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url)
         )

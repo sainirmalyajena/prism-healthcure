@@ -9,9 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of locales) {
+    const isDefault = locale === 'en';
     for (const route of staticRoutes) {
       entries.push({
-        url: `${BASE_URL}/${locale}${route}`,
+        url: isDefault ? `${BASE_URL}${route}` : `${BASE_URL}/${locale}${route}`,
         lastModified: new Date(),
         changeFrequency: route === '' ? 'weekly' : 'monthly',
         priority: route === '' ? 1.0 : 0.5,
@@ -19,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
     for (const slug of treatmentSlugs) {
       entries.push({
-        url: `${BASE_URL}/${locale}/treatments/${slug}`,
+        url: isDefault ? `${BASE_URL}/treatments/${slug}` : `${BASE_URL}/${locale}/treatments/${slug}`,
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.8,

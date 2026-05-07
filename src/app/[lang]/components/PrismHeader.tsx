@@ -42,19 +42,39 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  const getLinkHref = (path: string) => {
+    return lang === 'en' ? path : `/${lang}${path}`;
+  };
+
   const navLinks = [
-    { href: `/${lang}#treatments`, label: lang === 'hi' ? 'विशेषताएं' : 'Specialties' },
-    { href: `/${lang}#doctors`, label: lang === 'hi' ? 'हमारे डॉक्टर' : 'Our Doctors' },
-    { href: `/${lang}#testimonials`, label: lang === 'hi' ? 'समीक्षाएं' : 'Reviews' },
-    { href: `/${lang}#faq`, label: "FAQ" },
-    { href: `/${lang}#appointment`, label: lang === 'hi' ? 'संपर्क' : 'Contact' },
+    { href: getLinkHref('#treatments'), label: lang === 'hi' ? 'विशेषताएं' : 'Specialties' },
+    { href: getLinkHref('#doctors'), label: lang === 'hi' ? 'हमारे डॉक्टर' : 'Our Doctors' },
+    { href: getLinkHref('#testimonials'), label: lang === 'hi' ? 'समीक्षाएं' : 'Reviews' },
+    { href: getLinkHref('#faq'), label: "FAQ" },
+    { href: getLinkHref('#appointment'), label: lang === 'hi' ? 'संपर्क' : 'Contact' },
   ];
 
   const redirectedPathname = (locale: string) => {
     if (!pathname) return '/';
     const segments = pathname.split('/');
-    segments[1] = locale;
-    return segments.join('/');
+    // Current segments for /en/privacy are ['', 'en', 'privacy']
+    // If we want clean URLs, we need to handle the case where segment 1 is a locale or not.
+    const isLocaleSegment = i18n.locales.includes(segments[1] as any);
+    
+    if (locale === 'en') {
+      if (isLocaleSegment) {
+        segments.splice(1, 1); // Remove locale segment
+      }
+    } else {
+      if (isLocaleSegment) {
+        segments[1] = locale; // Change locale segment
+      } else {
+        segments.splice(1, 0, locale); // Insert locale segment
+      }
+    }
+    
+    const result = segments.join('/') || '/';
+    return result;
   };
 
   return (
@@ -65,7 +85,7 @@ export default function PrismHeader({ lang, dict }: PrismHeaderProps) {
         : "bg-transparent py-6"
     )}>
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
-        <Link href={`/${lang}`} className="flex flex-col group transition-all" onClick={() => setIsOpen(false)}>
+        <Link href={lang === 'en' ? '/' : `/${lang}`} className="flex flex-col group transition-all" onClick={() => setIsOpen(false)}>
           <span className={cn(
             "text-xl md:text-2xl font-black font-outfit tracking-tighter leading-none transition-all duration-300",
             scrolled ? "text-gradient-teal" : "text-white group-hover:text-teal-300"
