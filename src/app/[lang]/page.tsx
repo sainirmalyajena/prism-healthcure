@@ -69,9 +69,10 @@ export default async function PrismHomePage({ params }: PageProps) {
     },
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'New Delhi',
-      addressRegion: 'Delhi',
-      postalCode: '110001',
+      streetAddress: 'A-1441/8, Indira Nagar',
+      addressLocality: 'Lucknow',
+      addressRegion: 'Uttar Pradesh',
+      postalCode: '226016',
       addressCountry: 'IN'
     },
     medicalSpecialty: ['Ophthalmology', 'Surgery'],

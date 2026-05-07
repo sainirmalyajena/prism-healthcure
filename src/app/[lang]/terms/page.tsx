@@ -30,7 +30,7 @@ export default async function PrismTermsPage({ params }: PageProps) {
               <section><h2 className="text-xl font-bold text-slate-900 mb-3">2. No Medical Advice</h2><p>The content on our website is for informational purposes only and does not constitute medical advice.</p></section>
               <section><h2 className="text-xl font-bold text-slate-900 mb-3">3. Accuracy</h2><p>Surgery cost estimates and hospital availability are subject to change based on actual clinical evaluation.</p></section>
               <section><h2 className="text-xl font-bold text-slate-900 mb-3">4. Limitation of Liability</h2><p>Prism Healthcure is not liable for clinical outcomes at partner hospitals. Patients enter into a direct relationship with the medical provider.</p></section>
-              <section><h2 className="text-xl font-bold text-slate-900 mb-3">5. Governing Law</h2><p>These terms are governed by the laws of India. Any disputes shall be subject to the courts in New Delhi.</p></section>
+              <section><h2 className="text-xl font-bold text-slate-900 mb-3">5. Governing Law</h2><p>These terms are governed by the laws of India. Any disputes shall be subject to the courts in Lucknow, Uttar Pradesh.</p></section>
             </div>
           </div>
         </div>
