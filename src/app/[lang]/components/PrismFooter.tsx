@@ -62,7 +62,7 @@ export default function PrismFooter({ lang, dict }: PrismFooterProps) {
                 <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-500 shrink-0 border border-teal-500/20"><MapPin className="w-4 h-4" /></div>
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Registered Office</span>
-                  <span className="text-white text-xs leading-relaxed font-medium">A-1441/8, Indira Nagar,<br/>Faizabad Road, Lucknow, UP 226016</span>
+                  <span className="text-white text-xs leading-relaxed font-medium">A-1441/8, Indira Nagar,<br/>(Nearby Dr Rekha Gaur Clinic),<br/>Faizabad Road, Lucknow, UP 226016</span>
                 </div>
               </li>
             </ul>
