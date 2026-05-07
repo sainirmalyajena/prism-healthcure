@@ -3,6 +3,7 @@ import AppointmentForm from './components/AppointmentForm';
 import WhatsAppButton from './components/WhatsAppButton';
 import { Eye, Microscope, Droplets, Glasses, Target, Dna, CheckCircle2, ChevronDown, Star, MapPin, Phone, Mail, Clock, Shield, Award, Users, Heart, Calendar, Stethoscope, FileText, Building2, Globe } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getDictionary } from '@/get-dictionary';
 import { Metadata } from 'next';
 
@@ -107,7 +108,7 @@ export default async function PrismHomePage({ params }: PageProps) {
           <div className="absolute -bottom-[10%] left-[20%] w-[35%] h-[35%] bg-emerald-500/10 rounded-full blur-[120px] animate-float-slow" style={{ animationDelay: '-2s' }} />
           
           {/* Subtle Grid Pattern */}
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" aria-hidden="true"></div>
+          <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-20 mix-blend-overlay" aria-hidden="true"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10 w-full flex-1">
@@ -261,7 +262,14 @@ export default async function PrismHomePage({ params }: PageProps) {
             {doctors.map((doc, i) => (
               <div key={i} className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-teal-900/10 transition-all duration-500 hover:-translate-y-2">
                 <div className="aspect-[5/4] overflow-hidden bg-slate-100 relative">
-                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                  <Image 
+                    src={doc.img} 
+                    alt={doc.name} 
+                    width={400} 
+                    height={320} 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+                    loading="lazy" 
+                  />
                   <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold text-teal-700 uppercase tracking-wider shadow-sm">
                     {doc.exp}
                   </div>
@@ -286,7 +294,14 @@ export default async function PrismHomePage({ params }: PageProps) {
       <section className="py-16 md:py-28 bg-white reveal">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 order-2 lg:order-1">
-            <img src="/assets/clinic-interior.png" alt="Advanced Eye Surgery Center" className="w-full h-[300px] md:h-[500px] object-cover" loading="lazy" />
+            <Image 
+              src="/assets/clinic-interior.png" 
+              alt="Advanced Eye Surgery Center Interior" 
+              width={800} 
+              height={500} 
+              className="w-full h-[300px] md:h-[500px] object-cover" 
+              loading="lazy" 
+            />
             <div className="absolute bottom-5 left-5 md:bottom-8 md:left-8 bg-teal-700 text-white p-4 md:p-5 rounded-2xl shadow-xl flex items-center gap-4">
               <span className="text-3xl md:text-4xl font-extrabold">24/7</span>
               <span className="text-xs md:text-sm font-medium text-teal-100 leading-tight">{lang === 'hi' ? <>समर्पित<br/>सहायता</> : <>Dedicated<br/>Assistance</>}</span>
