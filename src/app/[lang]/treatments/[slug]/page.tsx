@@ -14,15 +14,32 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const isHi = (await params).lang === 'hi';
+  const { lang, slug } = await params;
   const t = treatments[slug as TreatmentSlug];
   if (!t) return {};
+  const isHi = lang === 'hi';
   const content = isHi ? t.hi : t;
+  const baseUrl = 'https://prismhealthcure.com';
+  const canonical = isHi ? `${baseUrl}/hi/treatments/${slug}` : `${baseUrl}/treatments/${slug}`;
+
   return {
     title: `${content.title} — Cost, Procedure & Recovery | Prism Healthcure`,
     description: content.overview.slice(0, 160),
-    openGraph: { title: content.title, description: content.overview.slice(0, 160), images: [{ url: t.heroImage }] },
+    alternates: {
+      canonical: canonical,
+    },
+    openGraph: { 
+      title: content.title, 
+      description: content.overview.slice(0, 160), 
+      url: canonical,
+      images: [{ url: t.heroImage }] 
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: content.title,
+      description: content.overview.slice(0, 160),
+      images: [t.heroImage],
+    }
   };
 }
 

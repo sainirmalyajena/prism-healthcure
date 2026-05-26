@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       },
     },
     verification: {
-      google: 'ADD_YOUR_GOOGLE_SEARCH_CONSOLE_CODE_HERE',
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'ADD_YOUR_GOOGLE_SEARCH_CONSOLE_CODE_HERE',
     },
     keywords: ['ophthalmology India', 'cataract surgery cost', 'LASIK eye surgery', 'best eye doctor Delhi', 'retina specialist', 'glaucoma treatment', 'cashless eye surgery', 'Prism Healthcure', 'eye care network'],
     authors: [{ name: 'Prism Healthcure' }],
@@ -52,6 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 import MobileStickyBar from "./components/MobileStickyBar";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export default async function RootLayout({
   children,
@@ -71,6 +72,7 @@ export default async function RootLayout({
   return (
     <html lang={lang} className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col overflow-x-hidden font-sans antialiased text-slate-900 selection:bg-teal-900 selection:text-white pb-16 md:pb-0">
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         <main className="flex-1">{children}</main>
         <MobileStickyBar dict={dictionary.prism_page.sticky_bar} />
       </body>

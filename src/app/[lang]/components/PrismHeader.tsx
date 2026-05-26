@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { i18n } from '@/i18n-config';
 
 interface PrismHeaderProps {
   lang: string;

@@ -12,9 +12,32 @@ interface PageProps { params: Promise<{ lang: any }>; }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
+  const isHi = lang === 'hi';
+  const title = isHi ? 'Prism Healthcure | 100% कैशलेस चिकित्सा सहायता' : 'Prism Healthcure India | Cashless Eye Surgery Assistance';
+  const description = isHi ? 'ASG जैसे शीर्ष अस्पतालों में मोतियाबिंद, लैसिक और अन्य नेत्र शल्य चिकित्सा के लिए कैशलेस सहायता और मुफ़्त परामर्श।' : 'Prism Healthcure offers 100% cashless medical assistance for LASIK, Cataract, and other eye surgeries at top hospitals like ASG.';
+  const baseUrl = 'https://prismhealthcure.com';
+  const canonical = isHi ? `${baseUrl}/hi` : baseUrl;
+
   return {
-    title: lang === 'hi' ? 'Prism Healthcure | 100% कैशलेस चिकित्सा सहायता' : 'Prism Healthcure India | Cashless Eye Surgery Assistance',
-    description: lang === 'hi' ? 'ASG जैसे शीर्ष अस्पतालों में मोतियाबिंद, लैसिक और अन्य नेत्र शल्य चिकित्सा के लिए कैशलेस सहायता और मुफ़्त परामर्श।' : 'Prism Healthcure offers 100% cashless medical assistance for LASIK, Cataract, and other eye surgeries at top hospitals like ASG.',
+    title,
+    description,
+    alternates: {
+      canonical: canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: 'Prism Healthcure',
+      images: [{ url: '/prism-logo.jpg', width: 1200, height: 630, alt: 'Prism Healthcure' }],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/prism-logo.jpg'],
+    }
   };
 }
 
