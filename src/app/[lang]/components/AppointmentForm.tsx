@@ -117,7 +117,9 @@ export default function AppointmentForm({ lang = 'en' }: { lang?: string }) {
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     {...register('name')}
+                    id="form-name"
                     placeholder={labels.name}
+                    aria-label={labels.name}
                     className="w-full pl-10 pr-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 text-sm font-medium"
                   />
                 </div>
@@ -129,7 +131,10 @@ export default function AppointmentForm({ lang = 'en' }: { lang?: string }) {
                   <PhoneIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     {...register('mobile')}
+                    id="form-mobile"
                     placeholder={labels.mobile}
+                    aria-label={labels.mobile}
+                    inputMode="numeric"
                     className="w-full pl-10 pr-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 text-sm font-medium"
                   />
                 </div>
@@ -141,7 +146,9 @@ export default function AppointmentForm({ lang = 'en' }: { lang?: string }) {
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     {...register('city')}
+                    id="form-city"
                     placeholder={labels.city}
+                    aria-label={labels.city}
                     className="w-full pl-10 pr-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 placeholder:text-slate-400 text-sm font-medium"
                   />
                 </div>
@@ -149,8 +156,13 @@ export default function AppointmentForm({ lang = 'en' }: { lang?: string }) {
               </div>
 
               <div className="space-y-1">
+                <label htmlFor="service-select" className="sr-only">
+                  {isHi ? 'सेवा चुनें' : 'Select a service'}
+                </label>
                 <select
+                  id="service-select"
                   {...register('service')}
+                  aria-label={isHi ? 'सेवा चुनें' : 'Select a service'}
                   className="w-full px-4 py-3.5 bg-white/60 border border-slate-200/60 rounded-xl focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 focus:bg-white transition-all outline-none text-slate-900 appearance-none text-sm font-medium cursor-pointer"
                 >
                   <option value="cataract">{labels.services.cataract}</option>
@@ -164,6 +176,7 @@ export default function AppointmentForm({ lang = 'en' }: { lang?: string }) {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
+                aria-label={isSubmitting ? labels.processing : labels.submit}
                 className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-extrabold py-4 px-6 rounded-xl transition-all shadow-[0_12px_24px_rgba(13,148,136,0.3)] active:scale-[0.98] disabled:opacity-70 flex justify-center items-center gap-2 mt-2 group"
               >
                 {isSubmitting ? (
