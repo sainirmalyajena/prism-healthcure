@@ -80,7 +80,7 @@ export default function AppointmentForm({ lang = 'en' }: { lang?: string }) {
       </div>
 
       <div className={cn(
-        "w-full glass-card p-6 md:p-7 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-white/50 relative z-10 transition-all duration-500 hover:shadow-[0_30px_80px_rgba(0,0,0,0.15)]",
+        "w-full bg-white p-6 md:p-7 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-slate-100 relative z-10 transition-shadow duration-300 hover:shadow-[0_30px_80px_rgba(0,0,0,0.12)]",
         success ? "min-h-[400px] flex flex-col items-center justify-center text-center" : ""
       )}>
         {success ? (

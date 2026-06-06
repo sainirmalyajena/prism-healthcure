@@ -2,6 +2,7 @@ import PrismHeader from './components/PrismHeader';
 import AppointmentForm from './components/AppointmentForm';
 import WhatsAppButton from './components/WhatsAppButton';
 import PrismFooter from './components/PrismFooter';
+import ScrollReveal from './components/ScrollReveal';
 import { Eye, Microscope, Droplets, Glasses, Target, Dna, CheckCircle2, ChevronDown, Star, MapPin, Phone, Mail, Clock, Shield, Award, Users, Heart, Calendar, Stethoscope, FileText, Building2, Globe } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -55,25 +56,13 @@ export default async function PrismHomePage({ params }: PageProps) {
     { icon: Heart, title: d.treatments.pediatric.title, desc: d.treatments.pediatric.desc, slug: 'pediatric' },
   ];
 
-
-
-  const doctors = [
-    { name: 'Dr. Sameer Gupta', role: 'Senior Ophthalmic Surgeon', spec: 'Cataract & Refractive', exp: '18+ Yrs Exp', img: '/assets/doctor-senior.png', education: 'MBBS, MS (AIIMS)' },
-    { name: 'Dr. Anjali Verma', role: 'Retina Specialist', spec: 'Vitreoretinal Surgery', exp: '15+ Yrs Exp', img: '/assets/doctor-female.png', education: 'MS, DNB (Sankara Nethralaya)' },
-    { name: 'Dr. Vikram Seth', role: 'Glaucoma Consultant', spec: 'Cornea & Glaucoma', exp: '20+ Yrs Exp', img: '/assets/doctor-senior.png', education: 'MBBS, MD, FRCS (London)' }
-  ];
-
-  const testimonials = [
-    { name: 'Rajesh Kumar', location: 'Delhi', surgery: d.treatments.cataract.title, text: lang === 'hi' ? 'Prism Healthcure में पूरा अनुभव असाधारण था। डॉ मेहता ने सब कुछ स्पष्ट रूप से समझाया और सर्जरी पूरी तरह से दर्द रहित थी।' : 'The entire experience at Prism Healthcure was exceptional. Dr. Mehta explained everything clearly and the surgery was completely painless. I can see perfectly now!', rating: 5 },
-    { name: 'Sunita Devi', location: 'Noida', surgery: 'LASIK', text: lang === 'hi' ? '15 साल तक चश्मा पहनने के बाद, आखिरकार मैंने यहाँ लैसिक करवाया। प्रक्रिया में केवल 10 मिनट लगे। जीवन बदल गया!' : 'After 15 years of wearing glasses, I finally got LASIK done here. The procedure took only 10 minutes and I could see clearly the next morning. Life-changing!', rating: 5 },
-    { name: 'Amit Patel', location: 'Gurgaon', surgery: d.treatments.glaucoma.title, text: lang === 'hi' ? 'उनकी उन्नत स्क्रीनिंग की बदौलत मेरे ग्लूकोमा का जल्दी पता चल गया। उपचार योजना बहुत प्रभावी रही है।' : 'My glaucoma was detected early thanks to their advanced screening. The treatment plan has been very effective. Highly recommend their expertise.', rating: 5 },
-  ];
-
-  const faqs = [
-    { q: lang === 'hi' ? 'आप किस प्रकार के मोतियाबिंद लेंस प्रदान करते हैं?' : 'What types of cataract lenses do you offer?', a: lang === 'hi' ? 'हम मोनोफोकल, मल्टीफोकल, टोरिक और एक्सटेंडेड डेप्थ-ऑफ-फोकस लेंस सहित प्रीमियम आईओएल की एक पूरी श्रृंखला पेश करते हैं।' : 'We offer a full range of premium IOLs including monofocal, multifocal, toric, and extended depth-of-focus lenses. Our surgeons will recommend the best option based on your lifestyle and vision needs.' },
-    { q: lang === 'hi' ? 'क्या लैसिक सर्जरी दर्दनाक है?' : 'Is LASIK surgery painful?', a: lang === 'hi' ? 'नहीं। लैसिक वस्तुतः दर्द रहित है।' : 'No. LASIK is virtually painless. We use numbing eye drops before the procedure. Most patients feel only mild pressure during the 10-15 minute procedure.' },
-    { q: lang === 'hi' ? 'मोतियाबिंद की सर्जरी में कितना समय लगता है?' : 'How long does cataract surgery take?', a: lang === 'hi' ? 'वास्तविक सर्जरी में प्रति आँख केवल 15-20 मिनट लगते हैं।' : 'The actual surgery takes only 15-20 minutes per eye. You can go home the same day.' },
-    { q: lang === 'hi' ? 'क्या आप बीमा स्वीकार करते हैं?' : 'Do you accept insurance?', a: lang === 'hi' ? 'हाँ, हम सभी प्रमुख बीमा प्रदाताओं के साथ काम करते हैं।' : 'Yes, we work with all major insurance providers and offer cashless treatment at our facility.' },
+  const treatments = [
+    { icon: Droplets, title: d.treatments.cataract.title, desc: d.treatments.cataract.desc, slug: 'cataract' },
+    { icon: Glasses, title: d.treatments.lasik.title, desc: d.treatments.lasik.desc, slug: 'lasik' },
+    { icon: Eye, title: d.treatments.retina.title, desc: d.treatments.retina.desc, slug: 'retina' },
+    { icon: Target, title: d.treatments.glaucoma.title, desc: d.treatments.glaucoma.desc, slug: 'glaucoma' },
+    { icon: Dna, title: d.treatments.cornea.title, desc: d.treatments.cornea.desc, slug: 'cornea' },
+    { icon: Heart, title: d.treatments.pediatric.title, desc: d.treatments.pediatric.desc, slug: 'pediatric' },
   ];
 
   const jsonLd = {
@@ -109,7 +98,7 @@ export default async function PrismHomePage({ params }: PageProps) {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map(faq => ({
+    mainEntity: d.faqs.map((faq: any) => ({
       '@type': 'Question',
       name: faq.q,
       acceptedAnswer: {
@@ -119,18 +108,27 @@ export default async function PrismHomePage({ params }: PageProps) {
     }))
   };
 
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Prism Healthcure',
+    alternateName: 'प्रिज्म हेल्थक्योर',
+    url: 'https://prismhealthcure.com/'
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <PrismHeader lang={lang} dict={dictionary.navigation} />
       <WhatsAppButton />
-      <section id="hero" className="relative pt-24 md:pt-28 pb-12 md:pb-16 min-h-screen flex flex-col justify-center overflow-hidden bg-[#020617] animate-fade-in">
-        {/* Animated Background Elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-teal-500/20 rounded-full blur-[120px] animate-float-slow" />
-          <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-indigo-500/20 rounded-full blur-[100px] animate-float" />
-          <div className="absolute -bottom-[10%] left-[20%] w-[35%] h-[35%] bg-emerald-500/10 rounded-full blur-[120px] animate-float-slow" style={{ animationDelay: '-2s' }} />
+      <section id="hero" className="relative pt-24 md:pt-28 pb-12 md:pb-16 min-h-screen flex flex-col justify-center overflow-hidden bg-[#020617]">
+        {/* Static Background Gradients — GPU-friendly, no blur animations on mobile */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none" aria-hidden="true">
+          <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-teal-900/40 rounded-full" style={{filter:'blur(80px)'}} />
+          <div className="absolute top-[30%] -right-[10%] w-[40%] h-[40%] bg-indigo-900/30 rounded-full" style={{filter:'blur(60px)'}} />
+          <div className="absolute -bottom-[15%] left-[15%] w-[45%] h-[45%] bg-emerald-900/20 rounded-full" style={{filter:'blur(80px)'}} />
           
           {/* Subtle Grid Pattern */}
           <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-20 mix-blend-overlay" aria-hidden="true"></div>
@@ -145,11 +143,11 @@ export default async function PrismHomePage({ params }: PageProps) {
               </div>
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
-                {lang === 'hi' ? <>कैशलेस नेत्र सर्जरी <br/><span className="text-gradient-indigo">के लिए आपका</span> <br/></> : <>Your Trusted <br/><span className="text-gradient-indigo">Partner for</span> <br/></>}
+                {d.hero_parts.p1} <br/><span className="text-gradient-indigo">{d.hero_parts.p2}</span> <br/>
                 <span className="relative inline-block">
-                  {lang === 'hi' ? 'भरोसेमंद' : 'Cashless'}
+                  {d.hero_parts.p3}
                   <svg className="absolute -bottom-1 left-0 w-full h-2 text-teal-500/40 -z-10" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0,10 Q50,0 100,10" stroke="currentColor" strokeWidth="8" fill="none" /></svg>
-                </span> {lang === 'hi' ? 'साथी' : 'Eye Surgery'}
+                </span> {d.hero_parts.p4}
               </h1>
             </div>
 
@@ -221,8 +219,8 @@ export default async function PrismHomePage({ params }: PageProps) {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-20 md:py-28 bg-white border-b border-gray-50">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
+      <section className="py-20 md:py-28 bg-white border-b border-gray-50 overflow-hidden">
+        <ScrollReveal direction="up" className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-teal-600 font-bold text-sm uppercase tracking-widest">{d.how_it_works.title}</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3 mb-4">{d.how_it_works.subtitle}</h2>
@@ -250,11 +248,11 @@ export default async function PrismHomePage({ params }: PageProps) {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
       {/* TREATMENTS */}
-      <section id="treatments" className="py-16 md:py-28 bg-white scroll-mt-24 reveal">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
+      <section id="treatments" className="py-16 md:py-28 bg-white scroll-mt-24">
+        <ScrollReveal direction="up" className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-teal-700 font-bold text-xs md:text-sm uppercase tracking-widest">{d.specialties_title}</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3 mb-4">{d.comp_eye_care}</h2>
@@ -272,19 +270,19 @@ export default async function PrismHomePage({ params }: PageProps) {
               </Link>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* DOCTORS */}
-      <section id="doctors" className="py-16 md:py-28 bg-slate-50 scroll-mt-24 reveal">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
+      <section id="doctors" className="py-16 md:py-28 bg-slate-50 scroll-mt-24">
+        <ScrollReveal direction="up" className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-teal-700 font-bold text-xs md:text-sm uppercase tracking-widest">{d.expert_team}</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3 mb-4">{d.meet_specialists}</h2>
             <p className="text-slate-500 text-sm md:text-lg leading-relaxed">{d.specialists_desc}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
-            {doctors.map((doc, i) => (
+            {d.doctors.map((doc: any, i: number) => (
               <div key={i} className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-teal-900/10 transition-all duration-500 hover:-translate-y-2">
                 <div className="aspect-[5/4] overflow-hidden bg-slate-100 relative">
                   <Image 
@@ -312,15 +310,15 @@ export default async function PrismHomePage({ params }: PageProps) {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-16 md:py-28 bg-white reveal">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+      <section className="py-16 md:py-28 bg-white overflow-hidden">
+        <ScrollReveal direction="up" className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 order-2 lg:order-1">
             <Image 
-              src="/assets/clinic-interior.png" 
+              src="/assets/clinic-interior.webp" 
               alt="Advanced Eye Surgery Center Interior" 
               width={800} 
               height={500} 
@@ -348,18 +346,18 @@ export default async function PrismHomePage({ params }: PageProps) {
               ))}
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" className="py-16 md:py-28 bg-slate-50 scroll-mt-24 reveal">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
+      <section id="testimonials" className="py-16 md:py-28 bg-slate-50 scroll-mt-24">
+        <ScrollReveal direction="up" className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-teal-700 font-bold text-xs md:text-sm uppercase tracking-widest">{d.patient_stories}</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3 mb-4">{d.what_patients_say}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
+            {d.testimonials.map((t: any, i: number) => (
               <div key={i} className="bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: t.rating }).map((_, j) => (
@@ -379,18 +377,18 @@ export default async function PrismHomePage({ params }: PageProps) {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-16 md:py-28 bg-white scroll-mt-24 reveal">
-        <div className="max-w-3xl mx-auto px-5 md:px-8">
+      <section id="faq" className="py-16 md:py-28 bg-white scroll-mt-24">
+        <ScrollReveal direction="up" className="max-w-3xl mx-auto px-5 md:px-8">
           <div className="text-center mb-12">
             <span className="text-teal-700 font-bold text-xs md:text-sm uppercase tracking-widest">{d.have_questions}</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3">{d.faqs_title}</h2>
           </div>
           <div className="space-y-3">
-            {faqs.map((faq, i) => (
+            {d.faqs.map((faq: any, i: number) => (
               <details key={i} className="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
                 <summary className="flex items-center justify-between cursor-pointer p-5 md:p-6 text-left font-bold text-slate-900 text-sm md:text-base hover:bg-slate-100 transition-colors list-none [&::-webkit-details-marker]:hidden">
                   {faq.q}
@@ -402,12 +400,12 @@ export default async function PrismHomePage({ params }: PageProps) {
               </details>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* APPOINTMENT */}
-      <section id="appointment" className="py-16 md:py-24 bg-slate-50 scroll-mt-24 reveal">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
+      <section id="appointment" className="py-16 md:py-24 bg-slate-50 scroll-mt-24 overflow-hidden">
+        <ScrollReveal direction="up" className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="bg-gradient-to-br from-teal-700 to-teal-800 rounded-3xl p-6 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center shadow-2xl shadow-teal-900/20">
             <div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5 leading-tight">{d.ready_vision}</h2>
@@ -419,7 +417,7 @@ export default async function PrismHomePage({ params }: PageProps) {
             </div>
             <AppointmentForm lang={lang} />
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* FOOTER */}

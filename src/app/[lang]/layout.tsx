@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from 'next/font/google';
 import "@/app/globals.css";
 import { getDictionary } from "@/get-dictionary";
@@ -6,6 +6,13 @@ import { type Locale } from "@/i18n-config";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit', display: 'swap' });
+
+export const viewport: Viewport = {
+  themeColor: '#0d9488',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;

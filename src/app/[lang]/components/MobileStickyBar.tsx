@@ -8,7 +8,7 @@ interface MobileStickyBarProps {
 
 export default function MobileStickyBar({ dict }: MobileStickyBarProps) {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 w-full z-[90] bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] pb-[env(safe-area-inset-bottom,1rem)] flex">
+    <div className="md:hidden fixed bottom-0 left-0 w-full z-[90] bg-white border-t border-gray-100 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] pb-[env(safe-area-inset-bottom,0.5rem)] flex">
       <a 
         href="tel:9076993279" 
         className="flex-1 flex flex-col items-center justify-center py-3.5 border-r border-gray-100 text-teal-700 hover:bg-teal-50 transition-colors"

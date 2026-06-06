@@ -83,6 +83,28 @@
         "footer_seo": {
             "title": "Areas We Serve",
             "cities": ["Delhi / NCR", "Mumbai", "Bangalore", "Hyderabad", "Chennai", "Kolkata", "Pune", "Ahmedabad", "Jaipur", "Lucknow", "Indore", "Chandigarh"]
-        }
+        },
+        "hero_parts": {
+            "p1": "Your Trusted ",
+            "p2": "Partner for ",
+            "p3": "Cashless",
+            "p4": " Eye Surgery"
+        },
+        "doctors": [
+            { "name": "Dr. Sameer Gupta", "role": "Senior Ophthalmic Surgeon", "spec": "Cataract & Refractive", "exp": "18+ Yrs Exp", "img": "/assets/doctor-senior.webp", "education": "MBBS, MS (AIIMS)" },
+            { "name": "Dr. Anjali Verma", "role": "Retina Specialist", "spec": "Vitreoretinal Surgery", "exp": "15+ Yrs Exp", "img": "/assets/doctor-female.webp", "education": "MS, DNB (Sankara Nethralaya)" },
+            { "name": "Dr. Vikram Seth", "role": "Glaucoma Consultant", "spec": "Cornea & Glaucoma", "exp": "20+ Yrs Exp", "img": "/assets/doctor-senior.webp", "education": "MBBS, MD, FRCS (London)" }
+        ],
+        "testimonials": [
+            { "name": "Rajesh Kumar", "location": "Delhi", "surgery": "Cataract Surgery", "text": "The entire experience at Prism Healthcure was exceptional. Dr. Mehta explained everything clearly and the surgery was completely painless. I can see perfectly now!", "rating": 5 },
+            { "name": "Sunita Devi", "location": "Noida", "surgery": "LASIK", "text": "After 15 years of wearing glasses, I finally got LASIK done here. The procedure took only 10 minutes and I could see clearly the next morning. Life-changing!", "rating": 5 },
+            { "name": "Amit Patel", "location": "Gurgaon", "surgery": "Glaucoma Surgery", "text": "My glaucoma was detected early thanks to their advanced screening. The treatment plan has been very effective. Highly recommend their expertise.", "rating": 5 }
+        ],
+        "faqs": [
+            { "q": "What types of cataract lenses do you offer?", "a": "We offer a full range of premium IOLs including monofocal, multifocal, toric, and extended depth-of-focus lenses. Our surgeons will recommend the best option based on your lifestyle and vision needs." },
+            { "q": "Is LASIK surgery painful?", "a": "No. LASIK is virtually painless. We use numbing eye drops before the procedure. Most patients feel only mild pressure during the 10-15 minute procedure." },
+            { "q": "How long does cataract surgery take?", "a": "The actual surgery takes only 15-20 minutes per eye. You can go home the same day." },
+            { "q": "Do you accept insurance?", "a": "Yes, we work with all major insurance providers and offer cashless treatment at our facility." }
+        ]
     }
 }
